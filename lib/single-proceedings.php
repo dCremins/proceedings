@@ -38,8 +38,9 @@
 
        <?php
        $mypost = array( 'post_type' => 'proceedings', );
-       $loop = new WP_Query( $mypost );
-       while ( $loop->have_posts() ) : $loop->the_post();
+       //$loop = new WP_Query( $mypost );
+       //while ( $loop->have_posts() ) : $loop->the_post();
+       while ( have_posts() ) : the_post();
        ?>
        <article <?php post_class(); ?>>
          <header>
@@ -47,20 +48,30 @@
         </header>
         <div class="row">
           <div class="entry-content col-8">
+            <h2>Authors: <?php
+              if ( function_exists( 'coauthors_posts_links' ) ) {
+                  //coauthors_posts_links();
+                  proceedings_author_shortcode();
+              } else {
+                  the_author_posts_link();
+              } ?>
+            </h2>
             <?php the_content(); ?>
           </div>
           <div class="entry-info col-4">
-            <h2>Session <?php the_field('session'); ?></h2>
-            <h3><?php the_field('date'); ?><br />
-              Room <?php the_field('room'); ?>, <?php the_field('date'); ?></h3>
-            <h4>Speaker: <?php the_field('speaker'); ?></h4>
-            <p><strong><?php the_author(); ?></strong></p>
+            <h3>Session <?php the_field('session'); ?></h3>
+            <h4><?php the_field('date'); ?><br />
+              Room <?php the_field('room'); ?> | <?php the_field('date'); ?></h4>
+            <h5>Speaker: <?php the_field('speaker'); ?></h5>
             <?php $file = get_field('proceeding_file');?>
-            <p><a href="<?php echo $file['url']; ?>">Download Proceeding</a></p>
+            <h6><a href="<?php echo $file['url']; ?>">Download Proceeding <i class="fa fa-download" aria-hidden="true"></i></a></h6>
           </div>
         </div>
         <footer>
-          <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
+          <nav class="post-nav row">
+            <div class="previous col"><?php previous_post_link( '%link', '<i class="fa fa-arrow-left" aria-hidden="true"></i> Previous' ); ?></div>
+            <div class="next col"><?php next_post_link( '%link', 'Next <i class="fa fa-arrow-right" aria-hidden="true"></i>' ); ?></div>
+          </nav>
         </footer>
        </article>
      <?php endwhile; ?>

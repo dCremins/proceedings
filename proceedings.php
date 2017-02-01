@@ -12,7 +12,8 @@ Author URI: http://octopusoddments.com
 // Add all files in lib folder into array
 $include = [
   '/lib/cpt.php',         // Register Post Type
-  '/lib/templates.php'    // Register Views
+  '/lib/templates.php',    // Register Views
+  '/lib/author-filter.php'    // Register Views
 ];
 
 // Require Once each file in the array
