@@ -11,9 +11,10 @@ Author URI: http://octopusoddments.com
 
 // Add all files in lib folder into array
 $include = [
-  '/lib/cpt.php',         // Register Post Type
-  '/lib/templates.php',    // Register Views
-  '/lib/author-filter.php'    // Register Views
+  '/lib/cpt.php',               // Register Post Type
+  '/lib/acf.php',               // Register Fields
+  '/lib/templates.php',         // Register Views
+  '/lib/author-filter.php'      // Alter Co-Author List Display
 ];
 
 // Require Once each file in the array
@@ -31,5 +32,11 @@ add_action('wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'proceedings_css', plugins_url( '/styles/main.css', __FILE__ ) );
 });
 
+
+/* Script-tac-ulous -> tab scripts */
+add_action( 'wp_enqueue_scripts', function() {
+ wp_enqueue_script( 'tabs' , plugins_url( '/js/jquery.tabslet.min.js', __FILE__ ) , array( 'jquery' ), '1', true );
+ wp_enqueue_script( 'tabs-init' , plugins_url( '/js/tab-init.js', __FILE__ ), array( 'tabs' ), '1', true );
+});
 
 ?>
