@@ -6,21 +6,35 @@ notifications:
   on_failure: change
 
 php:
+  - 5.3
   - 5.6
 
 env:
-  - WP_PROJECT_TYPE=plugin WP_VERSION=latest WP_MULTISITE=0 WP_TEST_URL=http://localhost:12000 WP_TEST_USER=test WP_TEST_USER_PASS=test
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=3.7 WP_MULTISITE=0
+  - WP_VERSION=4.7.2 WP_MULTISITE=0
 
 matrix:
-  allow_failures:
-    - php: nightly
+  include:
+    - php: 5.3
+      env: WP_VERSION=latest WP_MULTISITE=1
 
 before_script:
-  - git clone https://github.com/Seravo/wordpress-test-template wp-tests
-  - bash wp-tests/bin/install-wp-tests.sh test root '' localhost $WP_VERSION
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.0" ]]; then
+      composer global require "phpunit/phpunit=5.6.*"
+    else
+      composer global require "phpunit/phpunit=4.8.*"
+    fi
+  - |
+    composer global require wp-coding-standards/wpcs
+    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - cd wp-tests/spec && bundle exec rspec test.rb
+  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+  - phpunit
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
