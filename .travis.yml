@@ -33,9 +33,9 @@ before_script:
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - "wget http://codeception.com/codecept.phar"
-  - php ./codecept.phar build
-  - php ./codecept.phar run
+  - "wget http://codeception.com/php54/codecept.phar"
+  - php codecept.phar build
+  - php codecept.phar run
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
