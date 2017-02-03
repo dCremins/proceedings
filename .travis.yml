@@ -6,7 +6,6 @@ notifications:
   on_failure: change
 
 php:
-  - 5.3
   - 5.6
 
 env:
@@ -20,7 +19,6 @@ install:
 
 matrix:
   include:
-    - php: 5.3
       env: WP_VERSION=latest WP_MULTISITE=1
 
 before_script:
@@ -35,13 +33,15 @@ before_script:
   - |
     composer global require wp-coding-standards/wpcs
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
-  # Start up a web server.
-  - php -S 127.0.0.1:8888 -t /path/to/web/root >/dev/null 2>&1 &
-  # Start up the webdriver.
-  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
-  # Install Codeception.
-  # Doing this last gives the webdriver and server time to start up.
-  - composer install --prefer-source
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar
+  - java -jar selenium-server-standalone-2.42.2.jar -port 4444 &
+  - php -S localhost:8000 -t tests/data/app &
+  - curl -s http://getcomposer.org/installer | php
+  - composer install -n --prefer-source
+  - "mysql -e 'create database codeception_test;'"
+  - psql -c 'create database codeception_test;' -U postgres
 
 script:
   - php vendor/codeception/codeception/codecept run
