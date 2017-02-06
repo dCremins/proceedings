@@ -13,8 +13,8 @@ install-wordpress() {
 	# Set up tests config.
 	cp wp-tests-config-sample.php wp-config.php
 	sed -i "s/test/wordpress_test/" wp-config.php
-	sed -i "s/admin/root/" wp-config.php
-	sed -i "s/admin//" wp-config.php
+	sed -i "s/ico_com/root/" wp-config.php
+	sed -i "s/ico_dbpassword//" wp-config.php
 
 	# Set up database.
 	mysql -e 'CREATE DATABASE wordpress_test;' -uroot
