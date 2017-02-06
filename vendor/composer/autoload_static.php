@@ -260,8 +260,8 @@ class ComposerStaticInit18b79b385864c62fa7605ee1933d625e
         ),
         'Codeception\\' => 
         array (
-            0 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
-            1 => __DIR__ . '/..' . '/lucatume/wp-browser/src/Codeception',
+            0 => __DIR__ . '/..' . '/lucatume/wp-browser/src/Codeception',
+            1 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
         ),
     );
 
