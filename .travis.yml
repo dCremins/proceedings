@@ -13,29 +13,27 @@ env:
   # WP_VERSION=3.7 WP_MULTISITE=0
   # WP_VERSION=4.7.2 WP_MULTISITE=0
 
-allow_failures:
-  - php: hhvm
-
-install:
-  - composer self-update
-  - composer install
-  - echo "Download and Install codecept.phar"
-  - wget -c -nc --retry-connrefused --tries=0 http://codeception.com/codecept.phar
-  - chmod +x codecept.phar
-  - php codecept.phar --version
+matrix:
+    include:
+        - php: hhvm
+          env: WP_MULTISITE=0
+          sudo: required
+          dist: trusty
+          group: edge
+          addons:
+            apt:
+              packages:
+              - mysql-server-5.6
+              - mysql-client-core-5.6
+              - mysql-client-5.6
+        - php: nightly
+          env: WP_MULTISITE=0
+    allow_failures:
+        - php: hhvm
+        - php: nightly
+    fast_finish: true
 
 before_script:
-  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - |
-    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.0" ]]; then
-      composer global require "phpunit/phpunit=5.6.*"
-    else
-      composer global require "phpunit/phpunit=4.8.*"
-    fi
-  - |
-    composer global require wp-coding-standards/wpcs
-    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   # Codeception Stuff
   # Define vars.
   - export WP_VERSION=master
