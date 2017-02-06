@@ -7,14 +7,4 @@
 class_name: FunctionalTester
 modules:
     enabled:
-        - \Helper\Functional
-        - Filesystem
-        - WPDb
-        - WordPress
         - WPWebDriver
-    config:
-        WordPress:
-            depends: WPDb
-            wpRootFolder: /srv/www/ico.com/current/web/wp
-            adminUsername: admin
-            adminPassword: admin
