@@ -15,11 +15,6 @@ modules:
             user: ico_com
             password: ico_dbpassword
             dump: tests/_data/dump.sql
-        WPBrowser:
-            url: 'http://ico.dev'
-            adminUsername: admin
-            adminPassword: admin
-            adminUrl: /wp/wp-admin
         WPDb:
             dsn: 'mysql:host=localhost;dbname=ico_com_development'
             user: ico_com

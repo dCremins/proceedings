@@ -9,5 +9,4 @@ modules:
     enabled:
         - \Helper\Acceptance
         - WPDb
-        - WPBrowser
         - WPWebDriver
