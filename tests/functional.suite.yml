@@ -11,6 +11,7 @@ modules:
         - Filesystem
         - WPDb
         - WordPress
+        - WPWebDriver
     config:
         WordPress:
             depends: WPDb

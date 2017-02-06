@@ -9,3 +9,4 @@ modules:
     enabled:
         - \Helper\Integration
         - WPLoader
+        - WPWebDriver

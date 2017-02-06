@@ -10,3 +10,4 @@ modules:
         - \Helper\Acceptance
         - WPDb
         - WPBrowser
+        - WPWebDriver

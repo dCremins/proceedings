@@ -45,11 +45,9 @@ modules:
             phpBinary: php
             language: ''
         WPWebDriver:
-            url: 'http://ico.dev'
+            url: 'http://127.0.0.1:8888'
             browser: phantomjs
-            port: 4444
-            restart: true
-            wait: 2
+            window_size: '1024x768'
             adminUsername: admin
-            adminPassword: admin
-            adminUrl: /wp/wp-admin
+            adminPassword: password
+            adminUrl: /wp-admin
