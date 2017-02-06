@@ -19,7 +19,3 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
-
-        WPWebDriver:
-            url: 'http://127.0.0.1:8888'
-            browser: phantomjs

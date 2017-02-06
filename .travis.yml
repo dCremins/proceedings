@@ -17,6 +17,10 @@ env:
 install:
   - composer self-update
   - composer install
+  - echo "Download and Install codecept.phar"
+  - wget -c -nc --retry-connrefused --tries=0 http://codeception.com/codecept.phar
+  - chmod +x codecept.phar
+  - php codecept.phar --version
 
 before_script:
   - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
@@ -31,17 +35,19 @@ before_script:
     composer global require wp-coding-standards/wpcs
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   # Codeception Stuff
-  # Start up a web server.
-  - php -S 127.0.0.1:2222 -t /proceedings >/dev/null 2>&1 &
-  # Start up the webdriver.
-  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
-  # Install Codeception.
-  # Doing this last gives the webdriver and server time to start up.
-  - composer install --prefer-source
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - echo "Download selenium-server-standalone jar file"
+  - wget -c -nc --retry-connrefused --tries=0 http://goo.gl/EoH85x -O selenium-server-standalone.jar
+  - echo "Run selenium server - background process"
+  - nohup bash -c "java -jar selenium-server-standalone.jar &" && sleep 1; cat nohup.out
+  - echo "Run php in-built server - background process"
+  - nohup bash -c "php -S localhost:8000 2>&1 -t app &" && sleep 1; cat nohup.out
 
 
 script:
-  - vendor/bin/codecept run
+  - php codecept.phar run --no-interaction
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then

@@ -7,6 +7,30 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://ico.dev
+        # PhpBrowser:
+        #  url: http://ico.dev
+        # \Helper\Acceptance
+        - WebDriver
         - \Helper\Acceptance
+    config:
+            WebDriver:
+                url: 'http://localhost:8000'
+                browser: 'firefox'
+                wait: 1 #seconds
+
+# http://codeception.com/docs/07-AdvancedUsage
+env:
+    phantom:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'phantomjs'
+
+    chrome:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+
+    firefox:
+        # nothing changed
