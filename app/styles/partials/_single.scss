@@ -1,0 +1,36 @@
+.proceedings {
+  %margins {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    @extend %margins;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  h4 {
+    @extend %margins;
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  h5 {
+    @extend %margins;
+    font-weight: normal;
+  }
+
+  h6 {
+    @extend %margins;
+    font-weight: normal;
+  }
+}

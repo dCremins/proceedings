@@ -9,18 +9,50 @@ php:
   - 5.6
 
 env:
-  - WP_PROJECT_TYPE=plugin WP_VERSION=latest WP_MULTISITE=0 WP_TEST_URL=http://localhost:12000 WP_TEST_USER=test WP_TEST_USER_PASS=test
+  - WP_VERSION=latest WP_MULTISITE=0
+  # WP_VERSION=3.7 WP_MULTISITE=0
+  # WP_VERSION=4.7.2 WP_MULTISITE=0
 
 matrix:
-  allow_failures:
-    - php: nightly
+    include:
+        - php: hhvm
+          env: WP_MULTISITE=0
+          sudo: required
+          dist: trusty
+          group: edge
+          addons:
+            apt:
+              packages:
+              - mysql-server-5.6
+              - mysql-client-core-5.6
+              - mysql-client-5.6
+        - php: nightly
+          env: WP_MULTISITE=0
+    allow_failures:
+        - php: hhvm
+        - php: nightly
+    fast_finish: true
 
 before_script:
-  - git clone https://github.com/Seravo/wordpress-test-template wp-tests
-  - bash wp-tests/bin/install-wp-tests.sh test root '' localhost $WP_VERSION
+  # Codeception Stuff
+  # Define vars.
+  - export WP_VERSION=master
+  - export WP_DEVELOP_DIR=/tmp/wordpress
+  - export WP_CORE_DIR=/tmp/wordpress/src
+  - export WP_CEPT_SERVER='127.0.0.1:8888'
+  # Install WordPress
+  - source travis.sh
+  - install-wordpress
+  # Start up a web server.
+  - php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
+  # Start up the webdriver.
+  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
+  # Install Codeception and WP Browser.
+  # Doing this last gives the webdriver and server time to start up.
+  - composer install --prefer-source
 
 script:
-  - cd wp-tests/spec && bundle exec rspec test.rb
+  - vendor/bin/wpcept run
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then

@@ -1,0 +1,58 @@
+/* Single Proceeding Styles */
+.proceedings h3, .proceedings h4, .proceedings h5, .proceedings h6 {
+  margin-bottom: 15px;
+}
+
+.proceedings h1 {
+  margin-bottom: 20px;
+}
+
+.proceedings h2 {
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.proceedings h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.proceedings h4 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.proceedings h5 {
+  font-weight: normal;
+}
+
+.proceedings h6 {
+  font-weight: normal;
+}
+
+/* Proceedings Archive Styles */
+.schedule {
+  display: flex;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.schedule li {
+  list-style: none;
+  margin: -5px;
+}
+
+.schedule li a {
+  background-color: #eee;
+  border: solid #333 5px;
+  padding: 15px 20px;
+}
+
+.schedule li.active a {
+  background-color: #333;
+  color: #fff;
+}
+
+.session {
+  background-color: #eee;
+}
