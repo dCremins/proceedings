@@ -7,12 +7,14 @@ notifications:
 
 php:
   - 5.6
-  - 7.0
 
 env:
   - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=3.7 WP_MULTISITE=0
-  - WP_VERSION=4.7.2 WP_MULTISITE=0
+  # WP_VERSION=3.7 WP_MULTISITE=0
+  # WP_VERSION=4.7.2 WP_MULTISITE=0
+
+allow_failures:
+  - php: hhvm
 
 install:
   - composer self-update
@@ -35,19 +37,24 @@ before_script:
     composer global require wp-coding-standards/wpcs
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
   # Codeception Stuff
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - echo "Download selenium-server-standalone jar file"
-  - wget -c -nc --retry-connrefused --tries=0 http://goo.gl/EoH85x -O selenium-server-standalone.jar
-  - echo "Run selenium server - background process"
-  - nohup bash -c "java -jar selenium-server-standalone.jar &" && sleep 1; cat nohup.out
-  - echo "Run php in-built server - background process"
-  - nohup bash -c "php -S 127.0.0.1:8000 2>&1 -t app &" && sleep 1; cat nohup.out
-
+  # Define vars.
+  - export WP_VERSION=master
+  - export WP_DEVELOP_DIR=/tmp/wordpress
+  - export WP_CORE_DIR=/tmp/wordpress/src
+  - export WP_CEPT_SERVER='127.0.0.1:8888'
+  # Install WordPress
+  - source travis.sh
+  - install-wordpress
+  # Start up a web server.
+  - php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
+  # Start up the webdriver.
+  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
+  # Install Codeception and WP Browser.
+  # Doing this last gives the webdriver and server time to start up.
+  - composer install --prefer-source
 
 script:
-  - php codecept.phar run --no-interaction
+  - vendor/bin/wpcept run
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then

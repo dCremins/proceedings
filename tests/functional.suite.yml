@@ -1,11 +1,19 @@
 # Codeception Test Suite Configuration
-#
-# Suite for functional (integration) tests
-# Emulate web requests and make application process them
-# Include one of framework modules (Symfony2, Yii2, Laravel5) to use it
+
+# Suite for WordPress functional tests.
+# Emulate web requests and make the WordPress application process them.
+
 
 class_name: FunctionalTester
 modules:
     enabled:
-        # add framework module here
         - \Helper\Functional
+        - Filesystem
+        - WPDb
+        - WordPress
+    config:
+        WordPress:
+            depends: WPDb
+            wpRootFolder: /srv/www/ico.com/current/web/wp
+            adminUsername: admin
+            adminPassword: admin

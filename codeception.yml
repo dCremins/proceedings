@@ -3,19 +3,53 @@ paths:
     tests: tests
     log: tests/_output
     data: tests/_data
-    support: tests/_support
-    envs: tests/_envs
+    helpers: tests/_support
 settings:
     bootstrap: _bootstrap.php
     colors: true
     memory_limit: 1024M
-extensions:
-    enabled:
-        - Codeception\Extension\RunFailed
 modules:
     config:
         Db:
-            dsn: ''
-            user: ''
-            password: ''
+            dsn: 'mysql:host=localhost;dbname=ico_com_development'
+            user: ico_com
+            password: ico_dbpassword
             dump: tests/_data/dump.sql
+        WPBrowser:
+            url: 'http://ico.dev'
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp/wp-admin
+        WPDb:
+            dsn: 'mysql:host=localhost;dbname=ico_com_development'
+            user: ico_com
+            password: ico_dbpassword
+            dump: tests/_data/dump.sql
+            populate: true
+            cleanup: true
+            url: 'http://ico.dev'
+            tablePrefix: wp_
+        WPLoader:
+            wpRootFolder: /srv/www/ico.com/current/web/wp
+            dbName: ico_com_development
+            dbHost: localhost
+            dbUser: ico_com
+            dbPassword: ico_dbpassword
+            wpDebug: true
+            dbCharset: utf8
+            dbCollate: ''
+            tablePrefix: wp_
+            domain: ico.dev
+            adminEmail: admin@ico.dev
+            title: 'WP Tests'
+            phpBinary: php
+            language: ''
+        WPWebDriver:
+            url: 'http://ico.dev'
+            browser: phantomjs
+            port: 4444
+            restart: true
+            wait: 2
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp/wp-admin
