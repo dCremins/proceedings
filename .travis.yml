@@ -53,6 +53,7 @@ before_script:
 
 script:
   - vendor/bin/wpcept run
+  - composer test
 
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then

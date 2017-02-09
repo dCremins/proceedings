@@ -17,3 +17,5 @@ modules:
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin
+        PhpBrowser:
+            url: 'http://ico.dev'
