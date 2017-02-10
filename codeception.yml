@@ -11,7 +11,7 @@ settings:
 modules:
     config:
         WPWebDriver:
-            url: 'http://127.0.0.1:8888'
+            url: 'http://ico.dev'
             browser: phantomjs
             window_size: '1024x768'
             adminUsername: admin
