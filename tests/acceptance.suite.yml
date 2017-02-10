@@ -7,6 +7,6 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        # WPWebDriver
-        - PhpBrowser
+        - WPWebDriver
+        # PhpBrowser
         - \Helper\Acceptance
