@@ -1,6 +1,7 @@
 <?php
-function proceedings_post_type() {
-  register_post_type('proceedings', [
+function proceedings_post_type()
+{
+    register_post_type('proceedings', [
     'labels'        => [
       'name'                => __('Proceedings'),
       'singular_name'       => __('Proceeding'),
@@ -21,8 +22,7 @@ function proceedings_post_type() {
     'menu_icon'     => 'dashicons-media-document',
     'supports'      => array('title', 'editor', 'author'),
 
-  ]);
+    ]);
 }
 
 add_action('init', 'proceedings_post_type');
-?>
