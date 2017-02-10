@@ -4,7 +4,7 @@ $I->wantTo('create and view a new proceeding as a non-admin user');
 
 $I->amGoingTo('log in as an editor');
 $I->amOnPage('/wp-login.php');
-seeElement('input', ['id' => 'user_login']);
+$I->seeElement('input', ['id' => 'user_login']);
 $I->see('Password');
 $I->fillField('#user_login', 'AcceptanceTester');
 $I->fillField('Password', 'newTest');
