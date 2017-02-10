@@ -6,7 +6,7 @@ $I->amGoingTo('log in as an editor');
 $I->amOnPage('/wp-login.php');
 $I->see('Username');
 $I->see('Password');
-$I->fillField('Username or Email Address', 'AcceptanceTester');
+$I->fillField('Username', 'AcceptanceTester');
 $I->fillField('Password', 'newTest');
 $I->click('Log In');
 $I->see('Dashboard', 'h1');
