@@ -5,7 +5,6 @@ notifications:
   on_failure: change
 addons:
   artifacts: true
-    debug: true
 php:
 - 5.6
 env:
