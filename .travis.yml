@@ -18,21 +18,66 @@ addons:
       secure: "TkRCKSbSQBcDdjRT7UbixPeko0Lj6cCM2J68vOJdMYhbWMPfQnDEdLuxmYD6qh+Hz1o2+vwtcg7gohyMkTaEsVAOnj5RaBIvpdRgAVXE5x0QOyH5TYZVIGk+utp8IJCkJtjfKPAVx/DSAMkuN0bteklU+AbHa8g+Tq2xxrw4wDKpVYQp9XHTpmxYp4JXKI4NkEyQ7GQGzbbHBvi7MdJu5nTGsFyrJNkQIRch2X1ewNQHZKCeGTfKMwOWCE63ZyRw+g8aLo1AaJhQmaVNo8T5BfFTOntlZ7OpETTc2xNFBVhZueuKBMNm3qJSolZqeDT8WJTNoUjVqQ2a85WNlHhcIj5HYQhG1rnmEjRPxnBl5vPMX/WGy08UlBBjQWbFalzT4GVCfjCmZwlQHcdxyvTPQ2fN3w3cOTf9Q9ZUh/v8+pCSLqvg3FzldOcqgZvwS3GeBTlC2uFov7gLFRf5CRpzPNt1NIEQ8h3F+PraAOq6VOx48xXAmb2rvbCiUx2TS9mxyGJx/M3RhI669NxOWzjExjyYguh1piRQ9KAwdbPgMs12VdClsbvkpPF2oYZvq8sBgIG2Jzrk0O52W+JQ6jmRiQ0zXugNfuaF+z2Zf4u1Jl8lJns30H1IvxnhuP2h9heqtan7YFtEGLQbJZNlefnYby+uEvrkOz0kUzXtP3s7B84="
 php:
 - 5.6
+services:
+  - mysql
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 env:
-  matrix:
-  - WP_VERSION=latest WP_MULTISITE=0
+  - wpDbName=test wpLoaderDbName=wploader wpDbPrefix=wp_ wpUrl=wordpress.dev wpAdminUsername=admin wpAdminPassword=admin
+
+before_install:
+  - mysql -e "create database IF NOT EXISTS $wpDbName;" -uroot
+  - mysql -e "create database IF NOT EXISTS $wpLoaderDbName;" -uroot
+
+install:
+  - composer update --prefer-dist
+
 before_script:
-- export WP_VERSION=master
-- export WP_DEVELOP_DIR=/tmp/wordpress
-- export WP_CORE_DIR=/tmp/wordpress/src
-- export WP_CEPT_SERVER='127.0.0.1:8888'
-- source travis.sh
-- install-wordpress
-- php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
-- phantomjs --webdriver=4444 >/dev/null 2>&1 &
-- composer install --prefer-source
+  # set up folders
+  - mkdir -p $HOME/tools /tmp/wordpress
+
+  # install wp-cli
+  - wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P /tmp/tools/
+  - chmod +x /tmp/tools/wp-cli.phar && mv /tmp/tools/wp-cli.phar /tmp/tools/wp
+  - export PATH=$PATH:/tmp/tools:vendor/bin
+
+  # install Apache and WordPress setup scripts
+  - git clone https://github.com/lucatume/travis-apache-setup.git /tmp/tools/travis-apache-setup
+  - chmod +x /tmp/tools/travis-apache-setup/apache-setup.sh
+  - chmod +x /tmp/tools/travis-apache-setup/wp-install.sh
+  - ln -s /tmp/tools/travis-apache-setup/apache-setup.sh /tmp/tools/apache-setup
+  - ln -s /tmp/tools/travis-apache-setup/wp-install.sh /tmp/tools/wp-install
+
+  # download and install WordPress
+  - wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
+  - cd /tmp/wordpress
+
+  # move the plugin into WordPress folder
+  - mv $TRAVIS_BUILD_DIR /tmp/wordpress/wp-content/plugins/proceedings
+  - export PLUGIN_DIR="/tmp/wordpress/wp-content/plugins/proceedings"
+
+  # activate the plugin in WordPress
+  - wp plugin activate proceedings
+
+  # flush rewrite rules
+  - wp rewrite structure '%postname%' --hard
+
+  # export a dump of the just installed database to the _data folder
+  - cd /tmp/wordpress
+  - wp db export $PLUGIN_DIR/tests/_data/dump.sql
+
+  # set up Apache virtual host
+  - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
+
+  # Get back to the plugin dir
+  - cd $PLUGIN_DIR
+
 script:
-- vendor/bin/codecept run --html
+  - codecept run
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
     repo_temp=$(mktemp -d)
