@@ -8,14 +8,3 @@ settings:
     bootstrap: _bootstrap.php
     colors: true
     memory_limit: 1024M
-modules:
-    config:
-        WPWebDriver:
-            url: 'http://127.0.0.1:8888'
-            browser: phantomjs
-            window_size: '1024x768'
-            adminUsername: admin
-            adminPassword: admin
-            adminUrl: /wp-admin
-        PhpBrowser:
-            url: 'http://ico.dev'
