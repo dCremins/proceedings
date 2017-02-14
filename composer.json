@@ -8,6 +8,29 @@
     ]
   },
     "require": {
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "lucatume/di52": "~1.3",
+    "smarty/smarty": "^3.1"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd"
+    ],
+    "post-update-cmd": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd"
+    ],
+    "post-autoload-dump": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd"
+    ]
+  },
+  "require-dev": {
+    "lucatume/wp-browser": "^1.19.5",
+    "site5/phantoman": "^1.1",
+    "lucatume/function-mocker": "^1.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "proceedings_": "app/"
     }
+  }
 }
