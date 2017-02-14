@@ -8,7 +8,9 @@ $I->seeElement('input');
 $I->see('Password');
 $I->fillField('#user_login', 'AcceptanceTester');
 $I->fillField('Password', 'newTest');
+$I->makeScreenshot('login_page');
 $I->click('Log In');
+$I->makeScreenshot('dashboard');
 $I->see('Dashboard', 'h1');
 
 $I->amGoingTo('create a new proceeding');
