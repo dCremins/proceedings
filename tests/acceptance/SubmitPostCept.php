@@ -1,13 +1,13 @@
 <?php
 $I = new AcceptanceTester($scenario);
-$I->wantTo('create and view a new proceeding as a non-admin user');
+$I->wantTo('create and view a new proceeding as an admin');
 
 $I->amGoingTo('log in as an editor');
 $I->amOnPage('/wp-login.php');
 $I->seeElement('input');
 $I->see('Password');
-$I->fillField('#user_login', 'AcceptanceTester');
-$I->fillField('Password', 'newTest');
+$I->fillField('#user_login', 'admin');
+$I->fillField('Password', 'admin');
 $I->click('Log In');
 $I->see('Dashboard', 'h1');
 
