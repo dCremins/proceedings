@@ -10,7 +10,7 @@ addons:
       - ./tests/_output
     target_paths: $TRAVIS_BUILD_NUMBER
     working_dir: WORKING_DIR
-    bucket: travis-test-cremins
+    bucket: travis-testing-cremins
     s3_region: us-west-2
     secret:
       secure: bXzEwcSIL+W2A7mBR901AxhYappjBYVs4pO9tbZvEBPZq/nx7f1qEBZuuDuTCCPfnVi+fHOriQ2mK9fAo1LhMpZlahdkMNnSb8WEtf1YCLKMLG/bozgqxwDiOkw4kinltEp69rO95UWK/eY/E9wlZA90Z5XY1BHQ40+etNLVGAZlXoI60SFOTodCzICIx1J3norcKn8uDDLwSgg1PCL5BNOTQ7MhXL/cduw7vC+d9nvM5OaXGOGOi7pwtqjfR9x680jjGGZO+7j6+iBD6w2hRNLyo1LnUtjItXOf3jjkdKyfZONu6hbAyHC+W8eSx4MByyLEAM9vO2lD5zLafd2VGOcpNBty3ops3wP8FgN/KIl/3u9wfUKQIPCfINNnAb26cGnNcfN96Z5Wgfv/pQJutHJAdPo8Rlvw22FTT08PzPOY00n+AtGFo/Tcwlln/W7TZl9i4OGVinXBdpukdZ8Iz359dFrBn5Wrb4UOx01w6vQecsvLCWZregUEycAw6tGRuHWtVzfGASZIm1cTH5kZnLuX2s1cDJtUeR6DY2I6ET19BxU56bAs4m2N66mjPbZAm3ltmZwcgpKyi0p0zfZx/2z+UFzk7ZOmRvY92ghU6kzMJLUR8oojT36InQih3i9otpYF2tiQF3bzVM2ChXMJ9YGFz+wTiBYE6P2aYIK5xGs=
