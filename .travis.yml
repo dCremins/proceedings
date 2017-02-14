@@ -1,41 +1,25 @@
 sudo: false
 language: php
-
 notifications:
   on_success: never
   on_failure: change
-
 php:
-  - 5.6
-
+- 5.6
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
-  # WP_VERSION=3.7 WP_MULTISITE=0
-  # WP_VERSION=4.7.2 WP_MULTISITE=0
-
-
+- WP_VERSION=latest WP_MULTISITE=0
 before_script:
-  # Codeception Stuff
-  # Define vars.
-  - export WP_VERSION=master
-  - export WP_DEVELOP_DIR=/tmp/wordpress
-  - export WP_CORE_DIR=/tmp/wordpress/src
-  - export WP_CEPT_SERVER='127.0.0.1:8888'
-  # Install WordPress
-  - source travis.sh
-  - install-wordpress
-  # Start up a web server.
-  - php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
-  # Start up the webdriver.
-  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
-  # Install Codeception and WP Browser.
-  # Doing this last gives the webdriver and server time to start up.
-  - composer install --prefer-source
-
+- export WP_VERSION=master
+- export WP_DEVELOP_DIR=/tmp/wordpress
+- export WP_CORE_DIR=/tmp/wordpress/src
+- export WP_CEPT_SERVER='127.0.0.1:8888'
+- source travis.sh
+- install-wordpress
+- php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
+- phantomjs --webdriver=4444 >/dev/null 2>&1 &
+- composer install --prefer-source
 script:
-  - vendor/bin/wpcept run
-  - composer test
-
+- vendor/bin/wpcept run
+- composer test
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
     repo_temp=$(mktemp -d)
@@ -49,3 +33,11 @@ after_success: |
     git push "https://$DEPLOY_KEY@github.com/dCremins/add-ons" \
         "master" >/dev/null 2>&1
   fi
+deploy:
+  provider: releases
+  api_key:
+    secure: UmSoS+WXwfBs3IB4jKiJrA1myVrBREFnF09czkLyTCG92SmpUZx4/eu4NmTEX/Em4MPedgMywvdBT73i2OywDVspRcgfn1+YDXmoiQyM5K3+dQJP8g549ZTJkjkWgXSvHyYsWxBMipDuZxoHAgIs9DhUC443XmuZT/VG99uD0edGU4DqEDVnb694EnkILQDjyqpgMYdcXLX+otuULBecsOWEoLpIX9CSmkDa1aCQdBz31zfnsfNhqZBW44CikXMYMRLyr+X4ZfN0o/UefSufM8oZn404wgArbThXIgRV50PuZSzAPGXDdf/dX28EwDspXOlOUjCPHj/59l9J1JZIxDFCGA6og7oaUhYTnjEhiYPRmzlp1clzvjXHjj6kSeH2vvT3tb/CP5QZuutttFRkWCC4/Dni8keVqX4TZSs63nL8pgWcewy2IngoZ5FdRJsQ+UVT868IsSNST1rCXlpJ4wPoyzvAor4cB6kidGO2JmTw0LzlpdSBVSAf96gt21SCu8tvwuTKlNLnyJOQF8C8catSDy/Bg0742GS4/qgpsgZQyD8NdE1sF1A4mVSA0jWXOlI86UGDmvFpIxEeU54712wsNicaFf3NXl2W5dJnVzuZRPoEmlQBVbNOUoXfm+aAfbYnh1VWgYY56FvXjWJJQgSWb+iWS0pGOMoPU4Qhh5g=
+  file: SubmitPostCept.fail.html
+  on:
+    repo: dCremins/proceedings
+    branch: 1-archive
