@@ -14,7 +14,8 @@ $include = [
   '/app/lib/cpt.php',               // Register Post Type
   '/app/lib/acf.php',               // Register Fields
   '/app/lib/templates.php',         // Register Views
-  '/app/lib/author-filter.php'      // Alter Co-Author List Display
+  '/app/lib/author-filter.php',     // Alter Co-Author List Display
+  '/app/lib/add-acf.php'            // Register Views
 ];
 
 // Require Once each file in the array
