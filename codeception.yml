@@ -28,6 +28,7 @@ modules:
             url: 'http://wordpress.dev'
             browser: phantomjs
             port: 4444
+            window_size: '1024x768'
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin
