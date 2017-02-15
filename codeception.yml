@@ -23,6 +23,13 @@ modules:
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin
+        WPWebDriver:
+            url: 'http://wordpress.dev'
+            browser: phantomjs
+            port: 4444
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp-admin
         WPDb:
             dsn: 'mysql:host=localhost;dbname=test'
             user: root
