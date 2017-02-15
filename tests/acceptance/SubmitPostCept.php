@@ -3,14 +3,14 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('create and view a new proceeding as an admin');
 
 $I->amGoingTo('log in as an editor');
-$I->amOnPage('/wp-login.php');
+$I->amOnPage(wp_login_url());
 $I->seeElement('input');
-$I->see('Password');
-$I->fillField('#user_login', 'AcceptanceTester');
-$I->fillField('Password', 'newTest');
+$I->fillField('input#user_login', 'AcceptanceTester');
+$I->fillField('input#user_pass', 'newTest');
 $I->makeScreenshot('login_page');
 $I->click('Log In');
 $I->makeScreenshot('dashboard');
+$I->notSee('ERROR');
 $I->see('Dashboard', 'h1');
 
 $I->amGoingTo('create a new proceeding');
