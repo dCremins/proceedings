@@ -13,10 +13,11 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
-        'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
         '8cd2fca4db21bffce1ad0612f7caeec4' => __DIR__ . '/..' . '/ramsey/array_column/src/array_column.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
+        'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
         'e2b8090921f5e293ca4eb0c107749811' => __DIR__ . '/..' . '/lucatume/wp-browser/src/tad/WPBrowser/functions.php',
+        'f084d01b0a599f67676cffef638aa95b' => __DIR__ . '/..' . '/smarty/smarty/libs/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -58,6 +59,7 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'PhantomInstaller\\Test\\' => 22,
         ),
         'M' => 
         array (
@@ -198,6 +200,10 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'PhantomInstaller\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jakoch/phantomjs-installer/tests',
+        ),
         'MikeMcLin\\WpPassword\\' => 
         array (
             0 => __DIR__ . '/..' . '/mikemclin/laravel-wp-password/src',
@@ -257,6 +263,7 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
         'Codeception\\Extension\\' => 
         array (
             0 => __DIR__ . '/..' . '/codeception/codeception/ext',
+            1 => __DIR__ . '/..' . '/site5/phantoman/src',
         ),
         'Codeception\\' => 
         array (
@@ -266,6 +273,35 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
     );
 
     public static $prefixesPsr0 = array (
+        'x' => 
+        array (
+            'xrstf\\Composer52' => 
+            array (
+                0 => __DIR__ . '/..' . '/xrstf/composer-php52/lib',
+            ),
+        ),
+        't' => 
+        array (
+            'tad_DI52_' => 
+            array (
+                0 => __DIR__ . '/..' . '/lucatume/di52/src',
+            ),
+            'tad_' => 
+            array (
+                0 => __DIR__ . '/..' . '/lucatume/args/src',
+            ),
+            'tad\\FunctionMocker' => 
+            array (
+                0 => __DIR__ . '/..' . '/lucatume/function-mocker/src',
+            ),
+        ),
+        'p' => 
+        array (
+            'proceedings_' => 
+            array (
+                0 => '/',
+            ),
+        ),
         'c' => 
         array (
             'cli' => 
@@ -292,6 +328,10 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'PhantomInstaller\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jakoch/phantomjs-installer/src',
             ),
         ),
         'O' => 
@@ -335,6 +375,13 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
             'BaconStringUtils' => 
             array (
                 0 => __DIR__ . '/..' . '/bacon/bacon-string-utils/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'Arg' => 
+            array (
+                0 => __DIR__ . '/..' . '/lucatume/args/src',
             ),
         ),
     );

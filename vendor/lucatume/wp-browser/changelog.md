@@ -4,6 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ##[unreleased] Unreleased
 
+##[1.19.10] 2017-02-14
+### Fixed
+- if the `pluginsFolder` parameter of the `WPLoader` module is defined use it to set the `WP_PLUGIN_DIR` constant
+
+##[1.19.9] 2017-02-14
+### Fixed
+- missing support for custom plugin and content paths in `WPLoader` isolated install (thanks @borkweb)
+
 ##[1.19.8] 2017-01-25
 ### Changed
 - output return in `WPCLI` module: will now return the line if the command output is just one line
@@ -498,7 +506,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Reference to ModuleConfigException class in WPLoader class.
 
-[unreleased]: https://github.com/lucatume/wp-browser/compare/1.19.8...HEAD
+[unreleased]: https://github.com/lucatume/wp-browser/compare/1.19.10...HEAD
+[1.19.10]: https://github.com/lucatume/wp-browser/compare/1.19.9...1.19.10
+[1.19.9]: https://github.com/lucatume/wp-browser/compare/1.19.8...1.19.9
 [1.19.8]: https://github.com/lucatume/wp-browser/compare/1.19.7...1.19.8
 [1.19.7]: https://github.com/lucatume/wp-browser/compare/1.19.6...1.19.7
 [1.19.6]: https://github.com/lucatume/wp-browser/compare/1.19.5...1.19.6

@@ -19,7 +19,8 @@ modules:
             adminUrl: /wp-admin
         WPWebDriver:
             url: 'http://wordpress.dev'
-            browser: firefox
+            browser: phantomjs
+            port: 4444
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin

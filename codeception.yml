@@ -13,9 +13,10 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            path: '/usr/local/bin/phantomjs'
+            path: '/bin/phantomjs'
             port: 4444
-            suites: ['phantomjs']
+            debug: true
+            suites: ['phantomjs', 'acceptance']
 modules:
     config:
         WPBrowser:
@@ -25,7 +26,8 @@ modules:
             adminUrl: /wp-admin
         WPWebDriver:
             url: 'http://wordpress.dev'
-            browser: firefox
+            browser: phantomjs
+            port: 4444
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin

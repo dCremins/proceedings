@@ -73,6 +73,9 @@ before_script:
   # set up Apache virtual host
   - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
 
+  # Start up the webdriver.
+  - phantomjs --webdriver=4444 >/dev/null 2>&1
+
   ## Add testing user
   - wp user create AcceptanceTester test@test.com --role=editor --user_pass=newTest
 

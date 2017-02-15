@@ -16,12 +16,13 @@ To install simply require the package in the `composer.json` file like
 ```json
   "require-dev":
     {
-      "lucatume/wp-browser": "~1.18"
+      "lucatume/wp-browser": "~1.19"
     }
 ```
     
 and then use `composer update` to fetch the package.  
 After that  follow the configuration instructions below.
+**Note**: there is no need to require `codeception/codeception` in the `composer.json` file as it is required by `lucatume/wp-browser` itself.
 
 ## Modules
 While the package name is the same as the first module added to it ("WPBrowser") the package will add more than one module to [Codeception](http://codeception.com/ "Codeception - BDD-style PHP testing.") to ease WordPress testing.  
@@ -32,9 +33,9 @@ Not every module will make sense or work in any suite or type of test case but h
 * WPDb - an extension of the default codeception [Db module](http://codeception.com/docs/modules/Db) that will interact with a WordPress database to be used in **functional** and acceptance testing
 * WPLoader - loads and configures a blank WordPress installation to use as a base to set up fixtures and access WordPress defined functions and classes in **integration** tests; a wrapping of the WordPress [PhpUnit](https://phpunit.de/ "PHPUnit – The PHP Testing Framework") based [test suite provided in the WordPress repository](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/).
 * WPBootstrapper - bootstraps an existing WordPress installation in the same variable scope of the calling function to have access to its methods.
-* WPQueries - allows for assertments to be made on WordPress database access in **integration** tests.
+* WPQueries - allows for assertions to be made on WordPress database access in **integration** tests.
 * WordPress - to be used in **functional** tests it will load WordPress code in the same variable scope as the tests but will make GET, POST, PUT and DELETE requests to the WordPress installation index without requiring a web server.
-* WPCLI - allows accessing the [wp-cli](http://wp-cli.org/) tool in *acceptance* and *functional* testst.
+* WPCLI - allows accessing the [wp-cli](http://wp-cli.org/) tool in *acceptance* and *functional* tests.
 
 ### WPBrowser configuration
 WPBrowser extends `PHPBrowser` module hence any parameter required and available to that module is required and available in `WPBrowser` as well.  
@@ -113,7 +114,7 @@ and configure `Db` parameters and the additional ones available to the `WPDb` mo
 
 #### Dump file domain replacement
 The SQL dump file will be loaded by the module during initialization **before** each test following the same limitations about size imposed by [Codeception Db module](http://codeception.com/docs/09-Data#db).  
-The problem with WordPress database dumps is that the website URL address is harcoded in the database itself making dump sharing a serch and replace pain.  
+The problem with WordPress database dumps is that the website URL address is hard-coded in the database itself making dump sharing a search and replace pain.
 The module will try to replace the domain written in the loaded SQL dump file on the fly to match the one specified in the `url` config parameter to allow dumps to work locally with no issues.
 
 ### WPLoader configuration
@@ -164,19 +165,19 @@ and configure it using the required parameters:
 
  Optional parameters are available to the module to reproduce the original testing suite possibilities as closely as possible:
 
-* `isolatedInstall` - bool, def. `true`, whether the WordPress installation should happen in a separate process from the tests or not.
+* `isolatedInstall` - bool, def. `true`, whether the WordPress installation should happen in a separate process from the tests or not; running the installation in an isolated process is **the recommended way** and the default one.
 * `wpDebug` - bool, def. `true`, the `WP_DEBUG` global value.
-* `multisite` - bool, def. `false`, if set to `true` will create a multisite instllation, the `WP_TESTS_MULTISITE` global value.
+* `multisite` - bool, def. `false`, if set to `true` will create a multisite installation, the `WP_TESTS_MULTISITE` global value.
 * `dbCharset` - string, def. `utf8`, the DB_CHARSET global value.
-* `dbCollate` - string, def. ``, the DB_COLLATE global value.
+* `dbCollate` - string, def. '', the DB_COLLATE global value.
 * `tablePrefix` - string, def. `wptests_`, the `WP_TESTS_TABLE_PREFIX` value.
 * `domain` - string, def. `example.org`, the root URL of the site, the `WP_TESTS_DOMAIN` global value.
 * `adminEmail` - string, def. `admin@example.org`, the admin email, the `WP_TEST_EMAIL` global value.
 * `title` - string, def. `Test Blog`, the blog title, the `WP_TESTS_TITLE` global value.
 * `phpBinary` - string, def. `php`, the php bin command, the `WP_PHP_BINARY` global value.
-* `language` - string, def. ` `, the installation language, the `WPLANG` global value.
-* `configFile` - string or array, def. ` `, the path, or an array of paths, to custom config file(s) relative to the `wpRootFolder` folder, no leading slash needed; this is the place where custom `wp_tests_options` could be set.
-* `pluginsFolder` - string, def. ` `, the relative path to the plugins folder from the `wpRootFolder` if different from the `wp-content/plugins` default one
+* `language` - string, def. '', the installation language, the `WPLANG` global value.
+* `configFile` - string or array, def. '', the path, or an array of paths, to custom config file(s) relative to the `wpRootFolder` folder, no leading slash needed; this is the place where custom `wp_tests_options` could be set.
+* `pluginsFolder` - string, def. '', the relative path to the plugins folder from the `wpRootFolder` if different from the default one or the one defined by the `WP_PLUGIN_DIR` constant; if the `WP_PLUGIN_DIR` constant is defined in a config file (see the `configFile` parameter) this will be ignored.
 * `plugins` - array, def. `['hello.php', 'my-plugin/my-plugin.php']`, a list of plugins that should be loaded before any test case runs and after mu-plugins have been loaded; these should be defined in the `folder/plugin-file.php` format.
 * `activatePlugins` - array, def. `['hello.php', 'my-plugin/my-plugin.php']`, a list of plugins that will be activated before any test case runs and after WordPress is fully loaded and set up; these should be defined in the `folder/plugin-file.php` format; when the `multisite` option is set to `true` the plugins will be **network activated** during the installation.
 * `bootstrapActions` - array, def. `['my-first-action', 'my-second-action']`, a list of actions or **static functions** that should be called after before any test case runs, after plugins have been loaded and activated; static functions should be defined in the YAML array format:
@@ -188,7 +189,7 @@ and configure it using the required parameters:
         - [MyClass, myStaticMethod]
     ```
 
-* `theme` - string|array, def. ``, the theme that should be activated for the tests; if a string is passed then both `template` and `stylesheet` options will be set to the passed value; if an array is passed then the `template` and `stylesheet` will be set in that order:
+* `theme` - string|array, def. '', the theme that should be activated for the tests; if a string is passed then both `template` and `stylesheet` options will be set to the passed value; if an array is passed then the `template` and `stylesheet` will be set in that order:
 
     ```yaml
     theme: my-theme
@@ -241,7 +242,7 @@ modules:
 * `adminPassword` - the site administrator login name (required)
 * `adminPath` - the path, relative to the WordPress installation folder, to the admin area
 
-### WordPress module configuration
+### WPCLI module configuration
 This module is meant to be used in *functional* and *acceptance* tests to tap into the [wp-cli](http://wp-cli.org/) tool during tests.  
 An embedded wp-cli installation will be used skipping a missing or already defined one, **a working local installation of wp-cli is not required for this module**.  
 Calls to wp-cli are **synchronous** and **isolated**: wp-cli will run in a separate PHP process and will not share the environment with the test code.  
@@ -371,7 +372,7 @@ Command line options can be passed to set the suites configurations to override 
 * `--integrationTablePrefix=<value>` - if the same database is used for integration testing too then integration tests will use this table prefix
 * `--url=<value>` - the local installation site URL
 * `--adminUsername=<value>` - the login name of the local installation administrator
-* `--adminPassword=<value>` - the passworf of the local installation administrator
+* `--adminPassword=<value>` - the password of the local installation administrator
 * `--adminPath=<value>` - the path, **relative to the WordPress installation root folder**, to the admin area
 * `--type=[theme|plugin]` - what WordPress component is being tested in integration tests, defaults to `plugin`
 * `--theme=<value>` - the theme that should be activated in integration tests, requires `type` to be set to `theme`
@@ -681,7 +682,7 @@ The command takes the following arguments and options:
 * `--pass` - this options allows defining the database password; defaults to `root`; optional
 * `--dump-file` - this options allows defining the destination file for the database dump (an absolute path); defaults to `<snapshot>.sql` in Codeception data folder; optional
 * `--dist-dump-file` - this options allows defining the destination file for the distribution database dump (an absolute path); defaults to `<snapshot>.dist.sql` in Codeception data folder; optional
-* `--skip-tables` - this options allows defining any table that shuould not be dumped (a comma separated list); e.g. `wp_posts,wp_users`; defaults to none; optional
+* `--skip-tables` - this options allows defining any table that should not be dumped (a comma separated list); e.g. `wp_posts,wp_users`; defaults to none; optional
 * `--local-url` - this options allows defining the local setup url that is hardcoded in the local version of the database by WordPress; e.g. `http://wp.dev`; defaults to `http://local.dev`; optional but probably needed
 * `--dist-url` - this options allows defining the distribution setup url that will be hardcoded in the distribution version of the database dump; e.g. `http://wptest.dev`; defaults to `http://dist.dev`; optional but probably needed
 
@@ -771,7 +772,7 @@ Included methods are:
   // grab WordPress login cookie
   public function grabWordPressLoginCookie($pattern = null);
 
-  // grab WordPrss auth cookie
+  // grab WordPress auth cookie
   public function grabWordPressAuthCookie($pattern = null);
 ```
 
@@ -1024,7 +1025,7 @@ This means that the `test_queries` test method below will fail as no queries hav
 
 ```php
 class QueriesTest extends Codeception\TestCase\WPTestCase {
-  public fuction test_queries(){
+  public function test_queries(){
     
     $this->factory()->posts->create();
 
@@ -1073,7 +1074,7 @@ The arguments are:
 * `rootFolder` - optional absolute path to the WordPress plugin or theme to be symlinked root folder; will default to the Codeception root folder
 
 ### Copier
-The `tad\WPBrowser\Extension\Copier` extension provides an automation to have specificic files and folders copied to specified destination files and folders before the suites run.
+The `tad\WPBrowser\Extension\Copier` extension provides an automation to have specific files and folders copied to specified destination files and folders before the suites run.
 While WordPress handles symbolic linking pretty well there are some cases, like themes and drop-ins, where there is a need for "real" files to be put in place.
 The extension follows the standard Codeception extension activation and has one configuration parameter only:
 
@@ -1095,7 +1096,7 @@ When copying directories the extension will only create the destination folder a
 
 #### Environments support
 Being able to symlink a plugin or theme folder into a WordPress installation for testing purposes could make sense when trying to test, as an example, a plugin in a single site and in multi site environment.  
-Codeception [supports environments](http://codeception.com/docs/07-AdvancedUsage#Environmentshttp://codeception.com/docs/07-AdvancedUsage#Environments) and the extension does as well specifyin a destination for each.  
+Codeception [supports environments](http://codeception.com/docs/07-AdvancedUsage#Environmentshttp://codeception.com/docs/07-AdvancedUsage#Environments) and the extension does as well specifying a destination for each.
 As an example the `acceptance.suite.yml` file might be configured to support `single` and `multisite` environments:
 
 ```yaml
