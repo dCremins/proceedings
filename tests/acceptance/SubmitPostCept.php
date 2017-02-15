@@ -2,6 +2,8 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('create and view a new proceeding as an admin');
 
+$I->cli('user list');
+
 $I->amGoingTo('log in as an editor');
 $I->loginAs('AcceptanceTester', '$P$Bkh.5K4LBDj75TCqHLbBNLrU467T611');
 $I->makeScreenshot('dashboard');

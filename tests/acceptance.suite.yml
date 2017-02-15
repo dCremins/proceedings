@@ -24,6 +24,9 @@ modules:
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin
+        WPCLI:
+            path: /tmp/wordpress
+            throw: true
         WPDb:
             dsn: 'mysql:host=localhost;dbname=test'
             user: root

@@ -77,7 +77,7 @@ before_script:
   - wp user create AcceptanceTester test@test.com --role=editor --user_pass=newTest
 
   ## Show Users
-  - wp user list --field=user_pass
+  - wp user list
 
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
