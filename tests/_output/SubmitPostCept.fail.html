@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 wp-toolbar"  lang="en-US">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="wp-toolbar"  lang="en-US">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add New Proceeding &lsaquo; ICO &#8212; WordPress</title>
+<script type="text/javascript">
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = '/wp/wp-admin/admin-ajax.php',
+	pagenow = 'proceedings',
+	typenow = 'proceedings',
+	adminpage = 'post-new-php',
+	thousandsSeparator = ',',
+	decimalPoint = '.',
+	isRtl = 0;
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel='dns-prefetch' href='//s.w.org' />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dashicons-css'  href='http://ico.dev/wp/wp-includes/css/dashicons.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-bar-css'  href='http://ico.dev/wp/wp-includes/css/admin-bar.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='common-css'  href='http://ico.dev/wp/wp-admin/css/common.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='forms-css'  href='http://ico.dev/wp/wp-admin/css/forms.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-menu-css'  href='http://ico.dev/wp/wp-admin/css/admin-menu.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='dashboard-css'  href='http://ico.dev/wp/wp-admin/css/dashboard.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='list-tables-css'  href='http://ico.dev/wp/wp-admin/css/list-tables.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='edit-css'  href='http://ico.dev/wp/wp-admin/css/edit.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='revisions-css'  href='http://ico.dev/wp/wp-admin/css/revisions.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='media-css'  href='http://ico.dev/wp/wp-admin/css/media.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='themes-css'  href='http://ico.dev/wp/wp-admin/css/themes.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='about-css'  href='http://ico.dev/wp/wp-admin/css/about.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-menus-css'  href='http://ico.dev/wp/wp-admin/css/nav-menus.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='widgets-css'  href='http://ico.dev/wp/wp-admin/css/widgets.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='site-icon-css'  href='http://ico.dev/wp/wp-admin/css/site-icon.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='l10n-css'  href='http://ico.dev/wp/wp-admin/css/l10n.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='buttons-css'  href='http://ico.dev/wp/wp-includes/css/buttons.css?ver=4.7.2' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='ie-css'  href='http://ico.dev/wp/wp-admin/css/ie.css?ver=4.7.2' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='acf-global-css'  href='http://ico.dev/app/plugins/acf/assets/css/acf-global.css?ver=5.3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-auth-check-css'  href='http://ico.dev/wp/wp-includes/css/wp-auth-check.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-input-css'  href='http://ico.dev/app/plugins/acf/assets/css/acf-input.css?ver=5.3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-pro-input-css'  href='http://ico.dev/app/plugins/acf/pro/assets/css/acf-pro-input.css?ver=5.3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='select2-css'  href='http://ico.dev/app/plugins/acf/assets/inc/select2/select2.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-datepicker-css'  href='http://ico.dev/app/plugins/acf/assets/inc/datepicker/jquery-ui-1.10.4.custom.min.css?ver=1.10.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-color-picker-css'  href='http://ico.dev/wp/wp-admin/css/color-picker.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='adminCSS-css'  href='http://ico.dev/app/plugins/add-ons-master/admin.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='co-authors-plus-css-css'  href='http://ico.dev/app/plugins/Co-Authors-Plus-master/css/co-authors-plus.css?ver=3.2.1' type='text/css' media='all' />
+	<script>
+		if ( typeof performance !== 'undefined' && performance.navigation && performance.navigation.type === 2 ) {
+			document.location.reload( true );
+		}
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/ico.dev\/wp\/wp-includes\/js\/wp-emoji.js?ver=4.7.2","twemoji":"http:\/\/ico.dev\/wp\/wp-includes\/js\/twemoji.js?ver=4.7.2"}};
+			( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	/*
+	 * Create a canvas element for testing native browser support
+	 * of emoji.
+	 */
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Detect if the browser supports rendering emoji or flag emoji. Flag emoji are a single glyph
+	 * made of two characters, so some browsers (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param type {String} Whether to test for support of "flag" or "emoji4" emoji.
+	 * @return {Boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var stringFromCharCode = String.fromCharCode,
+			flag, flag2, technologist, technologist2;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * This works because the image will be one of three things:
+				 * - Two empty squares, if the browser doesn't render emoji
+				 * - Two squares with 'U' and 'N' in them, if the browser doesn't render flag emoji
+				 * - The United Nations flag
+				 *
+				 * The first two will encode to small images (1-2KB data URLs), the third will encode
+				 * to a larger image (4-5KB data URL).
+				 */
+				context.fillText( stringFromCharCode( 55356, 56826, 55356, 56819 ), 0, 0 );
+				if ( canvas.toDataURL().length < 3000 ) {
+					return false;
+				}
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				/*
+				 * Test for rainbow flag compatibility. As the rainbow flag was added out of sequence with
+				 * the usual Unicode release cycle, some browsers support it, and some don't, even if their
+				 * Unicode support is up to date.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + rainbow emoji).
+				 */
+				context.fillText( stringFromCharCode( 55356, 57331, 65039, 8205, 55356, 57096 ), 0, 0 );
+				flag = canvas.toDataURL();
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				context.fillText( stringFromCharCode( 55356, 57331, 55356, 57096 ), 0, 0 );
+				flag2 = canvas.toDataURL();
+
+				return flag !== flag2;
+			case 'emoji4':
+				/*
+				 * Emoji 4 has the best technologists. So does WordPress!
+				 *
+				 * To test for support, try to render a new emoji (woman technologist: medium skin tone),
+				 * then compare it to how it would look if the browser doesn't render it correctly
+				 * (woman technologist: medium skin tone + personal computer).
+				 */
+				context.fillText( stringFromCharCode( 55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0 );
+				technologist = canvas.toDataURL();
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				context.fillText( stringFromCharCode( 55357, 56425, 55356, 57341, 55357, 56507), 0, 0 );
+				technologist2 = canvas.toDataURL();
+
+				return technologist !== technologist2;
+		}
+
+		return false;
+	}
+
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji4' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var userSettings = {"url":"\/wp\/","uid":"2","time":"1486751645","secure":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/utils.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/sortable.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/resizable.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/app/plugins/acf/assets/js/acf-input.js?ver=5.3.8.1'></script>
+<script type='text/javascript' src='http://ico.dev/app/plugins/acf/pro/assets/js/acf-pro-input.js?ver=5.3.8.1'></script>
+<script type='text/javascript' src='http://ico.dev/app/plugins/acf/assets/inc/select2/select2.js?ver=3.5.2'></script>
+	<link id="wp-admin-canonical" rel="canonical" href="http://ico.dev/wp/wp-admin/post-new.php?post_type=proceedings" />
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, document.getElementById( 'wp-admin-canonical' ).href + window.location.hash );
+		}
+	</script>
+<script type="text/javascript">var _wpColorScheme = {"icons":{"base":"#82878c","focus":"#00a0d2","current":"#fff"}};</script>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+			<script type="text/javascript">
+				// AJAX link used for the autosuggest
+				var coAuthorsPlus_ajax_suggest_link = "admin-ajax.php?_wpnonce=b87ca590f7&action=coauthors_ajax_suggest&post_type=proceedings";
+			</script>
+		</head>
+<body class="wp-admin wp-core-ui no-js  post-new-php auto-fold admin-bar post-type-proceedings branch-4-7 version-4-7-2 admin-color-fresh locale-en-us no-customize-support no-svg">
+<script type="text/javascript">
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+
+<div id="wpwrap">
+
+<div id="adminmenumain" role="navigation" aria-label="Main menu">
+<a href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+<a href="#wp-toolbar" class="screen-reader-shortcut">Skip to toolbar</a>
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+<ul id="adminmenu">
+
+
+	<li class="wp-first-item wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" id="menu-dashboard">
+	<a href='index.php' class="wp-first-item wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-dashboard'><br /></div><div class='wp-menu-name'>Dashboard</div></a></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" id="menu-posts">
+	<a href='edit.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Posts</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Posts</li><li class="wp-first-item"><a href='edit.php' class="wp-first-item">All Posts</a></li><li><a href='post-new.php'>Add New</a></li><li><a href='edit-tags.php?taxonomy=category'>Categories</a></li><li><a href='edit-tags.php?taxonomy=post_tag'>Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
+	<a href='upload.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-media'><br /></div><div class='wp-menu-name'>Media</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Media</li><li class="wp-first-item"><a href='upload.php' class="wp-first-item">Library</a></li><li><a href='media-new.php'>Add New</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" id="menu-pages">
+	<a href='edit.php?post_type=page' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-page'><br /></div><div class='wp-menu-name'>Pages</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Pages</li><li class="wp-first-item"><a href='edit.php?post_type=page' class="wp-first-item">All Pages</a></li><li><a href='post-new.php?post_type=page'>Add New</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-comments" id="menu-comments">
+	<a href='edit-comments.php' class="wp-not-current-submenu menu-top menu-icon-comments" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-comments'><br /></div><div class='wp-menu-name'>Comments <span class="awaiting-mod count-0"><span class="pending-count">0</span></span></div></a></li>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-proceedings menu-top-last" id="menu-posts-proceedings">
+	<a href='edit.php?post_type=proceedings' class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-proceedings menu-top-last" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-media-document'><br /></div><div class='wp-menu-name'>Proceedings</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Proceedings</li><li class="wp-first-item"><a href='edit.php?post_type=proceedings' class="wp-first-item">All Proceedings</a></li><li class="current"><a href='post-new.php?post_type=proceedings' class="current">Add New</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-users menu-top-first" id="menu-users">
+	<a href='profile.php' class="wp-not-current-submenu menu-top menu-icon-users menu-top-first" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-users'><br /></div><div class='wp-menu-name'>Profile</div></a></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-tools menu-top-last" id="menu-tools">
+	<a href='tools.php' class="wp-not-current-submenu menu-top menu-icon-tools menu-top-last" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-tools'><br /></div><div class='wp-menu-name'>Tools</div></a></li><li id="collapse-menu" class="hide-if-no-js"><button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true"><span class="collapse-button-icon" aria-hidden="true"></span><span class="collapse-button-label">Collapse menu</span></button></li></ul>
+</div>
+</div>
+<div id="wpcontent">
+
+		<div id="wpadminbar" class="nojq nojs">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-menu-toggle"><a class="ab-item" href="#"><span class="ab-icon"></span><span class="screen-reader-text">Menu</span></a>		</li>
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://ico.dev/wp/wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item" href="http://ico.dev/wp/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://ico.dev/">ICO</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-view-site"><a class="ab-item" href="http://ico.dev/">Visit Site</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item" href="http://ico.dev/wp/wp-admin/edit-comments.php"><span class="ab-icon"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="http://ico.dev/wp/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item" href="http://ico.dev/wp/wp-admin/post-new.php">Post</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item" href="http://ico.dev/wp/wp-admin/media-new.php">Media</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item" href="http://ico.dev/wp/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-proceedings"><a class="ab-item" href="http://ico.dev/wp/wp-admin/post-new.php?post_type=proceedings">Proceeding</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="http://ico.dev/wp/wp-admin/profile.php">Howdy, AcceptanceTester<img alt='' src='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=26&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=52&amp;d=mm&amp;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://ico.dev/wp/wp-admin/profile.php"><img alt='' src='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=64&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=128&amp;d=mm&amp;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>AcceptanceTester</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item" href="http://ico.dev/wp/wp-admin/profile.php">Edit My Profile</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item" href="http://ico.dev/wp/wp-login.php?action=logout&#038;_wpnonce=024cb9e073">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="http://ico.dev/wp/wp-login.php?action=logout&#038;_wpnonce=024cb9e073">Log Out</a>
+					</div>
+
+		
+<div id="wpbody" role="main">
+
+<div id="wpbody-content" aria-label="Main content" tabindex="0">
+		<div id="screen-meta" class="metabox-prefs">
+
+			<div id="contextual-help-wrap" class="hidden no-sidebar" tabindex="-1" aria-label="Contextual Help Tab">
+				<div id="contextual-help-back"></div>
+				<div id="contextual-help-columns">
+					<div class="contextual-help-tabs">
+						<ul>
+												</ul>
+					</div>
+
+					
+					<div class="contextual-help-tabs-wrap">
+											</div>
+				</div>
+			</div>
+		<div id="screen-options-wrap" class="hidden" tabindex="-1" aria-label="Screen Options Tab">
+<form id='adv-settings' method='post'>
+		<fieldset class="metabox-prefs">
+		<legend>Boxes</legend>
+		<label for="acf-group_588fa4019d4bf-2-hide"><input class="hide-postbox-tog" name="acf-group_588fa4019d4bf-2-hide" type="checkbox" id="acf-group_588fa4019d4bf-2-hide" value="acf-group_588fa4019d4bf-2"  checked='checked' />Proceeding Info</label><label for="coauthorsdiv-hide"><input class="hide-postbox-tog" name="coauthorsdiv-hide" type="checkbox" id="coauthorsdiv-hide" value="coauthorsdiv"  checked='checked' />Authors</label><label for="slugdiv-hide"><input class="hide-postbox-tog" name="slugdiv-hide" type="checkbox" id="slugdiv-hide" value="slugdiv"  />Slug</label>		</fieldset>
+				<fieldset class='columns-prefs'>
+		<legend class="screen-layout">Layout</legend>				<label class="columns-prefs-1">
+					<input type='radio' name='screen_columns' value='1'
+						 />
+					1 column				</label>
+								<label class="columns-prefs-2">
+					<input type='radio' name='screen_columns' value='2'
+						 checked='checked' />
+					2 columns				</label>
+						</fieldset>
+		<fieldset class="editor-expand hidden"><legend>Additional settings</legend><label for="editor-expand-toggle"><input type="checkbox" id="editor-expand-toggle" />Enable full-height editor and distraction-free functionality.</label></fieldset>
+<input type="hidden" id="screenoptionnonce" name="screenoptionnonce" value="479f6d0e23" />
+</form>
+</div>		</div>
+				<div id="screen-meta-links">
+					<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
+			<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false">Screen Options</button>
+			</div>
+				</div>
+		
+<div class="wrap">
+<h1 class="wp-heading-inline">Add New Proceeding</h1>
+
+
+<hr class="wp-header-end">
+
+<div id="lost-connection-notice" class="error hidden">
+	<p><span class="spinner"></span> <strong>Connection lost.</strong> Saving has been disabled until you&#8217;re reconnected.	<span class="hide-if-no-sessionstorage">We&#8217;re backing up this post in your browser, just in case.</span>
+	</p>
+</div>
+<form name="post" action="post.php" method="post" id="post">
+<input type="hidden" id="_wpnonce" name="_wpnonce" value="91f62320c1" /><input type="hidden" name="_wp_http_referer" value="/wp/wp-admin/post-new.php?post_type=proceedings" /><input type="hidden" id="user-id" name="user_ID" value="2" />
+<input type="hidden" id="hiddenaction" name="action" value="editpost" />
+<input type="hidden" id="originalaction" name="originalaction" value="editpost" />
+<input type="hidden" id="post_author" name="post_author" value="2" />
+<input type="hidden" id="post_type" name="post_type" value="proceedings" />
+<input type="hidden" id="original_post_status" name="original_post_status" value="auto-draft" />
+<input type="hidden" id="referredby" name="referredby" value="http://ico.dev/wp/wp-admin/edit.php?post_type=proceedings" />
+<input type="hidden" name="_wp_original_http_referer" value="http://ico.dev/wp/wp-admin/edit.php?post_type=proceedings" /><input type='hidden' id='auto_draft' name='auto_draft' value='1' /><input type='hidden' id='post_ID' name='post_ID' value='119' /><input type="hidden" id="meta-box-order-nonce" name="meta-box-order-nonce" value="bb38307922" /><input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="a796316980" />
+
+<div id="poststuff">
+<div id="post-body" class="metabox-holder columns-2">
+<div id="post-body-content">
+
+<div id="titlediv">
+<div id="titlewrap">
+		<label class="screen-reader-text" id="title-prompt-text" for="title">Enter title here</label>
+	<input type="text" name="post_title" size="30" value="" id="title" spellcheck="true" autocomplete="off" />
+</div>
+<div class="inside">
+	<div id="edit-slug-box" class="hide-if-no-js">
+		</div>
+</div>
+<input type="hidden" id="samplepermalinknonce" name="samplepermalinknonce" value="b13275bf1e" /></div><!-- /titlediv -->
+	<div id="acf-form-data" class="acf-hidden">
+		<input type="hidden" name="_acfnonce" value="5a609c47c3" />
+		<input type="hidden" name="_acfchanged" value="0" />
+			</div>
+	<div id="acf_after_title-sortables" class="meta-box-sortables"></div><div id="postdivrich" class="postarea">
+
+<div id="wp-content-wrap" class="wp-core-ui wp-editor-wrap html-active has-dfw"><link rel='stylesheet' id='editor-buttons-css'  href='http://ico.dev/wp/wp-includes/css/editor.css?ver=4.7.2' type='text/css' media='all' />
+<div id="wp-content-editor-tools" class="wp-editor-tools hide-if-no-js"><div id="wp-content-media-buttons" class="wp-media-buttons"><button type="button" id="insert-media-button" class="button insert-media add_media" data-editor="content"><span class="wp-media-buttons-icon"></span> Add Media</button></div>
+<div class="wp-editor-tabs"></div>
+</div>
+<div id="wp-content-editor-container" class="wp-editor-container"><div id="ed_toolbar" class="quicktags-toolbar"></div><textarea class="wp-editor-area" style="height: 300px" cols="40" name="content" id="content"></textarea></div>
+</div>
+
+<table id="post-status-info"><tbody><tr>
+	<td id="wp-word-count" class="hide-if-no-js">Word count: <span class="word-count">0</span></td>
+	<td class="autosave-info">
+	<span class="autosave-message">&nbsp;</span>
+	</td>
+	<td id="content-resize-handle" class="hide-if-no-js"><br /></td>
+</tr></tbody></table>
+
+</div>
+</div><!-- /post-body-content -->
+
+<div id="postbox-container-1" class="postbox-container">
+<div id="side-sortables" class="meta-box-sortables"><div id="submitdiv" class="postbox " >
+<button type="button" class="handlediv button-link" aria-expanded="true"><span class="screen-reader-text">Toggle panel: Publish</span><span class="toggle-indicator" aria-hidden="true"></span></button><h2 class='hndle'><span>Publish</span></h2>
+<div class="inside">
+<div class="submitbox" id="submitpost">
+
+<div id="minor-publishing">
+
+<div style="display:none;">
+<p class="submit"><input type="submit" name="save" id="save" class="button" value="Save"  /></p></div>
+
+<div id="minor-publishing-actions">
+<div id="save-action">
+<input  type="submit" name="save" id="save-post" value="Save Draft" class="button" />
+<span class="spinner"></span>
+</div>
+<div id="preview-action">
+<a class="preview button" href="http://ico.dev/?post_type=proceedings&#038;p=119&#038;preview=true" target="wp-preview-119" id="post-preview">Preview</a>
+<input type="hidden" name="wp-preview" id="wp-preview" value="" />
+</div>
+<div class="clear"></div>
+</div><!-- #minor-publishing-actions -->
+
+<div id="misc-publishing-actions">
+
+<div class="misc-pub-section misc-pub-post-status">
+Status: <span id="post-status-display">Draft</span>
+<a href="#post_status" class="edit-post-status hide-if-no-js" role="button"><span aria-hidden="true">Edit</span> <span class="screen-reader-text">Edit status</span></a>
+
+<div id="post-status-select" class="hide-if-js">
+<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="draft" />
+<label for="post_status" class="screen-reader-text">Set status</label>
+<select name="post_status" id="post_status">
+<option value='pending'>Pending Review</option>
+<option selected='selected' value='draft'>Draft</option>
+</select>
+ <a href="#post_status" class="save-post-status hide-if-no-js button">OK</a>
+ <a href="#post_status" class="cancel-post-status hide-if-no-js button-cancel">Cancel</a>
+</div>
+
+</div><!-- .misc-pub-section -->
+
+<div class="misc-pub-section misc-pub-visibility" id="visibility">
+Visibility: <span id="post-visibility-display">Public</span>
+<a href="#visibility" class="edit-visibility hide-if-no-js" role="button"><span aria-hidden="true">Edit</span> <span class="screen-reader-text">Edit visibility</span></a>
+
+<div id="post-visibility-select" class="hide-if-js">
+<input type="hidden" name="hidden_post_password" id="hidden-post-password" value="" />
+<input type="hidden" name="hidden_post_visibility" id="hidden-post-visibility" value="public" />
+<input type="radio" name="visibility" id="visibility-radio-public" value="public"  checked='checked' /> <label for="visibility-radio-public" class="selectit">Public</label><br />
+<input type="radio" name="visibility" id="visibility-radio-password" value="password"  /> <label for="visibility-radio-password" class="selectit">Password protected</label><br />
+<span id="password-span"><label for="post_password">Password:</label> <input type="text" name="post_password" id="post_password" value=""  maxlength="255" /><br /></span>
+<input type="radio" name="visibility" id="visibility-radio-private" value="private"  /> <label for="visibility-radio-private" class="selectit">Private</label><br />
+
+<p>
+ <a href="#visibility" class="save-post-visibility hide-if-no-js button">OK</a>
+ <a href="#visibility" class="cancel-post-visibility hide-if-no-js button-cancel">Cancel</a>
+</p>
+</div>
+
+</div><!-- .misc-pub-section -->
+
+<div class="misc-pub-section curtime misc-pub-curtime">
+	<span id="timestamp">
+	Publish <b>immediately</b></span>
+	<a href="#edit_timestamp" class="edit-timestamp hide-if-no-js" role="button"><span aria-hidden="true">Edit</span> <span class="screen-reader-text">Edit date and time</span></a>
+	<fieldset id="timestampdiv" class="hide-if-js">
+	<legend class="screen-reader-text">Date and time</legend>
+	<div class="timestamp-wrap"><label><span class="screen-reader-text">Month</span><select id="mm" name="mm">
+			<option value="01" data-text="Jan" >01-Jan</option>
+			<option value="02" data-text="Feb"  selected='selected'>02-Feb</option>
+			<option value="03" data-text="Mar" >03-Mar</option>
+			<option value="04" data-text="Apr" >04-Apr</option>
+			<option value="05" data-text="May" >05-May</option>
+			<option value="06" data-text="Jun" >06-Jun</option>
+			<option value="07" data-text="Jul" >07-Jul</option>
+			<option value="08" data-text="Aug" >08-Aug</option>
+			<option value="09" data-text="Sep" >09-Sep</option>
+			<option value="10" data-text="Oct" >10-Oct</option>
+			<option value="11" data-text="Nov" >11-Nov</option>
+			<option value="12" data-text="Dec" >12-Dec</option>
+</select></label> <label><span class="screen-reader-text">Day</span><input type="text" id="jj" name="jj" value="10" size="2" maxlength="2" autocomplete="off" /></label>, <label><span class="screen-reader-text">Year</span><input type="text" id="aa" name="aa" value="2017" size="4" maxlength="4" autocomplete="off" /></label> @ <label><span class="screen-reader-text">Hour</span><input type="text" id="hh" name="hh" value="18" size="2" maxlength="2" autocomplete="off" /></label>:<label><span class="screen-reader-text">Minute</span><input type="text" id="mn" name="mn" value="34" size="2" maxlength="2" autocomplete="off" /></label></div><input type="hidden" id="ss" name="ss" value="06" />
+
+<input type="hidden" id="hidden_mm" name="hidden_mm" value="02" />
+<input type="hidden" id="cur_mm" name="cur_mm" value="02" />
+<input type="hidden" id="hidden_jj" name="hidden_jj" value="10" />
+<input type="hidden" id="cur_jj" name="cur_jj" value="10" />
+<input type="hidden" id="hidden_aa" name="hidden_aa" value="2017" />
+<input type="hidden" id="cur_aa" name="cur_aa" value="2017" />
+<input type="hidden" id="hidden_hh" name="hidden_hh" value="18" />
+<input type="hidden" id="cur_hh" name="cur_hh" value="18" />
+<input type="hidden" id="hidden_mn" name="hidden_mn" value="34" />
+<input type="hidden" id="cur_mn" name="cur_mn" value="34" />
+
+<p>
+<a href="#edit_timestamp" class="save-timestamp hide-if-no-js button">OK</a>
+<a href="#edit_timestamp" class="cancel-timestamp hide-if-no-js button-cancel">Cancel</a>
+</p>
+	</fieldset>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div id="major-publishing-actions">
+<div id="delete-action">
+<a class="submitdelete deletion" href="http://ico.dev/wp/wp-admin/post.php?post=119&amp;action=trash&amp;_wpnonce=6eecd3d94c">Move to Trash</a></div>
+
+<div id="publishing-action">
+<span class="spinner"></span>
+		<input name="original_publish" type="hidden" id="original_publish" value="Publish" />
+		<input type="submit" name="publish" id="publish" class="button button-primary button-large" value="Publish"  /></div>
+<div class="clear"></div>
+</div>
+</div>
+
+</div>
+</div>
+<div id="acf-group_588fa4019d4bf-2" class="postbox " >
+<button type="button" class="handlediv button-link" aria-expanded="true"><span class="screen-reader-text">Toggle panel: Proceeding Info</span><span class="toggle-indicator" aria-hidden="true"></span></button><h2 class='hndle'><span>Proceeding Info</span></h2>
+<div class="inside">
+<div class="acf-field acf-field-select acf-field-588fa468a178c" data-name="session" data-type="select" data-key="field_588fa468a178c" data-required="1">
+	<div class="acf-label">
+		<label for="acf-field_588fa468a178c">Session <span class="acf-required">*</span></label>
+		<p class="description">Select One</p>
+	</div>
+	<div class="acf-input">
+		<select id="acf-field_588fa468a178c" class="" name="acf[field_588fa468a178c]" data-ui="0" data-ajax="0" data-multiple="0" data-placeholder="Select" data-allow_null="0"><option value="[101, 202, 303]">101</option><option value="102">102</option><option value="103">103</option><option value="104">104</option><option value="201">201</option><option value="202">202</option><option value="203">203</option><option value="301">301</option><option value="302">302</option><option value="303">303</option><option value="304">304</option><option value="401">401</option><option value="402">402</option><option value="403">403</option><option value="404">404</option><option value="405">405</option><option value="501">501</option><option value="502">502</option></select>		
+	</div>
+</div>
+<div class="acf-field acf-field-date-picker acf-field-588fa4e6b8275" data-name="session_date" data-type="date_picker" data-key="field_588fa4e6b8275" data-required="1">
+	<div class="acf-label">
+		<label for="acf-field_588fa4e6b8275">Session Date <span class="acf-required">*</span></label>
+	</div>
+	<div class="acf-input">
+		<div class="acf-date_picker acf-input-wrap" data-display_format="MM d, yy" data-first_day="1"><input id="acf-field_588fa4e6b8275" class="input-alt" type="hidden" name="acf[field_588fa4e6b8275]" value=""/><input type="text" value="" class="input" /></div>		
+	</div>
+</div>
+<div class="acf-field acf-field-select acf-field-588fa508b8276" data-name="room" data-type="select" data-key="field_588fa508b8276" data-required="1">
+	<div class="acf-label">
+		<label for="acf-field_588fa508b8276">Room <span class="acf-required">*</span></label>
+		<p class="description">Select One</p>
+	</div>
+	<div class="acf-input">
+		<input id="acf-field_588fa508b8276-input" name="acf[field_588fa508b8276]" type="hidden" /><select id="acf-field_588fa508b8276" class="" name="acf[field_588fa508b8276][]" data-ui="0" data-ajax="0" data-multiple="1" data-placeholder="Select" data-allow_null="0" multiple="multiple" size="5"><option value="201">201</option><option value="202">202</option><option value="304 A">304 A</option><option value="304 B">304 B</option><option value="304 AB">304 AB</option><option value="305 A">305 A</option><option value="305 B">305 B</option><option value="305 AB">305 AB</option><option value="306 A">306 A</option><option value="306 B">306 B</option><option value="306 C">306 C</option><option value="306 ABC">306 ABC</option><option value="Ballroom A">Ballroom A</option><option value="Ballroom B">Ballroom B</option><option value="Convention Center Lobby">Convention Center Lobby</option></select>		
+	</div>
+</div>
+<div class="acf-field acf-field-file acf-field-588fa5eeb8277" data-name="proceeding_file" data-type="file" data-key="field_588fa5eeb8277">
+	<div class="acf-label">
+		<label for="acf-field_588fa5eeb8277">Proceeding File</label>
+		<p class="description">Upload File</p>
+	</div>
+	<div class="acf-input">
+		<div class="acf-hidden"><div id="wp-acf_content-wrap" class="wp-core-ui wp-editor-wrap html-active"><div id="wp-acf_content-editor-tools" class="wp-editor-tools hide-if-no-js"><div id="wp-acf_content-media-buttons" class="wp-media-buttons"><button type="button" class="button insert-media add_media" data-editor="acf_content"><span class="wp-media-buttons-icon"></span> Add Media</button></div>
+<div class="wp-editor-tabs"></div>
+</div>
+<div id="wp-acf_content-editor-container" class="wp-editor-container"><div id="qt_acf_content_toolbar" class="quicktags-toolbar"></div><textarea class="wp-editor-area" rows="20" cols="40" name="acf_content" id="acf_content"></textarea></div>
+</div>
+
+</div><div class="acf-file-uploader acf-cf" data-library="all" data-mime_types="" data-uploader="wp">
+	<div class="acf-hidden">
+		<input name="acf[field_588fa5eeb8277]" value="" data-name="id" type="hidden" />	</div>
+	<div class="show-if-value file-wrap acf-soh">
+		<div class="file-icon">
+			<img data-name="icon" src="" alt=""/>
+		</div>
+		<div class="file-info">
+			<p>
+				<strong data-name="title"></strong>
+			</p>
+			<p>
+				<strong>File name:</strong>
+				<a data-name="filename" href="" target="_blank"></a>
+			</p>
+			<p>
+				<strong>File size:</strong>
+				<span data-name="filesize"></span>
+			</p>
+			
+			<ul class="acf-hl acf-soh-target">
+									<li><a class="acf-icon -pencil dark" data-name="edit" href="#"></a></li>
+								<li><a class="acf-icon -cancel dark" data-name="remove" href="#"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="hide-if-value">
+					
+			<p style="margin:0;">No file selected <a data-name="add" class="acf-button button" href="#">Add File</a></p>
+			
+				
+	</div>
+</div>
+		
+	</div>
+</div>
+<div class="acf-field acf-field-text acf-field-5890fa8b78be9" data-name="speaker" data-type="text" data-key="field_5890fa8b78be9">
+	<div class="acf-label">
+		<label for="acf-field_5890fa8b78be9">Speaker</label>
+	</div>
+	<div class="acf-input">
+		<div class="acf-input-wrap"><input type="text" id="acf-field_5890fa8b78be9" class="" name="acf[field_5890fa8b78be9]" value="" placeholder="" /></div>		
+	</div>
+</div>
+<script type="text/javascript">
+if( typeof acf !== 'undefined' ) {
+		
+	acf.postbox.render({"id":"acf-group_588fa4019d4bf-2","key":"group_588fa4019d4bf-2","style":"default","label":"top","edit_url":"","edit_title":"Edit field group","visibility":true});	
+
+}
+</script>
+</div>
+</div>
+</div></div>
+<div id="postbox-container-2" class="postbox-container">
+<div id="normal-sortables" class="meta-box-sortables"><div id="coauthorsdiv" class="postbox " >
+<button type="button" class="handlediv button-link" aria-expanded="true"><span class="screen-reader-text">Toggle panel: Authors</span><span class="toggle-indicator" aria-hidden="true"></span></button><h2 class='hndle'><span>Authors</span></h2>
+<div class="inside">
+			<div id="coauthors-readonly" class="hide-if-js">
+				<ul>
+									<li>
+						<img alt='' src='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=25&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5ebfe4dbaef71782e3c681056e7694b6?s=50&amp;d=mm&amp;r=g 2x' class='avatar avatar-25 photo' height='25' width='25' />						<span id="coauthor-readonly-1" class="coauthor-tag">
+							<input type="text" name="coauthorsinput[]" readonly="readonly" value="AcceptanceTester" />
+							<input type="text" name="coauthors[]" value="AcceptanceTester" />
+							<input type="text" name="coauthorsemails[]" value="test@ico.dev" />
+							<input type="text" name="coauthorsnicenames[]" value="acceptancetester" />
+						</span>
+					</li>
+									</ul>
+				<div class="clear"></div>
+				<p><strong>Note:</strong> To edit post authors, please enable javascript or use a javascript-capable browser</p>
+			</div>
+			
+		<div id="coauthors-edit" class="hide-if-no-js">
+			<p>Click on an author to change them. Drag to change their order. Click on <strong>Remove</strong> to remove them.</p>
+		</div>
+
+		<input type="hidden" id="coauthors-nonce" name="coauthors-nonce" value="cf3688fa5a" /><input type="hidden" name="_wp_http_referer" value="/wp/wp-admin/post-new.php?post_type=proceedings" />
+		</div>
+</div>
+<div id="slugdiv" class="postbox  hide-if-js" >
+<button type="button" class="handlediv button-link" aria-expanded="true"><span class="screen-reader-text">Toggle panel: Slug</span><span class="toggle-indicator" aria-hidden="true"></span></button><h2 class='hndle'><span>Slug</span></h2>
+<div class="inside">
+<label class="screen-reader-text" for="post_name">Slug</label><input name="post_name" type="text" size="13" id="post_name" value="" />
+</div>
+</div>
+</div><div id="advanced-sortables" class="meta-box-sortables"></div></div>
+</div><!-- /post-body -->
+<br class="clear" />
+</div><!-- /poststuff -->
+</form>
+</div>
+
+
+<script type="text/javascript">
+try{document.post.title.focus();}catch(e){}
+</script>
+
+<div class="clear"></div></div><!-- wpbody-content -->
+<div class="clear"></div></div><!-- wpbody -->
+<div class="clear"></div></div><!-- wpcontent -->
+
+<div id="wpfooter" role="contentinfo">
+		<p id="footer-left" class="alignleft">
+		<span id="footer-thankyou">Thank you for creating with <a href="https://wordpress.org/">WordPress</a>.</span>	</p>
+	<p id="footer-upgrade" class="alignright">
+		Version 4.7.2	</p>
+	<div class="clear"></div>
+</div>
+	<div id="post-lock-dialog" class="notification-dialog-wrap hidden">
+	<div class="notification-dialog-background"></div>
+	<div class="notification-dialog">
+			<div class="post-taken-over">
+			<div class="post-locked-avatar"></div>
+			<p class="wp-tab-first" tabindex="0">
+			<span class="currently-editing"></span><br />
+			<span class="locked-saving hidden"><img src="http://ico.dev/wp/wp-admin/images/spinner-2x.gif" width="16" height="16" alt="" /> Saving revision&hellip;</span>
+			<span class="locked-saved hidden">Your latest changes were saved as a revision.</span>
+			</p>
+						<p><a class="button button-primary wp-tab-last" href="http://ico.dev/wp/wp-admin/edit.php?post_type=proceedings">All Proceedings</a></p>
+		</div>
+			</div>
+	</div>
+		<div id="local-storage-notice" class="hidden notice is-dismissible">
+	<p class="local-restore">
+		The backup of this post in your browser is different from the version below.		<button type="button" class="button restore-backup">Restore the backup</button>
+	</p>
+	<p class="help">
+		This will replace the current editor content with the last backup version. You can use undo and redo in the editor to get the old content back or to return to the restored version.	</p>
+	</div>
+		<!--[if lte IE 8]>
+	<style>
+		.attachment:focus {
+			outline: #1e8cbe solid;
+		}
+		.selected.attachment {
+			outline: #1e8cbe solid;
+		}
+	</style>
+	<![endif]-->
+	<script type="text/html" id="tmpl-media-frame">
+		<div class="media-frame-menu"></div>
+		<div class="media-frame-title"></div>
+		<div class="media-frame-router"></div>
+		<div class="media-frame-content"></div>
+		<div class="media-frame-toolbar"></div>
+		<div class="media-frame-uploader"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-media-modal">
+		<div class="media-modal wp-core-ui">
+			<button type="button" class="button-link media-modal-close"><span class="media-modal-icon"><span class="screen-reader-text">Close media panel</span></span></button>
+			<div class="media-modal-content"></div>
+		</div>
+		<div class="media-modal-backdrop"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-uploader-window">
+		<div class="uploader-window-content">
+			<h1>Drop files to upload</h1>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-uploader-editor">
+		<div class="uploader-editor-content">
+			<div class="uploader-editor-title">Drop files to upload</div>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-uploader-inline">
+		<# var messageClass = data.message ? 'has-upload-message' : 'no-upload-message'; #>
+		<# if ( data.canClose ) { #>
+		<button class="close dashicons dashicons-no"><span class="screen-reader-text">Close uploader</span></button>
+		<# } #>
+		<div class="uploader-inline-content {{ messageClass }}">
+		<# if ( data.message ) { #>
+			<h2 class="upload-message">{{ data.message }}</h2>
+		<# } #>
+					<div class="upload-ui">
+				<h2 class="upload-instructions drop-instructions">Drop files anywhere to upload</h2>
+				<p class="upload-instructions drop-instructions">or</p>
+				<button type="button" class="browser button button-hero">Select Files</button>
+			</div>
+
+			<div class="upload-inline-status"></div>
+
+			<div class="post-upload-ui">
+				
+				<p class="max-upload-size">Maximum upload file size: 25 MB.</p>
+
+				<# if ( data.suggestedWidth && data.suggestedHeight ) { #>
+					<p class="suggested-dimensions">
+						Suggested image dimensions: {{data.suggestedWidth}} &times; {{data.suggestedHeight}}
+					</p>
+				<# } #>
+
+							</div>
+				</div>
+	</script>
+
+	<script type="text/html" id="tmpl-media-library-view-switcher">
+		<a href="/wp/wp-admin/post-new.php?post_type=proceedings&#038;mode=list" class="view-list">
+			<span class="screen-reader-text">List View</span>
+		</a>
+		<a href="/wp/wp-admin/post-new.php?post_type=proceedings&#038;mode=grid" class="view-grid current">
+			<span class="screen-reader-text">Grid View</span>
+		</a>
+	</script>
+
+	<script type="text/html" id="tmpl-uploader-status">
+		<h2>Uploading</h2>
+		<button type="button" class="button-link upload-dismiss-errors"><span class="screen-reader-text">Dismiss Errors</span></button>
+
+		<div class="media-progress-bar"><div></div></div>
+		<div class="upload-details">
+			<span class="upload-count">
+				<span class="upload-index"></span> / <span class="upload-total"></span>
+			</span>
+			<span class="upload-detail-separator">&ndash;</span>
+			<span class="upload-filename"></span>
+		</div>
+		<div class="upload-errors"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-uploader-status-error">
+		<span class="upload-error-filename">{{{ data.filename }}}</span>
+		<span class="upload-error-message">{{ data.message }}</span>
+	</script>
+
+	<script type="text/html" id="tmpl-edit-attachment-frame">
+		<div class="edit-media-header">
+			<button class="left dashicons <# if ( ! data.hasPrevious ) { #> disabled <# } #>"><span class="screen-reader-text">Edit previous media item</span></button>
+			<button class="right dashicons <# if ( ! data.hasNext ) { #> disabled <# } #>"><span class="screen-reader-text">Edit next media item</span></button>
+		</div>
+		<div class="media-frame-title"></div>
+		<div class="media-frame-content"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-attachment-details-two-column">
+		<div class="attachment-media-view {{ data.orientation }}">
+			<div class="thumbnail thumbnail-{{ data.type }}">
+				<# if ( data.uploading ) { #>
+					<div class="media-progress-bar"><div></div></div>
+				<# } else if ( data.sizes && data.sizes.large ) { #>
+					<img class="details-image" src="{{ data.sizes.large.url }}" draggable="false" alt="" />
+				<# } else if ( data.sizes && data.sizes.full ) { #>
+					<img class="details-image" src="{{ data.sizes.full.url }}" draggable="false" alt="" />
+				<# } else if ( -1 === jQuery.inArray( data.type, [ 'audio', 'video' ] ) ) { #>
+					<img class="details-image icon" src="{{ data.icon }}" draggable="false" alt="" />
+				<# } #>
+
+				<# if ( 'audio' === data.type ) { #>
+				<div class="wp-media-wrapper">
+					<audio style="visibility: hidden" controls class="wp-audio-shortcode" width="100%" preload="none">
+						<source type="{{ data.mime }}" src="{{ data.url }}"/>
+					</audio>
+				</div>
+				<# } else if ( 'video' === data.type ) {
+					var w_rule = '';
+					if ( data.width ) {
+						w_rule = 'width: ' + data.width + 'px;';
+					} else if ( wp.media.view.settings.contentWidth ) {
+						w_rule = 'width: ' + wp.media.view.settings.contentWidth + 'px;';
+					}
+				#>
+				<div style="{{ w_rule }}" class="wp-media-wrapper wp-video">
+					<video controls="controls" class="wp-video-shortcode" preload="metadata"
+						<# if ( data.width ) { #>width="{{ data.width }}"<# } #>
+						<# if ( data.height ) { #>height="{{ data.height }}"<# } #>
+						<# if ( data.image && data.image.src !== data.icon ) { #>poster="{{ data.image.src }}"<# } #>>
+						<source type="{{ data.mime }}" src="{{ data.url }}"/>
+					</video>
+				</div>
+				<# } #>
+
+				<div class="attachment-actions">
+					<# if ( 'image' === data.type && ! data.uploading && data.sizes && data.can.save ) { #>
+					<button type="button" class="button edit-attachment">Edit Image</button>
+					<# } else if ( 'pdf' === data.subtype && data.sizes ) { #>
+					Document Preview					<# } #>
+				</div>
+			</div>
+		</div>
+		<div class="attachment-info">
+			<span class="settings-save-status">
+				<span class="spinner"></span>
+				<span class="saved">Saved.</span>
+			</span>
+			<div class="details">
+				<div class="filename"><strong>File name:</strong> {{ data.filename }}</div>
+				<div class="filename"><strong>File type:</strong> {{ data.mime }}</div>
+				<div class="uploaded"><strong>Uploaded on:</strong> {{ data.dateFormatted }}</div>
+
+				<div class="file-size"><strong>File size:</strong> {{ data.filesizeHumanReadable }}</div>
+				<# if ( 'image' === data.type && ! data.uploading ) { #>
+					<# if ( data.width && data.height ) { #>
+						<div class="dimensions"><strong>Dimensions:</strong> {{ data.width }} &times; {{ data.height }}</div>
+					<# } #>
+				<# } #>
+
+				<# if ( data.fileLength ) { #>
+					<div class="file-length"><strong>Length:</strong> {{ data.fileLength }}</div>
+				<# } #>
+
+				<# if ( 'audio' === data.type && data.meta.bitrate ) { #>
+					<div class="bitrate">
+						<strong>Bitrate:</strong> {{ Math.round( data.meta.bitrate / 1000 ) }}kb/s
+						<# if ( data.meta.bitrate_mode ) { #>
+						{{ ' ' + data.meta.bitrate_mode.toUpperCase() }}
+						<# } #>
+					</div>
+				<# } #>
+
+				<div class="compat-meta">
+					<# if ( data.compat && data.compat.meta ) { #>
+						{{{ data.compat.meta }}}
+					<# } #>
+				</div>
+			</div>
+
+			<div class="settings">
+				<label class="setting" data-setting="url">
+					<span class="name">URL</span>
+					<input type="text" value="{{ data.url }}" readonly />
+				</label>
+				<# var maybeReadOnly = data.can.save || data.allowLocalEdits ? '' : 'readonly'; #>
+								<label class="setting" data-setting="title">
+					<span class="name">Title</span>
+					<input type="text" value="{{ data.title }}" {{ maybeReadOnly }} />
+				</label>
+								<# if ( 'audio' === data.type ) { #>
+								<label class="setting" data-setting="artist">
+					<span class="name">Artist</span>
+					<input type="text" value="{{ data.artist || data.meta.artist || '' }}" />
+				</label>
+								<label class="setting" data-setting="album">
+					<span class="name">Album</span>
+					<input type="text" value="{{ data.album || data.meta.album || '' }}" />
+				</label>
+								<# } #>
+				<label class="setting" data-setting="caption">
+					<span class="name">Caption</span>
+					<textarea {{ maybeReadOnly }}>{{ data.caption }}</textarea>
+				</label>
+				<# if ( 'image' === data.type ) { #>
+					<label class="setting" data-setting="alt">
+						<span class="name">Alt Text</span>
+						<input type="text" value="{{ data.alt }}" {{ maybeReadOnly }} />
+					</label>
+				<# } #>
+				<label class="setting" data-setting="description">
+					<span class="name">Description</span>
+					<textarea {{ maybeReadOnly }}>{{ data.description }}</textarea>
+				</label>
+				<label class="setting">
+					<span class="name">Uploaded By</span>
+					<span class="value">{{ data.authorName }}</span>
+				</label>
+				<# if ( data.uploadedToTitle ) { #>
+					<label class="setting">
+						<span class="name">Uploaded To</span>
+						<# if ( data.uploadedToLink ) { #>
+							<span class="value"><a href="{{ data.uploadedToLink }}">{{ data.uploadedToTitle }}</a></span>
+						<# } else { #>
+							<span class="value">{{ data.uploadedToTitle }}</span>
+						<# } #>
+					</label>
+				<# } #>
+				<div class="attachment-compat"></div>
+			</div>
+
+			<div class="actions">
+				<a class="view-attachment" href="{{ data.link }}">View attachment page</a>
+				<# if ( data.can.save ) { #> |
+					<a href="post.php?post={{ data.id }}&action=edit">Edit more details</a>
+				<# } #>
+				<# if ( ! data.uploading && data.can.remove ) { #> |
+											<button type="button" class="button-link delete-attachment">Delete Permanently</button>
+									<# } #>
+			</div>
+
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-attachment">
+		<div class="attachment-preview js--select-attachment type-{{ data.type }} subtype-{{ data.subtype }} {{ data.orientation }}">
+			<div class="thumbnail">
+				<# if ( data.uploading ) { #>
+					<div class="media-progress-bar"><div style="width: {{ data.percent }}%"></div></div>
+				<# } else if ( 'image' === data.type && data.sizes ) { #>
+					<div class="centered">
+						<img src="{{ data.size.url }}" draggable="false" alt="" />
+					</div>
+				<# } else { #>
+					<div class="centered">
+						<# if ( data.image && data.image.src && data.image.src !== data.icon ) { #>
+							<img src="{{ data.image.src }}" class="thumbnail" draggable="false" alt="" />
+						<# } else if ( data.sizes && data.sizes.medium ) { #>
+							<img src="{{ data.sizes.medium.url }}" class="thumbnail" draggable="false" alt="" />
+						<# } else { #>
+							<img src="{{ data.icon }}" class="icon" draggable="false" alt="" />
+						<# } #>
+					</div>
+					<div class="filename">
+						<div>{{ data.filename }}</div>
+					</div>
+				<# } #>
+			</div>
+			<# if ( data.buttons.close ) { #>
+				<button type="button" class="button-link attachment-close media-modal-icon"><span class="screen-reader-text">Remove</span></button>
+			<# } #>
+		</div>
+		<# if ( data.buttons.check ) { #>
+			<button type="button" class="button-link check" tabindex="-1"><span class="media-modal-icon"></span><span class="screen-reader-text">Deselect</span></button>
+		<# } #>
+		<#
+		var maybeReadOnly = data.can.save || data.allowLocalEdits ? '' : 'readonly';
+		if ( data.describe ) {
+			if ( 'image' === data.type ) { #>
+				<input type="text" value="{{ data.caption }}" class="describe" data-setting="caption"
+					placeholder="Caption this image&hellip;" {{ maybeReadOnly }} />
+			<# } else { #>
+				<input type="text" value="{{ data.title }}" class="describe" data-setting="title"
+					<# if ( 'video' === data.type ) { #>
+						placeholder="Describe this video&hellip;"
+					<# } else if ( 'audio' === data.type ) { #>
+						placeholder="Describe this audio file&hellip;"
+					<# } else { #>
+						placeholder="Describe this media file&hellip;"
+					<# } #> {{ maybeReadOnly }} />
+			<# }
+		} #>
+	</script>
+
+	<script type="text/html" id="tmpl-attachment-details">
+		<h2>
+			Attachment Details			<span class="settings-save-status">
+				<span class="spinner"></span>
+				<span class="saved">Saved.</span>
+			</span>
+		</h2>
+		<div class="attachment-info">
+			<div class="thumbnail thumbnail-{{ data.type }}">
+				<# if ( data.uploading ) { #>
+					<div class="media-progress-bar"><div></div></div>
+				<# } else if ( 'image' === data.type && data.sizes ) { #>
+					<img src="{{ data.size.url }}" draggable="false" alt="" />
+				<# } else { #>
+					<img src="{{ data.icon }}" class="icon" draggable="false" alt="" />
+				<# } #>
+			</div>
+			<div class="details">
+				<div class="filename">{{ data.filename }}</div>
+				<div class="uploaded">{{ data.dateFormatted }}</div>
+
+				<div class="file-size">{{ data.filesizeHumanReadable }}</div>
+				<# if ( 'image' === data.type && ! data.uploading ) { #>
+					<# if ( data.width && data.height ) { #>
+						<div class="dimensions">{{ data.width }} &times; {{ data.height }}</div>
+					<# } #>
+
+					<# if ( data.can.save && data.sizes ) { #>
+						<a class="edit-attachment" href="{{ data.editLink }}&amp;image-editor" target="_blank">Edit Image</a>
+					<# } #>
+				<# } #>
+
+				<# if ( data.fileLength ) { #>
+					<div class="file-length">Length: {{ data.fileLength }}</div>
+				<# } #>
+
+				<# if ( ! data.uploading && data.can.remove ) { #>
+											<button type="button" class="button-link delete-attachment">Delete Permanently</button>
+									<# } #>
+
+				<div class="compat-meta">
+					<# if ( data.compat && data.compat.meta ) { #>
+						{{{ data.compat.meta }}}
+					<# } #>
+				</div>
+			</div>
+		</div>
+
+		<label class="setting" data-setting="url">
+			<span class="name">URL</span>
+			<input type="text" value="{{ data.url }}" readonly />
+		</label>
+		<# var maybeReadOnly = data.can.save || data.allowLocalEdits ? '' : 'readonly'; #>
+				<label class="setting" data-setting="title">
+			<span class="name">Title</span>
+			<input type="text" value="{{ data.title }}" {{ maybeReadOnly }} />
+		</label>
+				<# if ( 'audio' === data.type ) { #>
+				<label class="setting" data-setting="artist">
+			<span class="name">Artist</span>
+			<input type="text" value="{{ data.artist || data.meta.artist || '' }}" />
+		</label>
+				<label class="setting" data-setting="album">
+			<span class="name">Album</span>
+			<input type="text" value="{{ data.album || data.meta.album || '' }}" />
+		</label>
+				<# } #>
+		<label class="setting" data-setting="caption">
+			<span class="name">Caption</span>
+			<textarea {{ maybeReadOnly }}>{{ data.caption }}</textarea>
+		</label>
+		<# if ( 'image' === data.type ) { #>
+			<label class="setting" data-setting="alt">
+				<span class="name">Alt Text</span>
+				<input type="text" value="{{ data.alt }}" {{ maybeReadOnly }} />
+			</label>
+		<# } #>
+		<label class="setting" data-setting="description">
+			<span class="name">Description</span>
+			<textarea {{ maybeReadOnly }}>{{ data.description }}</textarea>
+		</label>
+	</script>
+
+	<script type="text/html" id="tmpl-media-selection">
+		<div class="selection-info">
+			<span class="count"></span>
+			<# if ( data.editable ) { #>
+				<button type="button" class="button-link edit-selection">Edit Selection</button>
+			<# } #>
+			<# if ( data.clearable ) { #>
+				<button type="button" class="button-link clear-selection">Clear</button>
+			<# } #>
+		</div>
+		<div class="selection-view"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-attachment-display-settings">
+		<h2>Attachment Display Settings</h2>
+
+		<# if ( 'image' === data.type ) { #>
+			<label class="setting">
+				<span>Alignment</span>
+				<select class="alignment"
+					data-setting="align"
+					<# if ( data.userSettings ) { #>
+						data-user-setting="align"
+					<# } #>>
+
+					<option value="left">
+						Left					</option>
+					<option value="center">
+						Center					</option>
+					<option value="right">
+						Right					</option>
+					<option value="none" selected>
+						None					</option>
+				</select>
+			</label>
+		<# } #>
+
+		<div class="setting">
+			<label>
+				<# if ( data.model.canEmbed ) { #>
+					<span>Embed or Link</span>
+				<# } else { #>
+					<span>Link To</span>
+				<# } #>
+
+				<select class="link-to"
+					data-setting="link"
+					<# if ( data.userSettings && ! data.model.canEmbed ) { #>
+						data-user-setting="urlbutton"
+					<# } #>>
+
+				<# if ( data.model.canEmbed ) { #>
+					<option value="embed" selected>
+						Embed Media Player					</option>
+					<option value="file">
+				<# } else { #>
+					<option value="none" selected>
+						None					</option>
+					<option value="file">
+				<# } #>
+					<# if ( data.model.canEmbed ) { #>
+						Link to Media File					<# } else { #>
+						Media File					<# } #>
+					</option>
+					<option value="post">
+					<# if ( data.model.canEmbed ) { #>
+						Link to Attachment Page					<# } else { #>
+						Attachment Page					<# } #>
+					</option>
+				<# if ( 'image' === data.type ) { #>
+					<option value="custom">
+						Custom URL					</option>
+				<# } #>
+				</select>
+			</label>
+			<input type="text" class="link-to-custom" data-setting="linkUrl" />
+		</div>
+
+		<# if ( 'undefined' !== typeof data.sizes ) { #>
+			<label class="setting">
+				<span>Size</span>
+				<select class="size" name="size"
+					data-setting="size"
+					<# if ( data.userSettings ) { #>
+						data-user-setting="imgsize"
+					<# } #>>
+											<#
+						var size = data.sizes['thumbnail'];
+						if ( size ) { #>
+							<option value="thumbnail" >
+								Thumbnail &ndash; {{ size.width }} &times; {{ size.height }}
+							</option>
+						<# } #>
+											<#
+						var size = data.sizes['medium'];
+						if ( size ) { #>
+							<option value="medium" >
+								Medium &ndash; {{ size.width }} &times; {{ size.height }}
+							</option>
+						<# } #>
+											<#
+						var size = data.sizes['large'];
+						if ( size ) { #>
+							<option value="large" >
+								Large &ndash; {{ size.width }} &times; {{ size.height }}
+							</option>
+						<# } #>
+											<#
+						var size = data.sizes['full'];
+						if ( size ) { #>
+							<option value="full"  selected='selected'>
+								Full Size &ndash; {{ size.width }} &times; {{ size.height }}
+							</option>
+						<# } #>
+									</select>
+			</label>
+		<# } #>
+	</script>
+
+	<script type="text/html" id="tmpl-gallery-settings">
+		<h2>Gallery Settings</h2>
+
+		<label class="setting">
+			<span>Link To</span>
+			<select class="link-to"
+				data-setting="link"
+				<# if ( data.userSettings ) { #>
+					data-user-setting="urlbutton"
+				<# } #>>
+
+				<option value="post" <# if ( ! wp.media.galleryDefaults.link || 'post' == wp.media.galleryDefaults.link ) {
+					#>selected="selected"<# }
+				#>>
+					Attachment Page				</option>
+				<option value="file" <# if ( 'file' == wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
+					Media File				</option>
+				<option value="none" <# if ( 'none' == wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
+					None				</option>
+			</select>
+		</label>
+
+		<label class="setting">
+			<span>Columns</span>
+			<select class="columns" name="columns"
+				data-setting="columns">
+									<option value="1" <#
+						if ( 1 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						1					</option>
+									<option value="2" <#
+						if ( 2 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						2					</option>
+									<option value="3" <#
+						if ( 3 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						3					</option>
+									<option value="4" <#
+						if ( 4 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						4					</option>
+									<option value="5" <#
+						if ( 5 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						5					</option>
+									<option value="6" <#
+						if ( 6 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						6					</option>
+									<option value="7" <#
+						if ( 7 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						7					</option>
+									<option value="8" <#
+						if ( 8 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						8					</option>
+									<option value="9" <#
+						if ( 9 == wp.media.galleryDefaults.columns ) { #>selected="selected"<# }
+					#>>
+						9					</option>
+							</select>
+		</label>
+
+		<label class="setting">
+			<span>Random Order</span>
+			<input type="checkbox" data-setting="_orderbyRandom" />
+		</label>
+
+		<label class="setting size">
+			<span>Size</span>
+			<select class="size" name="size"
+				data-setting="size"
+				<# if ( data.userSettings ) { #>
+					data-user-setting="imgsize"
+				<# } #>
+				>
+									<option value="thumbnail">
+						Thumbnail					</option>
+									<option value="medium">
+						Medium					</option>
+									<option value="large">
+						Large					</option>
+									<option value="full">
+						Full Size					</option>
+							</select>
+		</label>
+	</script>
+
+	<script type="text/html" id="tmpl-playlist-settings">
+		<h2>Playlist Settings</h2>
+
+		<# var emptyModel = _.isEmpty( data.model ),
+			isVideo = 'video' === data.controller.get('library').props.get('type'); #>
+
+		<label class="setting">
+			<input type="checkbox" data-setting="tracklist" <# if ( emptyModel ) { #>
+				checked="checked"
+			<# } #> />
+			<# if ( isVideo ) { #>
+			<span>Show Video List</span>
+			<# } else { #>
+			<span>Show Tracklist</span>
+			<# } #>
+		</label>
+
+		<# if ( ! isVideo ) { #>
+		<label class="setting">
+			<input type="checkbox" data-setting="artists" <# if ( emptyModel ) { #>
+				checked="checked"
+			<# } #> />
+			<span>Show Artist Name in Tracklist</span>
+		</label>
+		<# } #>
+
+		<label class="setting">
+			<input type="checkbox" data-setting="images" <# if ( emptyModel ) { #>
+				checked="checked"
+			<# } #> />
+			<span>Show Images</span>
+		</label>
+	</script>
+
+	<script type="text/html" id="tmpl-embed-link-settings">
+		<label class="setting link-text">
+			<span>Link Text</span>
+			<input type="text" class="alignment" data-setting="linkText" />
+		</label>
+		<div class="embed-container" style="display: none;">
+			<div class="embed-preview"></div>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-embed-image-settings">
+		<div class="thumbnail">
+			<img src="{{ data.model.url }}" draggable="false" alt="" />
+		</div>
+
+					<label class="setting caption">
+				<span>Caption</span>
+				<textarea data-setting="caption" />
+			</label>
+		
+		<label class="setting alt-text">
+			<span>Alt Text</span>
+			<input type="text" data-setting="alt" />
+		</label>
+
+		<div class="setting align">
+			<span>Align</span>
+			<div class="button-group button-large" data-setting="align">
+				<button class="button" value="left">
+					Left				</button>
+				<button class="button" value="center">
+					Center				</button>
+				<button class="button" value="right">
+					Right				</button>
+				<button class="button active" value="none">
+					None				</button>
+			</div>
+		</div>
+
+		<div class="setting link-to">
+			<span>Link To</span>
+			<div class="button-group button-large" data-setting="link">
+				<button class="button" value="file">
+					Image URL				</button>
+				<button class="button" value="custom">
+					Custom URL				</button>
+				<button class="button active" value="none">
+					None				</button>
+			</div>
+			<input type="text" class="link-to-custom" data-setting="linkUrl" />
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-image-details">
+		<div class="media-embed">
+			<div class="embed-media-settings">
+				<div class="column-image">
+					<div class="image">
+						<img src="{{ data.model.url }}" draggable="false" alt="" />
+
+						<# if ( data.attachment && window.imageEdit ) { #>
+							<div class="actions">
+								<input type="button" class="edit-attachment button" value="Edit Original" />
+								<input type="button" class="replace-attachment button" value="Replace" />
+							</div>
+						<# } #>
+					</div>
+				</div>
+				<div class="column-settings">
+											<label class="setting caption">
+							<span>Caption</span>
+							<textarea data-setting="caption">{{ data.model.caption }}</textarea>
+						</label>
+					
+					<label class="setting alt-text">
+						<span>Alternative Text</span>
+						<input type="text" data-setting="alt" value="{{ data.model.alt }}" />
+					</label>
+
+					<h2>Display Settings</h2>
+					<div class="setting align">
+						<span>Align</span>
+						<div class="button-group button-large" data-setting="align">
+							<button class="button" value="left">
+								Left							</button>
+							<button class="button" value="center">
+								Center							</button>
+							<button class="button" value="right">
+								Right							</button>
+							<button class="button active" value="none">
+								None							</button>
+						</div>
+					</div>
+
+					<# if ( data.attachment ) { #>
+						<# if ( 'undefined' !== typeof data.attachment.sizes ) { #>
+							<label class="setting size">
+								<span>Size</span>
+								<select class="size" name="size"
+									data-setting="size"
+									<# if ( data.userSettings ) { #>
+										data-user-setting="imgsize"
+									<# } #>>
+																			<#
+										var size = data.sizes['thumbnail'];
+										if ( size ) { #>
+											<option value="thumbnail">
+												Thumbnail &ndash; {{ size.width }} &times; {{ size.height }}
+											</option>
+										<# } #>
+																			<#
+										var size = data.sizes['medium'];
+										if ( size ) { #>
+											<option value="medium">
+												Medium &ndash; {{ size.width }} &times; {{ size.height }}
+											</option>
+										<# } #>
+																			<#
+										var size = data.sizes['large'];
+										if ( size ) { #>
+											<option value="large">
+												Large &ndash; {{ size.width }} &times; {{ size.height }}
+											</option>
+										<# } #>
+																			<#
+										var size = data.sizes['full'];
+										if ( size ) { #>
+											<option value="full">
+												Full Size &ndash; {{ size.width }} &times; {{ size.height }}
+											</option>
+										<# } #>
+																		<option value="custom">
+										Custom Size									</option>
+								</select>
+							</label>
+						<# } #>
+							<div class="custom-size<# if ( data.model.size !== 'custom' ) { #> hidden<# } #>">
+								<label><span>Width <small>(px)</small></span> <input data-setting="customWidth" type="number" step="1" value="{{ data.model.customWidth }}" /></label><span class="sep">&times;</span><label><span>Height <small>(px)</small></span><input data-setting="customHeight" type="number" step="1" value="{{ data.model.customHeight }}" /></label>
+							</div>
+					<# } #>
+
+					<div class="setting link-to">
+						<span>Link To</span>
+						<select data-setting="link">
+						<# if ( data.attachment ) { #>
+							<option value="file">
+								Media File							</option>
+							<option value="post">
+								Attachment Page							</option>
+						<# } else { #>
+							<option value="file">
+								Image URL							</option>
+						<# } #>
+							<option value="custom">
+								Custom URL							</option>
+							<option value="none">
+								None							</option>
+						</select>
+						<input type="text" class="link-to-custom" data-setting="linkUrl" />
+					</div>
+					<div class="advanced-section">
+						<h2><button type="button" class="button-link advanced-toggle">Advanced Options</button></h2>
+						<div class="advanced-settings hidden">
+							<div class="advanced-image">
+								<label class="setting title-text">
+									<span>Image Title Attribute</span>
+									<input type="text" data-setting="title" value="{{ data.model.title }}" />
+								</label>
+								<label class="setting extra-classes">
+									<span>Image CSS Class</span>
+									<input type="text" data-setting="extraClasses" value="{{ data.model.extraClasses }}" />
+								</label>
+							</div>
+							<div class="advanced-link">
+								<div class="setting link-target">
+									<label><input type="checkbox" data-setting="linkTargetBlank" value="_blank" <# if ( data.model.linkTargetBlank ) { #>checked="checked"<# } #>>Open link in a new tab</label>
+								</div>
+								<label class="setting link-rel">
+									<span>Link Rel</span>
+									<input type="text" data-setting="linkRel" value="{{ data.model.linkClassName }}" />
+								</label>
+								<label class="setting link-class-name">
+									<span>Link CSS Class</span>
+									<input type="text" data-setting="linkClassName" value="{{ data.model.linkClassName }}" />
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-image-editor">
+		<div id="media-head-{{ data.id }}"></div>
+		<div id="image-editor-{{ data.id }}"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-audio-details">
+		<# var ext, html5types = {
+			mp3: wp.media.view.settings.embedMimes.mp3,
+			ogg: wp.media.view.settings.embedMimes.ogg
+		}; #>
+
+				<div class="media-embed media-embed-details">
+			<div class="embed-media-settings embed-audio-settings">
+				<audio style="visibility: hidden"
+	controls
+	class="wp-audio-shortcode"
+	width="{{ _.isUndefined( data.model.width ) ? 400 : data.model.width }}"
+	preload="{{ _.isUndefined( data.model.preload ) ? 'none' : data.model.preload }}"
+	<#
+	if ( ! _.isUndefined( data.model.autoplay ) && data.model.autoplay ) {
+		#> autoplay<#
+	}
+	if ( ! _.isUndefined( data.model.loop ) && data.model.loop ) {
+		#> loop<#
+	}
+	#>
+>
+	<# if ( ! _.isEmpty( data.model.src ) ) { #>
+	<source src="{{ data.model.src }}" type="{{ wp.media.view.settings.embedMimes[ data.model.src.split('.').pop() ] }}" />
+	<# } #>
+
+	<# if ( ! _.isEmpty( data.model.mp3 ) ) { #>
+	<source src="{{ data.model.mp3 }}" type="{{ wp.media.view.settings.embedMimes[ 'mp3' ] }}" />
+	<# } #>
+	<# if ( ! _.isEmpty( data.model.ogg ) ) { #>
+	<source src="{{ data.model.ogg }}" type="{{ wp.media.view.settings.embedMimes[ 'ogg' ] }}" />
+	<# } #>
+	<# if ( ! _.isEmpty( data.model.wma ) ) { #>
+	<source src="{{ data.model.wma }}" type="{{ wp.media.view.settings.embedMimes[ 'wma' ] }}" />
+	<# } #>
+	<# if ( ! _.isEmpty( data.model.m4a ) ) { #>
+	<source src="{{ data.model.m4a }}" type="{{ wp.media.view.settings.embedMimes[ 'm4a' ] }}" />
+	<# } #>
+	<# if ( ! _.isEmpty( data.model.wav ) ) { #>
+	<source src="{{ data.model.wav }}" type="{{ wp.media.view.settings.embedMimes[ 'wav' ] }}" />
+	<# } #>
+	</audio>
+
+				<# if ( ! _.isEmpty( data.model.src ) ) {
+					ext = data.model.src.split('.').pop();
+					if ( html5types[ ext ] ) {
+						delete html5types[ ext ];
+					}
+				#>
+				<label class="setting">
+					<span>SRC</span>
+					<input type="text" disabled="disabled" data-setting="src" value="{{ data.model.src }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.mp3 ) ) {
+					if ( ! _.isUndefined( html5types.mp3 ) ) {
+						delete html5types.mp3;
+					}
+				#>
+				<label class="setting">
+					<span>MP3</span>
+					<input type="text" disabled="disabled" data-setting="mp3" value="{{ data.model.mp3 }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.ogg ) ) {
+					if ( ! _.isUndefined( html5types.ogg ) ) {
+						delete html5types.ogg;
+					}
+				#>
+				<label class="setting">
+					<span>OGG</span>
+					<input type="text" disabled="disabled" data-setting="ogg" value="{{ data.model.ogg }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.wma ) ) {
+					if ( ! _.isUndefined( html5types.wma ) ) {
+						delete html5types.wma;
+					}
+				#>
+				<label class="setting">
+					<span>WMA</span>
+					<input type="text" disabled="disabled" data-setting="wma" value="{{ data.model.wma }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.m4a ) ) {
+					if ( ! _.isUndefined( html5types.m4a ) ) {
+						delete html5types.m4a;
+					}
+				#>
+				<label class="setting">
+					<span>M4A</span>
+					<input type="text" disabled="disabled" data-setting="m4a" value="{{ data.model.m4a }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.wav ) ) {
+					if ( ! _.isUndefined( html5types.wav ) ) {
+						delete html5types.wav;
+					}
+				#>
+				<label class="setting">
+					<span>WAV</span>
+					<input type="text" disabled="disabled" data-setting="wav" value="{{ data.model.wav }}" />
+					<button type="button" class="button-link remove-setting">Remove audio source</button>
+				</label>
+				<# } #>
+				
+				<# if ( ! _.isEmpty( html5types ) ) { #>
+				<div class="setting">
+					<span>Add alternate sources for maximum HTML5 playback:</span>
+					<div class="button-large">
+					<# _.each( html5types, function (mime, type) { #>
+					<button class="button add-media-source" data-mime="{{ mime }}">{{ type }}</button>
+					<# } ) #>
+					</div>
+				</div>
+				<# } #>
+
+				<div class="setting preload">
+					<span>Preload</span>
+					<div class="button-group button-large" data-setting="preload">
+						<button class="button" value="auto">Auto</button>
+						<button class="button" value="metadata">Metadata</button>
+						<button class="button active" value="none">None</button>
+					</div>
+				</div>
+
+				<label class="setting checkbox-setting">
+					<input type="checkbox" data-setting="autoplay" />
+					<span>Autoplay</span>
+				</label>
+
+				<label class="setting checkbox-setting">
+					<input type="checkbox" data-setting="loop" />
+					<span>Loop</span>
+				</label>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-video-details">
+		<# var ext, html5types = {
+			mp4: wp.media.view.settings.embedMimes.mp4,
+			ogv: wp.media.view.settings.embedMimes.ogv,
+			webm: wp.media.view.settings.embedMimes.webm
+		}; #>
+
+				<div class="media-embed media-embed-details">
+			<div class="embed-media-settings embed-video-settings">
+				<div class="wp-video-holder">
+				<#
+				var w = ! data.model.width || data.model.width > 640 ? 640 : data.model.width,
+					h = ! data.model.height ? 360 : data.model.height;
+
+				if ( data.model.width && w !== data.model.width ) {
+					h = Math.ceil( ( h * w ) / data.model.width );
+				}
+				#>
+
+				<#  var w_rule = '', classes = [],
+		w, h, settings = wp.media.view.settings,
+		isYouTube = isVimeo = false;
+
+	if ( ! _.isEmpty( data.model.src ) ) {
+		isYouTube = data.model.src.match(/youtube|youtu\.be/);
+		isVimeo = -1 !== data.model.src.indexOf('vimeo');
+	}
+
+	if ( settings.contentWidth && data.model.width >= settings.contentWidth ) {
+		w = settings.contentWidth;
+	} else {
+		w = data.model.width;
+	}
+
+	if ( w !== data.model.width ) {
+		h = Math.ceil( ( data.model.height * w ) / data.model.width );
+	} else {
+		h = data.model.height;
+ 	}
+
+	if ( w ) {
+		w_rule = 'width: ' + w + 'px; ';
+	}
+
+	if ( isYouTube ) {
+		classes.push( 'youtube-video' );
+	}
+
+	if ( isVimeo ) {
+		classes.push( 'vimeo-video' );
+	}
+
+#>
+<div style="{{ w_rule }}" class="wp-video">
+<video controls
+	class="wp-video-shortcode {{ classes.join( ' ' ) }}"
+	<# if ( w ) { #>width="{{ w }}"<# } #>
+	<# if ( h ) { #>height="{{ h }}"<# } #>
+	<#
+		if ( ! _.isUndefined( data.model.poster ) && data.model.poster ) {
+			#> poster="{{ data.model.poster }}"<#
+		} #>
+		preload="{{ _.isUndefined( data.model.preload ) ? 'metadata' : data.model.preload }}"<#
+	 if ( ! _.isUndefined( data.model.autoplay ) && data.model.autoplay ) {
+		#> autoplay<#
+	}
+	 if ( ! _.isUndefined( data.model.loop ) && data.model.loop ) {
+		#> loop<#
+	}
+	#>
+>
+	<# if ( ! _.isEmpty( data.model.src ) ) {
+		if ( isYouTube ) { #>
+		<source src="{{ data.model.src }}" type="video/youtube" />
+		<# } else if ( isVimeo ) { #>
+		<source src="{{ data.model.src }}" type="video/vimeo" />
+		<# } else { #>
+		<source src="{{ data.model.src }}" type="{{ settings.embedMimes[ data.model.src.split('.').pop() ] }}" />
+		<# }
+	} #>
+
+	<# if ( data.model.mp4 ) { #>
+	<source src="{{ data.model.mp4 }}" type="{{ settings.embedMimes[ 'mp4' ] }}" />
+	<# } #>
+	<# if ( data.model.m4v ) { #>
+	<source src="{{ data.model.m4v }}" type="{{ settings.embedMimes[ 'm4v' ] }}" />
+	<# } #>
+	<# if ( data.model.webm ) { #>
+	<source src="{{ data.model.webm }}" type="{{ settings.embedMimes[ 'webm' ] }}" />
+	<# } #>
+	<# if ( data.model.ogv ) { #>
+	<source src="{{ data.model.ogv }}" type="{{ settings.embedMimes[ 'ogv' ] }}" />
+	<# } #>
+	<# if ( data.model.wmv ) { #>
+	<source src="{{ data.model.wmv }}" type="{{ settings.embedMimes[ 'wmv' ] }}" />
+	<# } #>
+	<# if ( data.model.flv ) { #>
+	<source src="{{ data.model.flv }}" type="{{ settings.embedMimes[ 'flv' ] }}" />
+	<# } #>
+		{{{ data.model.content }}}
+</video>
+</div>
+
+				<# if ( ! _.isEmpty( data.model.src ) ) {
+					ext = data.model.src.split('.').pop();
+					if ( html5types[ ext ] ) {
+						delete html5types[ ext ];
+					}
+				#>
+				<label class="setting">
+					<span>SRC</span>
+					<input type="text" disabled="disabled" data-setting="src" value="{{ data.model.src }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.mp4 ) ) {
+					if ( ! _.isUndefined( html5types.mp4 ) ) {
+						delete html5types.mp4;
+					}
+				#>
+				<label class="setting">
+					<span>MP4</span>
+					<input type="text" disabled="disabled" data-setting="mp4" value="{{ data.model.mp4 }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.m4v ) ) {
+					if ( ! _.isUndefined( html5types.m4v ) ) {
+						delete html5types.m4v;
+					}
+				#>
+				<label class="setting">
+					<span>M4V</span>
+					<input type="text" disabled="disabled" data-setting="m4v" value="{{ data.model.m4v }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.webm ) ) {
+					if ( ! _.isUndefined( html5types.webm ) ) {
+						delete html5types.webm;
+					}
+				#>
+				<label class="setting">
+					<span>WEBM</span>
+					<input type="text" disabled="disabled" data-setting="webm" value="{{ data.model.webm }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.ogv ) ) {
+					if ( ! _.isUndefined( html5types.ogv ) ) {
+						delete html5types.ogv;
+					}
+				#>
+				<label class="setting">
+					<span>OGV</span>
+					<input type="text" disabled="disabled" data-setting="ogv" value="{{ data.model.ogv }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.wmv ) ) {
+					if ( ! _.isUndefined( html5types.wmv ) ) {
+						delete html5types.wmv;
+					}
+				#>
+				<label class="setting">
+					<span>WMV</span>
+					<input type="text" disabled="disabled" data-setting="wmv" value="{{ data.model.wmv }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+				<# if ( ! _.isEmpty( data.model.flv ) ) {
+					if ( ! _.isUndefined( html5types.flv ) ) {
+						delete html5types.flv;
+					}
+				#>
+				<label class="setting">
+					<span>FLV</span>
+					<input type="text" disabled="disabled" data-setting="flv" value="{{ data.model.flv }}" />
+					<button type="button" class="button-link remove-setting">Remove video source</button>
+				</label>
+				<# } #>
+								</div>
+
+				<# if ( ! _.isEmpty( html5types ) ) { #>
+				<div class="setting">
+					<span>Add alternate sources for maximum HTML5 playback:</span>
+					<div class="button-large">
+					<# _.each( html5types, function (mime, type) { #>
+					<button class="button add-media-source" data-mime="{{ mime }}">{{ type }}</button>
+					<# } ) #>
+					</div>
+				</div>
+				<# } #>
+
+				<# if ( ! _.isEmpty( data.model.poster ) ) { #>
+				<label class="setting">
+					<span>Poster Image</span>
+					<input type="text" disabled="disabled" data-setting="poster" value="{{ data.model.poster }}" />
+					<button type="button" class="button-link remove-setting">Remove poster image</button>
+				</label>
+				<# } #>
+				<div class="setting preload">
+					<span>Preload</span>
+					<div class="button-group button-large" data-setting="preload">
+						<button class="button" value="auto">Auto</button>
+						<button class="button" value="metadata">Metadata</button>
+						<button class="button active" value="none">None</button>
+					</div>
+				</div>
+
+				<label class="setting checkbox-setting">
+					<input type="checkbox" data-setting="autoplay" />
+					<span>Autoplay</span>
+				</label>
+
+				<label class="setting checkbox-setting">
+					<input type="checkbox" data-setting="loop" />
+					<span>Loop</span>
+				</label>
+
+				<label class="setting" data-setting="content">
+					<span>Tracks (subtitles, captions, descriptions, chapters, or metadata)</span>
+					<#
+					var content = '';
+					if ( ! _.isEmpty( data.model.content ) ) {
+						var tracks = jQuery( data.model.content ).filter( 'track' );
+						_.each( tracks.toArray(), function (track) {
+							content += track.outerHTML; #>
+						<p>
+							<input class="content-track" type="text" value="{{ track.outerHTML }}" />
+							<button type="button" class="button-link remove-setting remove-track">Remove video track</button>
+						</p>
+						<# } ); #>
+					<# } else { #>
+					<em>There are no associated subtitles.</em>
+					<# } #>
+					<textarea class="hidden content-setting">{{ content }}</textarea>
+				</label>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-editor-gallery">
+		<# if ( data.attachments.length ) { #>
+			<div class="gallery gallery-columns-{{ data.columns }}">
+				<# _.each( data.attachments, function( attachment, index ) { #>
+					<dl class="gallery-item">
+						<dt class="gallery-icon">
+							<# if ( attachment.thumbnail ) { #>
+								<img src="{{ attachment.thumbnail.url }}" width="{{ attachment.thumbnail.width }}" height="{{ attachment.thumbnail.height }}" alt="" />
+							<# } else { #>
+								<img src="{{ attachment.url }}" alt="" />
+							<# } #>
+						</dt>
+						<# if ( attachment.caption ) { #>
+							<dd class="wp-caption-text gallery-caption">
+								{{{ data.verifyHTML( attachment.caption ) }}}
+							</dd>
+						<# } #>
+					</dl>
+					<# if ( index % data.columns === data.columns - 1 ) { #>
+						<br style="clear: both;">
+					<# } #>
+				<# } ); #>
+			</div>
+		<# } else { #>
+			<div class="wpview-error">
+				<div class="dashicons dashicons-format-gallery"></div><p>No items found.</p>
+			</div>
+		<# } #>
+	</script>
+
+	<script type="text/html" id="tmpl-crop-content">
+		<img class="crop-image" src="{{ data.url }}" alt="Image crop area preview. Requires mouse interaction.">
+		<div class="upload-errors"></div>
+	</script>
+
+	<script type="text/html" id="tmpl-site-icon-preview">
+		<h2>Preview</h2>
+		<strong aria-hidden="true">As a browser icon</strong>
+		<div class="favicon-preview">
+			<img src="http://ico.dev/wp/wp-admin/images/browser.png" class="browser-preview" width="182" height="" alt="" />
+
+			<div class="favicon">
+				<img id="preview-favicon" src="{{ data.url }}" alt="Preview as a browser icon"/>
+			</div>
+			<span class="browser-title" aria-hidden="true">ICO</span>
+		</div>
+
+		<strong aria-hidden="true">As an app icon</strong>
+		<div class="app-icon-preview">
+			<img id="preview-app-icon" src="{{ data.url }}" alt="Preview as an app icon"/>
+		</div>
+	</script>
+
+			<script type="text/javascript">
+			acf = acf || {};
+			acf.o = {"post_id":119,"nonce":"f4ffcb1bb1","admin_url":"http:\/\/ico.dev\/wp\/wp-admin\/","ajaxurl":"http:\/\/ico.dev\/wp\/wp-admin\/admin-ajax.php","ajax":1,"validation":1,"wp_version":"4.7.2","acf_version":"5.3.8.1"};
+			acf.l10n = {"unload":"The changes you made will be lost if you navigate away from this page","expand_details":"Expand Details","collapse_details":"Collapse Details","validation_successful":"Validation successful","validation_failed":"Validation failed","validation_failed_1":"1 field requires attention","validation_failed_2":"%d fields require attention","restricted":"Restricted","media":{"select":"Select","edit":"Edit","update":"Update","uploadedTo":"Uploaded to this post","default_icon":"http:\/\/ico.dev\/wp\/wp-includes\/images\/media\/default.png"},"image":{"select":"Select Image","edit":"Edit Image","update":"Update Image","uploadedTo":"Uploaded to this post","all":"All images"},"file":{"select":"Select File","edit":"Edit File","update":"Update File","uploadedTo":"Uploaded to this post"},"relationship":{"min":"Minimum values reached ( {min} values )","max":"Maximum values reached ( {max} values )","loading":"Loading","empty":"No matches found"},"google_map":{"locating":"Locating","browser_support":"Sorry, this browser does not support geolocation"},"date_picker":{"closeText":"Done","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"monthStatus":"Show a different month","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"isRTL":false},"repeater":{"min":"Minimum rows reached ({min} rows)","max":"Maximum rows reached ({max} rows)"},"flexible_content":{"layout":"layout","layouts":"layouts","remove":"remove {layout}?","min":"This field requires at least {min} {identifier}","max":"This field has a limit of {max} {identifier}","min_layout":"This field requires at least {min} {label} {identifier}","max_layout":"Maximum {label} limit reached ({max} {identifier})","available":"{available} {label} {identifier} available (max {max})","required":"{required} {label} {identifier} required (min {min})"},"gallery":{"select":"Add Image to Gallery","edit":"Edit Image","update":"Update Image","uploadedTo":"Uploaded to this post","max":"Maximum selection reached"}};
+					</script>
+		<script type="text/javascript">
+acf.media.mime_types = {"jpg|jpeg|jpe":"image\/jpeg","gif":"image\/gif","png":"image\/png","bmp":"image\/bmp","tiff|tif":"image\/tiff","ico":"image\/x-icon","asf|asx":"video\/x-ms-asf","wmv":"video\/x-ms-wmv","wmx":"video\/x-ms-wmx","wm":"video\/x-ms-wm","avi":"video\/avi","divx":"video\/divx","flv":"video\/x-flv","mov|qt":"video\/quicktime","mpeg|mpg|mpe":"video\/mpeg","mp4|m4v":"video\/mp4","ogv":"video\/ogg","webm":"video\/webm","mkv":"video\/x-matroska","3gp|3gpp":"video\/3gpp","3g2|3gp2":"video\/3gpp2","txt|asc|c|cc|h|srt":"text\/plain","csv":"text\/csv","tsv":"text\/tab-separated-values","ics":"text\/calendar","rtx":"text\/richtext","css":"text\/css","htm|html":"text\/html","vtt":"text\/vtt","dfxp":"application\/ttaf+xml","mp3|m4a|m4b":"audio\/mpeg","ra|ram":"audio\/x-realaudio","wav":"audio\/wav","ogg|oga":"audio\/ogg","mid|midi":"audio\/midi","wma":"audio\/x-ms-wma","wax":"audio\/x-ms-wax","mka":"audio\/x-matroska","rtf":"application\/rtf","js":"application\/javascript","pdf":"application\/pdf","class":"application\/java","tar":"application\/x-tar","zip":"application\/zip","gz|gzip":"application\/x-gzip","rar":"application\/rar","7z":"application\/x-7z-compressed","psd":"application\/octet-stream","xcf":"application\/octet-stream","doc":"application\/msword","pot|pps|ppt":"application\/vnd.ms-powerpoint","wri":"application\/vnd.ms-write","xla|xls|xlt|xlw":"application\/vnd.ms-excel","mdb":"application\/vnd.ms-access","mpp":"application\/vnd.ms-project","docx":"application\/vnd.openxmlformats-officedocument.wordprocessingml.document","docm":"application\/vnd.ms-word.document.macroEnabled.12","dotx":"application\/vnd.openxmlformats-officedocument.wordprocessingml.template","dotm":"application\/vnd.ms-word.template.macroEnabled.12","xlsx":"application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","xlsm":"application\/vnd.ms-excel.sheet.macroEnabled.12","xlsb":"application\/vnd.ms-excel.sheet.binary.macroEnabled.12","xltx":"application\/vnd.openxmlformats-officedocument.spreadsheetml.template","xltm":"application\/vnd.ms-excel.template.macroEnabled.12","xlam":"application\/vnd.ms-excel.addin.macroEnabled.12","pptx":"application\/vnd.openxmlformats-officedocument.presentationml.presentation","pptm":"application\/vnd.ms-powerpoint.presentation.macroEnabled.12","ppsx":"application\/vnd.openxmlformats-officedocument.presentationml.slideshow","ppsm":"application\/vnd.ms-powerpoint.slideshow.macroEnabled.12","potx":"application\/vnd.openxmlformats-officedocument.presentationml.template","potm":"application\/vnd.ms-powerpoint.template.macroEnabled.12","ppam":"application\/vnd.ms-powerpoint.addin.macroEnabled.12","sldx":"application\/vnd.openxmlformats-officedocument.presentationml.slide","sldm":"application\/vnd.ms-powerpoint.slide.macroEnabled.12","onetoc|onetoc2|onetmp|onepkg":"application\/onenote","oxps":"application\/oxps","xps":"application\/vnd.ms-xpsdocument","odt":"application\/vnd.oasis.opendocument.text","odp":"application\/vnd.oasis.opendocument.presentation","ods":"application\/vnd.oasis.opendocument.spreadsheet","odg":"application\/vnd.oasis.opendocument.graphics","odc":"application\/vnd.oasis.opendocument.chart","odb":"application\/vnd.oasis.opendocument.database","odf":"application\/vnd.oasis.opendocument.formula","wp|wpd":"application\/wordperfect","key":"application\/vnd.apple.keynote","numbers":"application\/vnd.apple.numbers","pages":"application\/vnd.apple.pages"};
+</script>
+<script type="text/javascript">
+acf.fields.wysiwyg.toolbars = {"full":{"1":"bold,italic,strikethrough,bullist,numlist,blockquote,hr,alignleft,aligncenter,alignright,link,unlink,wp_more,spellchecker,fullscreen,wp_adv","2":"formatselect,underline,alignjustify,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help","3":"","4":""},"basic":{"1":"bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen"}};
+</script>
+<style type="text/css" id="acf-style"></style>		<script type="text/javascript">
+			acf.do_action('prepare');
+		</script>
+			<div id="wp-auth-check-wrap" class="hidden">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text">Close dialog</span></button>
+			<div id="wp-auth-check-form" class="loading" data-src="http://ico.dev/wp/wp-login.php?interim-login=1"></div>
+			<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0">Session expired</b></p>
+		<p><a href="http://ico.dev/wp/wp-login.php" target="_blank">Please log in again.</a>
+		The login page will open in a new window. After logging in you can close it and return to this page.</p>
+	</div>
+	</div>
+	</div>
+	<link rel='stylesheet' id='mediaelement-css'  href='http://ico.dev/wp/wp-includes/js/mediaelement/mediaelementplayer.min.css?ver=2.22.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='http://ico.dev/wp/wp-includes/js/mediaelement/wp-mediaelement.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='media-views-css'  href='http://ico.dev/wp/wp-includes/css/media-views.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='imgareaselect-css'  href='http://ico.dev/wp/wp-includes/js/imgareaselect/imgareaselect.css?ver=0.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='http://ico.dev/wp/wp-includes/js/thickbox/thickbox.css?ver=4.7.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/hoverIntent.js?ver=1.8.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var commonL10n = {"warnDelete":"You are about to permanently delete these items.\n  'Cancel' to stop, 'OK' to delete.","dismiss":"Dismiss this notice.","collapseMenu":"Collapse Main menu","expandMenu":"Expand Main menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/common.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/admin-bar.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var heartbeatSettings = {"nonce":"13b744a514"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/heartbeat.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var autosaveL10n = {"autosaveInterval":"60","blog_id":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/autosave.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/suggest.js?ver=1.1-20110113'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpAjax = {"noPerm":"Sorry, you are not allowed to do that.","broken":"An unidentified error has occurred."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-ajax-response.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/jquery.color.min.js?ver=2.1.1'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-lists.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var postBoxL10n = {"postBoxEmptyString":"Drag boxes here"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/postbox.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-a11y.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tagsSuggestL10n = {"tagDelimiter":",","removeTerm":"Remove term:","termSelected":"Term selected.","termAdded":"Term added.","termRemoved":"Term removed."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/tags-suggest.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/tags-box.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wordCountL10n = {"type":"words","shortcodes":["wp_caption","caption","gallery","playlist","audio","video","embed","acf","itre_news"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/word-count.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var postL10n = {"ok":"OK","cancel":"Cancel","publishOn":"Publish on:","publishOnFuture":"Schedule for:","publishOnPast":"Published on:","dateFormat":"%1$s %2$s, %3$s @ %4$s:%5$s","showcomm":"Show more comments","endcomm":"No more comments found.","publish":"Publish","schedule":"Schedule","update":"Update","savePending":"Save as Pending","saveDraft":"Save Draft","private":"Private","public":"Public","publicSticky":"Public, Sticky","password":"Password Protected","privatelyPublished":"Privately Published","published":"Published","saveAlert":"The changes you made will be lost if you navigate away from this page.","savingText":"Saving Draft\u2026","permalinkSaved":"Permalink saved"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/post.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/editor-expand.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/svg-painter.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var authcheckL10n = {"beforeunload":"Your session has expired. You can log in again from this page or go to the login page.","interval":"180"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-auth-check.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/jquery/jquery.ui.touch-punch.js?ver=0.2.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/iris.min.js?ver=1.0.7'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpColorPickerL10n = {"clear":"Clear","defaultString":"Default","pick":"Select Color","current":"Current Color"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/color-picker.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var coAuthorsPlusStrings = {"edit_label":"Edit","delete_label":"Remove","confirm_delete":"Are you sure you want to remove this author?","input_box_title":"Click to change this author, or drag to change their position","search_box_text":"Search for an author","help_text":"Click on an author to change them. Drag to change their order. Click on <strong>Remove<\/strong> to remove them."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/app/plugins/Co-Authors-Plus-master/js/co-authors-plus.js?ver=3.2.1'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/shortcode.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/backbone.min.js?ver=1.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-util.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-backbone.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpMediaModelsL10n = {"settings":{"ajaxurl":"\/wp\/wp-admin\/admin-ajax.php","post":{"id":0}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/media-models.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/plupload/plupload.full.min.js?ver=2.1.8'></script>
+<!--[if lt IE 8]>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/json2.js?ver=2015-05-03'></script>
+<![endif]-->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pluploadL10n = {"queue_limit_exceeded":"You have attempted to queue too many files.","file_exceeds_size_limit":"%s exceeds the maximum upload size for this site.","zero_byte_file":"This file is empty. Please try another.","invalid_filetype":"This file type is not allowed. Please try another.","not_an_image":"This file is not an image. Please try another.","image_memory_exceeded":"Memory exceeded. Please try another smaller file.","image_dimensions_exceeded":"This is larger than the maximum size. Please try another.","default_error":"An error occurred in the upload. Please try again later.","missing_upload_url":"There was a configuration error. Please contact the server administrator.","upload_limit_exceeded":"You may only upload 1 file.","http_error":"HTTP error.","upload_failed":"Upload failed.","big_upload_failed":"Please try uploading this file with the %1$sbrowser uploader%2$s.","big_upload_queued":"%s exceeds the maximum upload size for the multi-file uploader when used in your browser.","io_error":"IO error.","security_error":"Security error.","file_cancelled":"File canceled.","upload_stopped":"Upload stopped.","dismiss":"Dismiss","crunching":"Crunching\u2026","deleted":"moved to the trash.","error_uploading":"\u201c%s\u201d has failed to upload."};
+var _wpPluploadSettings = {"defaults":{"runtimes":"html5,flash,silverlight,html4","file_data_name":"async-upload","url":"\/wp\/wp-admin\/async-upload.php","flash_swf_url":"http:\/\/ico.dev\/wp\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/ico.dev\/wp\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":{"max_file_size":"26214400b","mime_types":[{"extensions":"jpg,jpeg,jpe,gif,png,bmp,tiff,tif,ico,asf,asx,wmv,wmx,wm,avi,divx,flv,mov,qt,mpeg,mpg,mpe,mp4,m4v,ogv,webm,mkv,3gp,3gpp,3g2,3gp2,txt,asc,c,cc,h,srt,csv,tsv,ics,rtx,css,htm,html,vtt,dfxp,mp3,m4a,m4b,ra,ram,wav,ogg,oga,mid,midi,wma,wax,mka,rtf,js,pdf,class,tar,zip,gz,gzip,rar,7z,psd,xcf,doc,pot,pps,ppt,wri,xla,xls,xlt,xlw,mdb,mpp,docx,docm,dotx,dotm,xlsx,xlsm,xlsb,xltx,xltm,xlam,pptx,pptm,ppsx,ppsm,potx,potm,ppam,sldx,sldm,onetoc,onetoc2,onetmp,onepkg,oxps,xps,odt,odp,ods,odg,odc,odb,odf,wp,wpd,key,numbers,pages"}]},"multipart_params":{"action":"upload-attachment","_wpnonce":"dabff53f1d"}},"browser":{"mobile":false,"supported":true},"limitExceeded":false};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/plupload/wp-plupload.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Download File":"Download File","Download Video":"Download Video","Play":"Play","Pause":"Pause","Captions\/Subtitles":"Captions\/Subtitles","None":"None","Time Slider":"Time Slider","Skip back %1 seconds":"Skip back %1 seconds","Video Player":"Video Player","Audio Player":"Audio Player","Volume Slider":"Volume Slider","Mute Toggle":"Mute Toggle","Unmute":"Unmute","Mute":"Mute","Use Up\/Down Arrow keys to increase or decrease volume.":"Use Up\/Down Arrow keys to increase or decrease volume.","Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds."}};
+var _wpmejsSettings = {"pluginPath":"\/wp\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=2.22.0'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/mediaelement/wp-mediaelement.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpMediaViewsL10n = {"url":"URL","addMedia":"Add Media","search":"Search","select":"Select","cancel":"Cancel","update":"Update","replace":"Replace","remove":"Remove","back":"Back","selected":"%d selected","dragInfo":"Drag and drop to reorder media files.","uploadFilesTitle":"Upload Files","uploadImagesTitle":"Upload Images","mediaLibraryTitle":"Media Library","insertMediaTitle":"Insert Media","createNewGallery":"Create a new gallery","createNewPlaylist":"Create a new playlist","createNewVideoPlaylist":"Create a new video playlist","returnToLibrary":"\u2190 Return to library","allMediaItems":"All media items","allDates":"All dates","noItemsFound":"No items found.","insertIntoPost":"Insert into post","unattached":"Unattached","trash":"Trash","uploadedToThisPost":"Uploaded to this post","warnDelete":"You are about to permanently delete this item.\n  'Cancel' to stop, 'OK' to delete.","warnBulkDelete":"You are about to permanently delete these items.\n  'Cancel' to stop, 'OK' to delete.","warnBulkTrash":"You are about to trash these items.\n  'Cancel' to stop, 'OK' to delete.","bulkSelect":"Bulk Select","cancelSelection":"Cancel Selection","trashSelected":"Trash Selected","untrashSelected":"Untrash Selected","deleteSelected":"Delete Selected","deletePermanently":"Delete Permanently","apply":"Apply","filterByDate":"Filter by date","filterByType":"Filter by type","searchMediaLabel":"Search Media","searchMediaPlaceholder":"Search media items...","noMedia":"No media files found.","attachmentDetails":"Attachment Details","insertFromUrlTitle":"Insert from URL","setFeaturedImageTitle":"Featured Image","setFeaturedImage":"Set featured image","createGalleryTitle":"Create Gallery","editGalleryTitle":"Edit Gallery","cancelGalleryTitle":"\u2190 Cancel Gallery","insertGallery":"Insert gallery","updateGallery":"Update gallery","addToGallery":"Add to gallery","addToGalleryTitle":"Add to Gallery","reverseOrder":"Reverse order","imageDetailsTitle":"Image Details","imageReplaceTitle":"Replace Image","imageDetailsCancel":"Cancel Edit","editImage":"Edit Image","chooseImage":"Choose Image","selectAndCrop":"Select and Crop","skipCropping":"Skip Cropping","cropImage":"Crop Image","cropYourImage":"Crop your image","cropping":"Cropping\u2026","suggestedDimensions":"Suggested image dimensions:","cropError":"There has been an error cropping your image.","audioDetailsTitle":"Audio Details","audioReplaceTitle":"Replace Audio","audioAddSourceTitle":"Add Audio Source","audioDetailsCancel":"Cancel Edit","videoDetailsTitle":"Video Details","videoReplaceTitle":"Replace Video","videoAddSourceTitle":"Add Video Source","videoDetailsCancel":"Cancel Edit","videoSelectPosterImageTitle":"Select Poster Image","videoAddTrackTitle":"Add Subtitles","playlistDragInfo":"Drag and drop to reorder tracks.","createPlaylistTitle":"Create Audio Playlist","editPlaylistTitle":"Edit Audio Playlist","cancelPlaylistTitle":"\u2190 Cancel Audio Playlist","insertPlaylist":"Insert audio playlist","updatePlaylist":"Update audio playlist","addToPlaylist":"Add to audio playlist","addToPlaylistTitle":"Add to Audio Playlist","videoPlaylistDragInfo":"Drag and drop to reorder videos.","createVideoPlaylistTitle":"Create Video Playlist","editVideoPlaylistTitle":"Edit Video Playlist","cancelVideoPlaylistTitle":"\u2190 Cancel Video Playlist","insertVideoPlaylist":"Insert video playlist","updateVideoPlaylist":"Update video playlist","addToVideoPlaylist":"Add to video playlist","addToVideoPlaylistTitle":"Add to Video Playlist","settings":{"tabs":[],"tabUrl":"http:\/\/ico.dev\/wp\/wp-admin\/media-upload.php?chromeless=1","mimeTypes":{"image":"Images","audio":"Audio","video":"Video"},"captions":true,"nonce":{"sendToEditor":"64f741bb31"},"post":{"id":119,"nonce":"91f62320c1"},"defaultProps":{"link":"none","align":"","size":""},"attachmentCounts":{"audio":0,"video":0},"embedExts":["mp3","ogg","wma","m4a","wav","mp4","m4v","webm","ogv","wmv","flv"],"embedMimes":{"mp3":"audio\/mpeg","ogg":"audio\/ogg","wma":"audio\/x-ms-wma","m4a":"audio\/mpeg","wav":"audio\/wav","mp4":"video\/mp4","m4v":"video\/mp4","webm":"video\/webm","ogv":"video\/ogg","wmv":"video\/x-ms-wmv","flv":"video\/x-flv"},"contentWidth":null,"months":[],"mediaTrash":0}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/media-views.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/media-editor.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/media-audiovideo.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/mce-view.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/imgareaselect/jquery.imgareaselect.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var imageEditL10n = {"error":"Could not load the preview image. Please reload the page and try again."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/image-edit.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var quicktagsL10n = {"closeAllOpenTags":"Close all open tags","closeTags":"close tags","enterURL":"Enter the URL","enterImageURL":"Enter the URL of the image","enterImageDescription":"Enter a description of the image","textdirection":"text direction","toggleTextdirection":"Toggle Editor Text Direction","dfw":"Distraction-free writing mode","strong":"Bold","strongClose":"Close bold tag","em":"Italic","emClose":"Close italic tag","link":"Insert link","blockquote":"Blockquote","blockquoteClose":"Close blockquote tag","del":"Deleted text (strikethrough)","delClose":"Close deleted text tag","ins":"Inserted text","insClose":"Close inserted text tag","image":"Insert image","ul":"Bulleted list","ulClose":"Close bulleted list tag","ol":"Numbered list","olClose":"Close numbered list tag","li":"List item","liClose":"Close list item tag","code":"Code","codeClose":"Close code tag","more":"Insert Read More tag"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/quicktags.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpLinkL10n = {"title":"Insert\/edit link","update":"Update","save":"Add Link","noTitle":"(no title)","noMatchesFound":"No results found.","linkSelected":"Link selected.","linkInserted":"Link inserted."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wplink.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/ico.dev\/wp\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-admin/js/media-upload.js?ver=4.7.2'></script>
+<script type='text/javascript' src='http://ico.dev/wp/wp-includes/js/wp-embed.js?ver=4.7.2'></script>
+
+		<script type="text/javascript">
+		tinyMCEPreInit = {
+			baseURL: "",
+			suffix: "",
+			dragDropUpload: true,			mceInit: {},
+			qtInit: {'content':{id:"content",buttons:"strong,em,link,block,del,ins,img,ul,ol,li,code,more,close,dfw"},'acf_content':{id:"acf_content",buttons:"strong,em,link,block,del,ins,img,ul,ol,li,code,more,close"}},
+			ref: {plugins:"",theme:"modern",language:""},
+			load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
+		};
+		</script>
+				<script type="text/javascript">
+		
+		( function() {
+			var init, id, $wrap;
+
+			if ( typeof tinymce !== 'undefined' ) {
+				for ( id in tinyMCEPreInit.mceInit ) {
+					init = tinyMCEPreInit.mceInit[id];
+					$wrap = tinymce.$( '#wp-' + id + '-wrap' );
+
+					if ( ( $wrap.hasClass( 'tmce-active' ) || ! tinyMCEPreInit.qtInit.hasOwnProperty( id ) ) && ! init.wp_skip_init ) {
+						tinymce.init( init );
+
+						if ( ! window.wpActiveEditor ) {
+							window.wpActiveEditor = id;
+						}
+					}
+				}
+			}
+
+			if ( typeof quicktags !== 'undefined' ) {
+				for ( id in tinyMCEPreInit.qtInit ) {
+					quicktags( tinyMCEPreInit.qtInit[id] );
+
+					if ( ! window.wpActiveEditor ) {
+						window.wpActiveEditor = id;
+					}
+				}
+			}
+		}());
+		</script>
+				<div id="wp-link-backdrop" style="display: none"></div>
+		<div id="wp-link-wrap" class="wp-core-ui" style="display: none" role="dialog" aria-labelledby="link-modal-title">
+		<form id="wp-link" tabindex="-1">
+		<input type="hidden" id="_ajax_linking_nonce" name="_ajax_linking_nonce" value="100dd39240" />		<h1 id="link-modal-title">Insert/edit link</h1>
+		<button type="button" id="wp-link-close"><span class="screen-reader-text">Close</span></button>
+		<div id="link-selector">
+			<div id="link-options">
+				<p class="howto" id="wplink-enter-url">Enter the destination URL</p>
+				<div>
+					<label><span>URL</span>
+					<input id="wp-link-url" type="text" aria-describedby="wplink-enter-url" /></label>
+				</div>
+				<div class="wp-link-text-field">
+					<label><span>Link Text</span>
+					<input id="wp-link-text" type="text" /></label>
+				</div>
+				<div class="link-target">
+					<label><span></span>
+					<input type="checkbox" id="wp-link-target" /> Open link in a new tab</label>
+				</div>
+			</div>
+			<p class="howto" id="wplink-link-existing-content">Or link to existing content</p>
+			<div id="search-panel">
+				<div class="link-search-wrapper">
+					<label>
+						<span class="search-label">Search</span>
+						<input type="search" id="wp-link-search" class="link-search-field" autocomplete="off" aria-describedby="wplink-link-existing-content" />
+						<span class="spinner"></span>
+					</label>
+				</div>
+				<div id="search-results" class="query-results" tabindex="0">
+					<ul></ul>
+					<div class="river-waiting">
+						<span class="spinner"></span>
+					</div>
+				</div>
+				<div id="most-recent-results" class="query-results" tabindex="0">
+					<div class="query-notice" id="query-notice-message">
+						<em class="query-notice-default">No search term specified. Showing recent items.</em>
+						<em class="query-notice-hint screen-reader-text">Search or use up and down arrow keys to select an item.</em>
+					</div>
+					<ul></ul>
+					<div class="river-waiting">
+						<span class="spinner"></span>
+					</div>
+ 				</div>
+ 			</div>
+		</div>
+		<div class="submitbox">
+			<div id="wp-link-cancel">
+				<button type="button" class="button">Cancel</button>
+			</div>
+			<div id="wp-link-update">
+				<input type="submit" value="Add Link" class="button button-primary" id="wp-link-submit" name="wp-link-submit">
+			</div>
+		</div>
+		</form>
+		</div>
+		
+<div class="clear"></div></div><!-- wpwrap -->
+<script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
+</body>
+</html>

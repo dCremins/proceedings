@@ -1,59 +1,89 @@
-sudo: false
+sudo: required
 language: php
-
 notifications:
   on_success: never
   on_failure: change
-
+addons:
+  artifacts:
+    debug: true
+    paths:
+      - ./tests/_output
+    target_paths: $TRAVIS_BUILD_NUMBER
+    working_dir: WORKING_DIR
+    bucket: travis-testing-cremins
+    s3_region: us-west-2
+    secret:
+      secure: "atN83qo70G3UfjIZduAtrDMT1gUV+HA5d+XmTUE5Qrtmve5Ej+hRXnQboViA3Dge2za6wdQizOt2NoDOpN88tmW5fnK5dAqY1mmR1+Mahv89Q4nqETcQApdqFDO8gVxE+h2MOHtOiuq0Nte7HQuTANoDV3OB7WfXYcDnBiTkwLz5fsKuKm14LsjFJSh9PGbh1xKiaRCI+0gosPgZxOrT/nXWmTRpmxlkSfmPIDjkYEgw6NvCtKnVyM2ML3N2ht5Y2PWegyMJwgLQvELTzn0hHktuc39Na4Y6qNHr5/Bs/2hxo3+1hZkxBgo/NeBgCe1BIPrcAsMJS8BJfGyQyxYwFElQLJ0CQ9XnIAunRvfA+bkSQ2CxDoI5MAWDkk0fi1B7E4DhY1bSlWQigRtfMC8yHlYxIP4QYvkIEqySXuGKSI4or2sHLzJ57pg6pYDmSdcCPA/85X/AYOqWLhXzVWd+qivfknv2BBaQxGpqcf2CuvrtQvlG8AEtFuVXjZBlpaazySOyNS8OK1v2CNZQ0v8x3qR+I6j3Y1Tr3yEYtBq/G8arbPnqjkI6+dt4cm0hB5zmROEnUwxOTE6/52/pXVC6kOvVsAZH7tDETsiDrIGDRDxrINJSYi6EuvXdhtKUXazaLImSEeVGDlocJwIC99k8I2bWqBqaNBeXQqYFkFObHJU="
+    key:
+      secure: "TkRCKSbSQBcDdjRT7UbixPeko0Lj6cCM2J68vOJdMYhbWMPfQnDEdLuxmYD6qh+Hz1o2+vwtcg7gohyMkTaEsVAOnj5RaBIvpdRgAVXE5x0QOyH5TYZVIGk+utp8IJCkJtjfKPAVx/DSAMkuN0bteklU+AbHa8g+Tq2xxrw4wDKpVYQp9XHTpmxYp4JXKI4NkEyQ7GQGzbbHBvi7MdJu5nTGsFyrJNkQIRch2X1ewNQHZKCeGTfKMwOWCE63ZyRw+g8aLo1AaJhQmaVNo8T5BfFTOntlZ7OpETTc2xNFBVhZueuKBMNm3qJSolZqeDT8WJTNoUjVqQ2a85WNlHhcIj5HYQhG1rnmEjRPxnBl5vPMX/WGy08UlBBjQWbFalzT4GVCfjCmZwlQHcdxyvTPQ2fN3w3cOTf9Q9ZUh/v8+pCSLqvg3FzldOcqgZvwS3GeBTlC2uFov7gLFRf5CRpzPNt1NIEQ8h3F+PraAOq6VOx48xXAmb2rvbCiUx2TS9mxyGJx/M3RhI669NxOWzjExjyYguh1piRQ9KAwdbPgMs12VdClsbvkpPF2oYZvq8sBgIG2Jzrk0O52W+JQ6jmRiQ0zXugNfuaF+z2Zf4u1Jl8lJns30H1IvxnhuP2h9heqtan7YFtEGLQbJZNlefnYby+uEvrkOz0kUzXtP3s7B84="
 php:
-  - 5.6
+- 5.6
+services:
+  - mysql
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
-  # WP_VERSION=3.7 WP_MULTISITE=0
-  # WP_VERSION=4.7.2 WP_MULTISITE=0
+  - wpDbName=test wpLoaderDbName=wploader wpDbPrefix=wp_ wpUrl=wordpress.dev wpAdminUsername=admin wpAdminPassword=admin
 
-matrix:
-    include:
-        - php: hhvm
-          env: WP_MULTISITE=0
-          sudo: required
-          dist: trusty
-          group: edge
-          addons:
-            apt:
-              packages:
-              - mysql-server-5.6
-              - mysql-client-core-5.6
-              - mysql-client-5.6
-        - php: nightly
-          env: WP_MULTISITE=0
-    allow_failures:
-        - php: hhvm
-        - php: nightly
-    fast_finish: true
+before_install:
+  - mysql -e "create database IF NOT EXISTS $wpDbName;" -uroot
+  - mysql -e "create database IF NOT EXISTS $wpLoaderDbName;" -uroot
+
+install:
+  - composer update --prefer-dist
 
 before_script:
-  # Codeception Stuff
-  # Define vars.
-  - export WP_VERSION=master
-  - export WP_DEVELOP_DIR=/tmp/wordpress
-  - export WP_CORE_DIR=/tmp/wordpress/src
-  - export WP_CEPT_SERVER='127.0.0.1:8888'
-  # Install WordPress
-  - source travis.sh
-  - install-wordpress
-  # Start up a web server.
-  - php -S "$WP_CEPT_SERVER" -t "$WP_CORE_DIR" >/dev/null 2>&1 &
-  # Start up the webdriver.
-  - phantomjs --webdriver=4444 >/dev/null 2>&1 &
-  # Install Codeception and WP Browser.
-  # Doing this last gives the webdriver and server time to start up.
-  - composer install --prefer-source
+  # set up folders
+  - mkdir -p $HOME/tools /tmp/wordpress
+
+  # install wp-cli
+  - wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P /tmp/tools/
+  - chmod +x /tmp/tools/wp-cli.phar && mv /tmp/tools/wp-cli.phar /tmp/tools/wp
+  - export PATH=$PATH:/tmp/tools:vendor/bin
+
+  # install Apache and WordPress setup scripts
+  - git clone https://github.com/lucatume/travis-apache-setup.git /tmp/tools/travis-apache-setup
+  - chmod +x /tmp/tools/travis-apache-setup/apache-setup.sh
+  - chmod +x /tmp/tools/travis-apache-setup/wp-install.sh
+  - ln -s /tmp/tools/travis-apache-setup/apache-setup.sh /tmp/tools/apache-setup
+  - ln -s /tmp/tools/travis-apache-setup/wp-install.sh /tmp/tools/wp-install
+
+  # download and install WordPress
+  - wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
+  - cd /tmp/wordpress
+
+  # move the plugin into WordPress folder
+  - mv $TRAVIS_BUILD_DIR /tmp/wordpress/wp-content/plugins/proceedings
+  - export PLUGIN_DIR="/tmp/wordpress/wp-content/plugins/proceedings"
+
+  # activate the plugin in WordPress
+  - wp plugin activate proceedings
+
+  # flush rewrite rules
+  - wp rewrite structure '%postname%' --hard
+
+  # export a dump of the just installed database to the _data folder
+  - cd /tmp/wordpress
+  - wp db export $PLUGIN_DIR/tests/_data/dump.sql
+
+  # set up Apache virtual host
+  - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
+
+  ## Add testing user
+  - wp user create AcceptanceTester test@test.com --role=editor --user_pass=newTest
+
+  ## Show Users
+  - wp user list --field=user_pass
+
+  # Get back to the plugin dir
+  - cd $PLUGIN_DIR
 
 script:
-  - vendor/bin/wpcept run
-
+  - codecept run
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
     repo_temp=$(mktemp -d)
@@ -67,3 +97,12 @@ after_success: |
     git push "https://$DEPLOY_KEY@github.com/dCremins/add-ons" \
         "master" >/dev/null 2>&1
   fi
+deploy:
+  provider: releases
+  api_key:
+    secure: UmSoS+WXwfBs3IB4jKiJrA1myVrBREFnF09czkLyTCG92SmpUZx4/eu4NmTEX/Em4MPedgMywvdBT73i2OywDVspRcgfn1+YDXmoiQyM5K3+dQJP8g549ZTJkjkWgXSvHyYsWxBMipDuZxoHAgIs9DhUC443XmuZT/VG99uD0edGU4DqEDVnb694EnkILQDjyqpgMYdcXLX+otuULBecsOWEoLpIX9CSmkDa1aCQdBz31zfnsfNhqZBW44CikXMYMRLyr+X4ZfN0o/UefSufM8oZn404wgArbThXIgRV50PuZSzAPGXDdf/dX28EwDspXOlOUjCPHj/59l9J1JZIxDFCGA6og7oaUhYTnjEhiYPRmzlp1clzvjXHjj6kSeH2vvT3tb/CP5QZuutttFRkWCC4/Dni8keVqX4TZSs63nL8pgWcewy2IngoZ5FdRJsQ+UVT868IsSNST1rCXlpJ4wPoyzvAor4cB6kidGO2JmTw0LzlpdSBVSAf96gt21SCu8tvwuTKlNLnyJOQF8C8catSDy/Bg0742GS4/qgpsgZQyD8NdE1sF1A4mVSA0jWXOlI86UGDmvFpIxEeU54712wsNicaFf3NXl2W5dJnVzuZRPoEmlQBVbNOUoXfm+aAfbYnh1VWgYY56FvXjWJJQgSWb+iWS0pGOMoPU4Qhh5g=
+  file:
+  - "./tests/_output/report.html"
+  skip_cleanup: true
+  on:
+    tags: true
