@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 language: php
 notifications:
   on_success: never
@@ -71,7 +71,7 @@ before_script:
   - wp db export $PLUGIN_DIR/tests/_data/dump.sql
 
   # set up Apache virtual host
-  - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
+  - env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
 
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
@@ -91,12 +91,3 @@ after_success: |
     git push "https://$DEPLOY_KEY@github.com/dCremins/add-ons" \
         "master" >/dev/null 2>&1
   fi
-deploy:
-  provider: releases
-  api_key:
-    secure: UmSoS+WXwfBs3IB4jKiJrA1myVrBREFnF09czkLyTCG92SmpUZx4/eu4NmTEX/Em4MPedgMywvdBT73i2OywDVspRcgfn1+YDXmoiQyM5K3+dQJP8g549ZTJkjkWgXSvHyYsWxBMipDuZxoHAgIs9DhUC443XmuZT/VG99uD0edGU4DqEDVnb694EnkILQDjyqpgMYdcXLX+otuULBecsOWEoLpIX9CSmkDa1aCQdBz31zfnsfNhqZBW44CikXMYMRLyr+X4ZfN0o/UefSufM8oZn404wgArbThXIgRV50PuZSzAPGXDdf/dX28EwDspXOlOUjCPHj/59l9J1JZIxDFCGA6og7oaUhYTnjEhiYPRmzlp1clzvjXHjj6kSeH2vvT3tb/CP5QZuutttFRkWCC4/Dni8keVqX4TZSs63nL8pgWcewy2IngoZ5FdRJsQ+UVT868IsSNST1rCXlpJ4wPoyzvAor4cB6kidGO2JmTw0LzlpdSBVSAf96gt21SCu8tvwuTKlNLnyJOQF8C8catSDy/Bg0742GS4/qgpsgZQyD8NdE1sF1A4mVSA0jWXOlI86UGDmvFpIxEeU54712wsNicaFf3NXl2W5dJnVzuZRPoEmlQBVbNOUoXfm+aAfbYnh1VWgYY56FvXjWJJQgSWb+iWS0pGOMoPU4Qhh5g=
-  file:
-  - "./tests/_output/report.html"
-  skip_cleanup: true
-  on:
-    tags: true
