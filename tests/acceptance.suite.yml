@@ -8,11 +8,19 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - \Helper\Acceptance
-        - WPBrowser
+        # WPBrowser
+        - WPWebDriver
         - WPDb
     config:
         WPBrowser:
             url: 'http://wordpress.dev'
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp-admin
+        WPWebDriver:
+            url: 'http://wordpress.dev'
+            browser: phantomjs
+            port: 4444
             adminUsername: admin
             adminPassword: admin
             adminUrl: /wp-admin
