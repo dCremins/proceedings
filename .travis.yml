@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 language: php
 notifications:
   on_success: never
@@ -71,7 +71,7 @@ before_script:
   - wp db export $PLUGIN_DIR/tests/_data/dump.sql
 
   # set up Apache virtual host
-  - env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
+  - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
 
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
