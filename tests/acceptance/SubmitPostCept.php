@@ -5,7 +5,7 @@ $I->wantTo('create and view a new proceeding as an admin');
 $I->amGoingTo('log in as an editor');
 $I->loginAs('AcceptanceTester', 'newTest');
 $I->makeScreenshot('dashboard');
-$I->notSee('ERROR');
+$I->dontSee('ERROR');
 $I->see('Dashboard', 'h1');
 
 $I->amGoingTo('create a new proceeding');
