@@ -11,6 +11,7 @@ modules:
         # WPBrowser
         - WPWebDriver
         - WPDb
+        - WPCLI
     config:
         WPBrowser:
             url: 'http://wordpress.dev'
