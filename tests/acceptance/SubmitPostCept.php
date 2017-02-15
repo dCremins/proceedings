@@ -2,6 +2,7 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('create and view a new proceeding as an admin');
 
+$I->cli('user create AcceptanceTester test@test.com --role=editor --user_pass=newTest');
 $notAdmin = $I->cli('user get 2 --field=login');
 $I->comment($notAdmin);
 
