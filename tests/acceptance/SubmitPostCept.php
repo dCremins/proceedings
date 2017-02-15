@@ -15,6 +15,7 @@ $I->see('Dashboard', 'h1');
 $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
 $I->click('Proceedings');
+$I->makeScreenshot('proceeding');
 $I->see('Proceedings', 'h1');
 $I->see('Add New');
 $I->click(['class' => 'page-title-action']);
@@ -27,7 +28,9 @@ $I->fillField('Speaker', 'Bob Schwartzman');
 
 $I->amGoingTo('publish and view a new proceeding');
 $I->click('#publish');
+$I->makeScreenshot('published');
 $I->see('Post published');
 $I->expect('proceeding is available on site');
 $I->click('View post');
+$I->makeScreenshot('content');
 $I->see('Test content');
