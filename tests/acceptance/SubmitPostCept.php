@@ -3,7 +3,7 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('create and view a new proceeding as an admin');
 
 $I->amGoingTo('log in as an editor');
-$I->loginAs('AcceptanceTester', 'newTest');
+$I->loginAs('AcceptanceTester', '$P$Bkh.5K4LBDj75TCqHLbBNLrU467T611');
 $I->makeScreenshot('dashboard');
 $I->dontSee('ERROR');
 $I->see('Dashboard', 'h1');
