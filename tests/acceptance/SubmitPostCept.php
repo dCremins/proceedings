@@ -25,7 +25,7 @@ $I->waitForElementVisible('#content');
 $I->fillField('#content', 'Test content! Imagine this is an abstract.');
 $I->selectOption('Session', '101');
 $I->click('//*[@id="acf-group_588fa4019d4bf-2"]/div/div[2]/div[2]/div/input[2]');
-$I->fillField('Session Date', '2/16/17');
+$I->fillField('//*[@id="acf-group_588fa4019d4bf-2"]/div/div[2]/div[2]/div/input[2]', '2/16/17');
 $I->selectOption('//*[@id="acf-field_588fa508b8276"]', '202');
 $I->fillField('Speaker', 'Bob Schwartzman');
 
