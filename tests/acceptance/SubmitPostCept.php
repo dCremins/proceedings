@@ -21,7 +21,7 @@ $I->click('Proceedings');
 $I->makeScreenshot('proceeding3');
 $I->see('Proceedings', 'h1');
 $I->see('Add New', ['css' => 'a']);
-$I->see('Add New');
+$I->click('Add New');
 $I->makeScreenshot('add new');
 $I->fillField('Enter title here', 'newTest');
 $I->fillField('content', 'Test content! Imagine this is an abstract.');
