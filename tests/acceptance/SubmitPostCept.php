@@ -16,9 +16,11 @@ $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
 $I->click('Proceedings');
 $I->makeScreenshot('proceeding');
-$I->see('Add New');
-$I->click('Add New');
-$I->makeScreenshot('add-new');
+$I->waitForElement('#wp-heading-inline', 30); // secs
+$I->makeScreenshot('proceeding2');
+$I->see(['class' => 'page-title-action']);
+$I->click(['class' => 'page-title-action']);
+$I->makeScreenshot('add new');
 $I->fillField('Enter title here', 'newTest');
 $I->fillField('content', 'Test content! Imagine this is an abstract.');
 $I->selectOption('Session', '101');
