@@ -8,6 +8,7 @@ addons:
     debug: true
     paths:
       - ./tests/_output/debug
+      - ./tests/_log
     target_paths: $TRAVIS_BUILD_NUMBER
     working_dir: WORKING_DIR
     bucket: travis-testing-cremins
