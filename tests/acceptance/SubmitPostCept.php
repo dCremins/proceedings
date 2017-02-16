@@ -16,7 +16,6 @@ $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
 $I->click('Proceedings');
 $I->makeScreenshot('proceeding');
-$I->see('Proceedings', 'h1');
 $I->see('Add New');
 $I->click(['class' => 'page-title-action']);
 $I->fillField('Enter title here', 'newTest');
