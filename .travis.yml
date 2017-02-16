@@ -7,7 +7,7 @@ addons:
   artifacts:
     debug: true
     paths:
-      - ./tests/_output
+      - ./tests/_output/debug
     target_paths: $TRAVIS_BUILD_NUMBER
     working_dir: WORKING_DIR
     bucket: travis-testing-cremins
