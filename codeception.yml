@@ -10,7 +10,7 @@ settings:
     memory_limit: 1024M
 extensions:
     enabled:
-        Codeception\Extension\Phantoman
+        - Codeception\Extension\Phantoman
         Codeception\Extension\Recorder:
           module: WPWebDriver
     config:
