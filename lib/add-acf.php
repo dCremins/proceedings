@@ -37,5 +37,5 @@ function my_acf_settings_dir($dir)
 // 4. Include ACF
 //if (!is_plugin_active('advanced-custom-fields-pro/acf.php')) {
     //include_once(dirname(__FILE__) . './../acf/acf.php');
-    require_once(plugin_dir_path(dirname(__FILE__)) . 'acf/acf.php');
+    include_once(plugin_dir_path(dirname(__FILE__)) . 'acf/acf.php');
 //}
