@@ -30,12 +30,12 @@ function my_acf_settings_dir($dir)
 // add_filter('acf/settings/show_admin', '__return_false');
 
 /* Checks to see if "is_plugin_active" function exists and if not load the php file that includes that function */
-if (!function_exists('is_plugin_active')) {
-    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
-}
+//if (!function_exists('is_plugin_active')) {
+//    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+//}
 
 // 4. Include ACF
-if (!is_plugin_active('advanced-custom-fields-pro/acf.php')) {
+//if (!is_plugin_active('advanced-custom-fields-pro/acf.php')) {
     //include_once(dirname(__FILE__) . './../acf/acf.php');
     require_once(plugin_dir_path(dirname(__FILE__)) . 'acf/acf.php');
-}
+//}
