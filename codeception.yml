@@ -11,6 +11,7 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\Phantoman
+        - Codeception\Extension\Recorder
     config:
         Codeception\Extension\Phantoman:
             path: './bin/phantomjs'
