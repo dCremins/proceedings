@@ -17,8 +17,10 @@ $I->see('Proceedings');
 $I->makeScreenshot('proceeding');
 $I->click('Proceedings');
 $I->makeScreenshot('proceeding2');
-$I->waitForElement('#wp-heading-inline', 60); // secs
+$I->click('Proceedings');
 $I->makeScreenshot('proceeding3');
+$I->waitForElement('#wp-heading-inline', 60); // secs
+$I->makeScreenshot('proceeding4');
 $I->see(['class' => 'page-title-action']);
 $I->click(['class' => 'page-title-action']);
 $I->makeScreenshot('add new');
