@@ -46,11 +46,11 @@ before_script:
   - export PATH=$PATH:/tmp/tools:vendor/bin
 
   # install Apache and WordPress setup scripts
-  # chmod +x $TRAVIS_BUILD_DIR/wp-install.sh
-  # ln -s $TRAVIS_BUILD_DIR/wp-install.sh /tmp/tools/wp-install
+  - chmod +x $TRAVIS_BUILD_DIR/wp-install.sh
+  - ln -s $TRAVIS_BUILD_DIR/wp-install.sh /tmp/tools/wp-install
 
   # download and install WordPress
-  - $TRAVIS_BUILD_DIR/wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
+  - wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
   - cd /tmp/wordpress
 
   # move the plugin into WordPress folder
@@ -67,11 +67,11 @@ before_script:
   - cd /tmp/wordpress
   - wp db export $PLUGIN_DIR/tests/_data/dump.sql
 
-  # set up Apache virtual host
-  - php -S "127.0.0.1" -t "/tmp/wordpress" >/dev/null 2>&1
-
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
+
+  # Web Server
+  - php -S "127.0.0.1:8888" -t "/tmp/wordpress/src" >/dev/null 2>&1 &
 
 script:
   - codecept run
