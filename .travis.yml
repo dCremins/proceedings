@@ -46,10 +46,8 @@ before_script:
   - export PATH=$PATH:/tmp/tools:vendor/bin
 
   # install Apache and WordPress setup scripts
-  - git clone https://github.com/lucatume/travis-apache-setup.git /tmp/tools/travis-apache-setup
-  - chmod +x /tmp/tools/travis-apache-setup/apache-setup.sh
+  - mv $TRAVIS_BUILD_DIR/wp-install.sh /tmp/tools/travis-apache-setup
   - chmod +x /tmp/tools/travis-apache-setup/wp-install.sh
-  - ln -s /tmp/tools/travis-apache-setup/apache-setup.sh /tmp/tools/apache-setup
   - ln -s /tmp/tools/travis-apache-setup/wp-install.sh /tmp/tools/wp-install
 
   # download and install WordPress
@@ -71,7 +69,7 @@ before_script:
   - wp db export $PLUGIN_DIR/tests/_data/dump.sql
 
   # set up Apache virtual host
-  - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
+  - php -S "127.0.0.1" -t "/tmp/wordpress" >/dev/null 2>&1
 
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
