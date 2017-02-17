@@ -7,4 +7,34 @@
 class_name: AcceptanceTester
 modules:
     enabled:
+        - \Helper\Acceptance
+        # WPBrowser
         - WPWebDriver
+        - WPDb
+        - WPCLI
+    config:
+        WPBrowser:
+            url: 'http://wordpress.dev'
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp-admin
+        WPWebDriver:
+            url: 'http://wordpress.dev'
+            browser: phantomjs
+            port: 4444
+            window_size: '1024x768'
+            adminUsername: admin
+            adminPassword: admin
+            adminUrl: /wp-admin
+        WPCLI:
+            path: /tmp/wordpress
+            throw: true
+        WPDb:
+            dsn: 'mysql:host=localhost;dbname=test'
+            user: root
+            password: ''
+            dump: tests/_data/dump.sql
+            populate: true
+            cleanup: true
+            url: 'http://wordpress.dev'
+            tablePrefix: wp_

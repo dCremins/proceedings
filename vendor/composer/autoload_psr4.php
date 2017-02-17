@@ -30,6 +30,7 @@ return array(
     'Seld\\CliPrompt\\' => array($vendorDir . '/seld/cli-prompt/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PhantomInstaller\\Test\\' => array($vendorDir . '/jakoch/phantomjs-installer/tests'),
     'MikeMcLin\\WpPassword\\' => array($vendorDir . '/mikemclin/laravel-wp-password/src'),
     'JsonSchema\\' => array($vendorDir . '/justinrainbow/json-schema/src/JsonSchema'),
     'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
@@ -44,6 +45,6 @@ return array(
     'Composer\\Semver\\' => array($vendorDir . '/composer/semver/src'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'Composer\\' => array($vendorDir . '/composer/composer/src/Composer'),
-    'Codeception\\Extension\\' => array($vendorDir . '/codeception/codeception/ext'),
+    'Codeception\\Extension\\' => array($vendorDir . '/codeception/codeception/ext', $vendorDir . '/site5/phantoman/src'),
     'Codeception\\' => array($vendorDir . '/codeception/codeception/src/Codeception', $vendorDir . '/lucatume/wp-browser/src/Codeception'),
 );
