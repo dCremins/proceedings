@@ -46,11 +46,11 @@ before_script:
   - export PATH=$PATH:/tmp/tools:vendor/bin
 
   # install Apache and WordPress setup scripts
-  - chmod +x $TRAVIS_BUILD_DIR/wp-install.sh
-  - ln -s $TRAVIS_BUILD_DIR/wp-install.sh /tmp/tools/wp-install
+  # chmod +x $TRAVIS_BUILD_DIR/wp-install.sh
+  # ln -s $TRAVIS_BUILD_DIR/wp-install.sh /tmp/tools/wp-install
 
   # download and install WordPress
-  - wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
+  - $TRAVIS_BUILD_DIR/wp-install --dir=/tmp/wordpress --dbname="$wpDbName" --dbuser="root" --dbpass="" --dbprefix=wp_ --domain="wordpress.dev" --title="Test" --admin_user=admin --admin_password=admin --admin_email=admin@wordpress.dev --theme=twentysixteen --empty
   - cd /tmp/wordpress
 
   # move the plugin into WordPress folder
