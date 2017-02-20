@@ -12,7 +12,6 @@ $I->amOnPluginsPage();
 $I->seePluginActivated('icoet-proceedings');
 
 $I->expectTo('see proceedings as a post option');
-$I->amOnPage('/');
 $I->see('Proceedings');
 
 $I->expectTo('see custom fields as an option');
