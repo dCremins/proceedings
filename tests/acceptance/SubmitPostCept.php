@@ -6,6 +6,8 @@ $I->amGoingTo('create an editor user');
 $I->cli('user create AcceptanceTester test@test.com --role=editor --user_pass=newTest');
 
 $I->amGoingTo('log in as an editor');
+$I->amOnPage('/login');
+$I->waitForElement('#loginform', 60); // secs
 $I->loginAs('AcceptanceTester', 'newTest');
 $I->dontSee('ERROR');
 $I->see('Dashboard', 'h1');
@@ -35,4 +37,7 @@ $I->see('Post published');
 $I->expect('proceeding is available on site');
 $I->click('View post');
 $I->see('Test content');
-?>
+
+$I->moveMouseOver(['css' => '#wp-admin-bar-my-account']);
+$I->waitForElement('#wp-admin-bar-logout', 60); // secs
+$I->click('#wp-admin-bar-logout');
