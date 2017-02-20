@@ -2,6 +2,7 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('See that plugin and acf fields are installed correctly');
 
+$I->amOnPage('/');
 $I->amGoingTo('login as an administrator');
 $I->loginAsAdmin();
 $I->dontSee('ERROR');
@@ -15,7 +16,7 @@ $I->expectTo('see proceedings as a post option');
 $I->see('Proceedings');
 
 $I->expectTo('see custom fields as an option');
-$I->see('Custom Fields');
-$I->doubleClick('Custom Fields');
+$I->see('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
+$I->doubleClick('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
 $I->see('Field Groups', 'h1');
 $I->see('Proceeding Info');
