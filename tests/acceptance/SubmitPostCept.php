@@ -17,7 +17,7 @@ $I->click('Proceedings');
 $I->see('Proceedings', 'h1');
 $I->see('Add New', '//*[@id="wpbody-content"]/div[3]/a');
 $I->click('//*[@id="wpbody-content"]/div[3]/a');
-$I->fillField('Enter title here', 'new Test');
+$I->fillField('Enter title here', 'Some kind of title!');
 $I->seeElement('#content-html');
 $I->click('#content-html');
 $I->waitForElementVisible('#content');
