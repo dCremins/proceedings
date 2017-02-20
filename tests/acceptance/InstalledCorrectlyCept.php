@@ -9,7 +9,7 @@ $I->see('Dashboard', 'h1');
 
 $I->expect('proceedings plugin is installed');
 $I->amOnPluginsPage();
-$I->seePluginActivated('proceedings');
+$I->seePluginActivated('ICOET Proceedings');
 
 $I->expectTo('see proceedings as a post option');
 $I->amOnPage('/');
