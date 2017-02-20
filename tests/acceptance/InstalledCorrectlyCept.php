@@ -9,6 +9,7 @@ $I->see('Dashboard', 'h1');
 
 $I->expect('proceedings plugin is installed');
 $I->amOnPluginsPage();
+$I->activate('proceedings');
 $I->seePluginActivated('proceedings');
 
 $I->expectTo('see proceedings as a post option');

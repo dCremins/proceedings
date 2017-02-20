@@ -32,7 +32,7 @@ $I->fillField('Speaker', 'Bob Schwartzman');
 $I->amGoingTo('publish and view a new proceeding');
 $I->click('#publish');
 $I->wait(30);
-$I->see('.notice-success');
+$I->seeElement('.notice-success');
 $I->expect('proceeding is available on site');
 $I->click('View post');
 $I->see('Test content');
