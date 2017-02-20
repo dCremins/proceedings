@@ -35,3 +35,4 @@ $I->see('Post published');
 $I->expect('proceeding is available on site');
 $I->click('View post');
 $I->see('Test content');
+?>

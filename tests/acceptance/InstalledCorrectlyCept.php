@@ -20,3 +20,4 @@ $I->see('Custom Fields');
 $I->doubleClick('Custom Fields');
 $I->see('Field Groups', 'h1');
 $I->see('Proceeding Info');
+?>
