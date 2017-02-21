@@ -19,5 +19,5 @@ $I->expectTo('see custom fields as an option');
 $I->see('Custom Fields');
 $I->seeElement('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
 $I->doubleClick('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
-$I->see('Field Groups');
-$I->see('Proceeding Info');
+$I->seeElement('//*[@id="acf-field-group-wrap"]/h1');
+$I->seeElement('//*[@id="post-4"]/td[1]/strong/a');
