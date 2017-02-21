@@ -11,11 +11,11 @@ Author URI: http://octopusoddments.com
 
 // Add all files in lib folder into array
 $include = [
+  '/lib/add-acf.php',           // Register Views
   '/lib/cpt.php',               // Register Post Type
   '/lib/acf.php',               // Register Fields
   '/lib/templates.php',         // Register Views
-  '/lib/author-filter.php',     // Alter Co-Author List Display
-  '/lib/add-acf.php'            // Register Views
+  '/lib/author-filter.php'      // Alter Co-Author List Display
 ];
 
 // Require Once each file in the array
