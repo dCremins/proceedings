@@ -1,6 +1,6 @@
 <?php
 $I = new AcceptanceTester($scenario);
-$$I->wantTo('See that plugin and acf fields are installed');
+$I->wantTo('See that plugin and acf fields are installed');
 
 $I->amGoingTo('login as an administrator');
 $I->loginAsAdmin();
