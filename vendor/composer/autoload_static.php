@@ -16,8 +16,8 @@ class ComposerStaticInite7040f08bfaf48dc6780b126b57f2f5f
         '8cd2fca4db21bffce1ad0612f7caeec4' => __DIR__ . '/..' . '/ramsey/array_column/src/array_column.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
         'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
-        'e2b8090921f5e293ca4eb0c107749811' => __DIR__ . '/..' . '/lucatume/wp-browser/src/tad/WPBrowser/functions.php',
         'f084d01b0a599f67676cffef638aa95b' => __DIR__ . '/..' . '/smarty/smarty/libs/bootstrap.php',
+        'e2b8090921f5e293ca4eb0c107749811' => __DIR__ . '/..' . '/lucatume/wp-browser/src/tad/WPBrowser/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (

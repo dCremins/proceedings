@@ -73,12 +73,6 @@ before_script:
   # set up Apache virtual host
   - sudo env "PATH=$PATH" apache-setup --host="127.0.0.1" --url="$wpUrl" --dir="/tmp/wordpress"
 
-  ## Add testing user
-  - wp user create AcceptanceTester test@test.com --role=editor --user_pass=newTest
-
-  ## Show Users
-  - wp user list --field=user_pass
-
   # Get back to the plugin dir
   - cd $PLUGIN_DIR
 
