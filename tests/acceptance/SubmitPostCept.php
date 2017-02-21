@@ -35,6 +35,8 @@ $I->wait(30);
 $I->see('Post published', '//*[@id="message"]');
 $I->expect('proceeding is available on site');
 
+$I->see('All Proceedings');
+$I->click('All Proceedings');
 $I->amOnPage('/');
 $I->amOnPage('/proceedings');
 $I->amOnPage('/proceedings/some-kind-of-title');
