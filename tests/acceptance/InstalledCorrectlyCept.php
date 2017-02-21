@@ -16,7 +16,11 @@ $I->expectTo('see proceedings as a post option');
 $I->see('Proceedings');
 
 $I->expectTo('see custom fields as an option');
-$I->see('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
+$I->see('Custom Fields');
+$I->seeElement('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
 $I->doubleClick('//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a');
 $I->see('Field Groups', 'h1');
 $I->see('Proceeding Info');
+//*[@id="toplevel_page_edit-post_type-acf"]/a
+//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a
+//*[@id="toplevel_page_edit-post_type-acf-field-group"]/a
