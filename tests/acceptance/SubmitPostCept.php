@@ -36,5 +36,6 @@ $I->see('Post published', '//*[@id="message"]');
 $I->expect('proceeding is available on site');
 
 $I->amOnPage('/');
-$I->amOnPage('/some-kind-of-title');
+$I->amOnPage('/proceedings');
+$I->amOnPage('/proceedings/some-kind-of-title');
 $I->see('Test content');
