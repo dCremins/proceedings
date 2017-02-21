@@ -14,7 +14,7 @@ class ProceedingsCest
     // tests
     public function checkPlugin(AcceptanceTester $I)
     {
-        $I->wantTo('See that plugin and acf fields are installed correctly');
+        $I->wantTo('See that plugin and acf fields are installed');
 
         $I->amOnPage('/');
         $I->amGoingTo('login as an administrator');
@@ -35,7 +35,7 @@ class ProceedingsCest
 
     public function newProceeding(AcceptanceTester $I)
     {
-        $I->wantTo('create and view a new proceeding as an admin');
+        $I->wantTo('create a new proceeding as an editor');
 
         $I->amGoingTo('create an editor user');
         $I->cli('user create AcceptanceTester test@test.com --role=editor --user_pass=newTest');
@@ -66,7 +66,7 @@ class ProceedingsCest
 
         $I->amGoingTo('publish and view a new proceeding');
         $I->click('#publish');
-        $I->wait(30);
+        $I->wait(15);
         $I->see('Post published', '//*[@id="message"]');
 
         $I->expect('proceeding is available on site');

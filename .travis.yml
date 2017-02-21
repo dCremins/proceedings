@@ -83,7 +83,7 @@ before_script:
   - cd $PLUGIN_DIR
 
 script:
-  - codecept run -vvv --debug
+  - codecept run
 after_success: |
   if [ "$TRAVIS_BRANCH" == "development" ]; then
     repo_temp=$(mktemp -d)
