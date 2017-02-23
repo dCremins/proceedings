@@ -57,19 +57,47 @@
          )
         ));
 ?>
-        <div class="tabs">
-          <ul class="schedule">
-            <li><a href="#1-19-17">Jan 19th</a></li>
-            <li><a href="#2-3-17">Feb 3rd</a></li>
-            <li><a href="#2-8-17">Feb 8th</a></li>
-            <li><a href="#2-26-17">Feb 26th</a></li>
-          </ul>
+
         <?php
+
+        //echo date("M jS", strtotime(current_time( 'mysql' )));
+
         if ($the_query->have_posts()) :
             while ($the_query->have_posts()) :
                 $the_query->the_post();
                 $eventdate = date("n-j-y", strtotime(get_field('session_date')));
                 $session = get_field('session');
+
+                // If the date is not in the tabs array, add it
+                /*
+                if (!isset($tabs[$eventdate])) {
+                    $tabs[] = date("M jS", strtotime(get_field('session_date')));
+                }
+                */
+
+                // If the date is not in the tabs array, add it
+                if (!isset($currentDay) || $currentDay != $eventdate) {
+                    $currentDay = $eventdate;
+                }
+
+                // If the date is not in the tabs array, add it
+                if (!isset($currentSession) || $currentSession != $session) {
+                    $currentSession = $session;
+                }
+
+                $tabs[$currentDay][$currentSession][] = [
+                  'title' => get_the_title(),
+                  'session' => get_field('session'),
+                  'speaker' => get_field('speaker'),
+                  'date' => get_field('session_date'),
+                  'room' => get_field('room')[0],
+                  'file' => get_field('proceeding_file'),
+                  'author' => get_the_title(),
+                  'abstract' => get_the_content()
+                ];
+
+
+                /*
                 if (!isset($tabs[$eventdate])) {
                     $tabs[$eventdate] = get_field('session_date');
                 }
@@ -107,9 +135,36 @@
                     echo 'Authors:' . the_author_posts_link();
                 }
                 echo '</article>';
+
+                */
             endwhile;
         endif;
-        echo var_dump($tabs); ?>
+
+        // Set up Day Tabs
+        echo '<div class="tabs"><ul class="schedule">';
+        foreach ($tabs as $day => $session) {
+            $t = date_create_from_format("n-j-y", $day);
+            echo '<li><a href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M jS") . '</a></li>';
+        }
+        echo '</ul>';
+
+        // Set up day blocks
+        foreach ($tabs as $day => $session) {
+            $t = date_create_from_format("n-j-y", $day);
+            echo '<div id="' . date_format($t, "n-j-y") . '">';
+            // Set up session headers
+            foreach ($session as $sess => $num) {
+                echo '<div class="title"><h1>' . $sess . ' | ' . $num[0]['room'] . '</h1></div>';
+                // display post information
+                foreach ($num as $post) {
+                    echo '<h2>' . $post['title'] . ' | ' . $post['room'] . '</h2>';
+                    echo '<p>' . $post['author'] . '</p>';
+                }
+            }
+            echo '</div>';
+        }
+
+        echo '</div>';?>
         </div>
      </main>
    </div>
