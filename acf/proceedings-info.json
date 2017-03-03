@@ -1,161 +1,185 @@
 {
-        "key": "group_588fa4019d4bf-2",
-        "title": "Proceeding Info",
-        "fields": [
-            {
-                "key": "field_588fa468a178c",
-                "label": "Session",
-                "name": "session",
-                "type": "select",
-                "instructions": "Select One",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "101": 101,
-                    "102": 102,
-                    "103": 103,
-                    "104": 104,
-                    "201": 201,
-                    "202": 202,
-                    "203": 203,
-                    "301": 301,
-                    "302": 302,
-                    "303": 303,
-                    "304": 304,
-                    "401": 401,
-                    "402": 402,
-                    "403": 403,
-                    "404": 404,
-                    "405": 405,
-                    "501": 501,
-                    "502": 502
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "ajax": 0,
-                "placeholder": "",
-                "disabled": 0,
-                "readonly": 0
+    "key": "group_588fa4019d4bf-2",
+    "title": "Proceeding Info",
+    "fields": [
+        {
+            "key": "field_58b882e125956",
+            "label": "Availability",
+            "name": "availability",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            {
-                "key": "field_588fa4e6b8275",
-                "label": "Session Date",
-                "name": "session_date",
-                "type": "date_picker",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "F j, Y",
-                "return_format": "F j, Y",
-                "first_day": 1
+            "choices": {
+                "Pre-Registration Required": "Pre-Registration Required",
+                "Open to all ICOET Participants": "Open to all ICOET Participants"
             },
-            {
-                "key": "field_588fa508b8276",
-                "label": "Room",
-                "name": "room",
-                "type": "select",
-                "instructions": "Select One",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "201": 201,
-                    "202": 202,
-                    "304 A": "304 A",
-                    "304 B": "304 B",
-                    "304 AB": "304 AB",
-                    "305 A": "305 A",
-                    "305 B": "305 B",
-                    "305 AB": "305 AB",
-                    "306 A": "306 A",
-                    "306 B": "306 B",
-                    "306 C": "306 C",
-                    "306 ABC": "306 ABC",
-                    "Ballroom A": "Ballroom A",
-                    "Ballroom B": "Ballroom B",
-                    "Convention Center Lobby": "Convention Center Lobby"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 1,
-                "ui": 0,
-                "ajax": 0,
-                "placeholder": "",
-                "disabled": 0,
-                "readonly": 0
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "Open to all ICOET Participants",
+            "layout": "vertical"
+        },
+        {
+            "key": "field_588fa468a178c",
+            "label": "Session",
+            "name": "session",
+            "type": "select",
+            "instructions": "Select One",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            {
-                "key": "field_588fa5eeb8277",
-                "label": "Proceeding File",
-                "name": "proceeding_file",
-                "type": "file",
-                "instructions": "Upload File",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": ""
+            "choices": {
+                "Pre-Conference Workshop": "Pre-Conference Workshop",
+                "102": 102,
+                "103": 103,
+                "104": 104,
+                "201": 201,
+                "202": 202,
+                "203": 203,
+                "TRB ADC30 Committee Meeting": "TRB ADC30 Committee Meeting",
+                "302": 302,
+                "303": 303,
+                "304": 304,
+                "401": 401,
+                "402": 402,
+                "403": 403,
+                "404": 404,
+                "405": 405,
+                "501": 501,
+                "502": 502
             },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_588fa4e6b8275",
+            "label": "Session Date",
+            "name": "session_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_588fa508b8276",
+            "label": "Room",
+            "name": "room",
+            "type": "select",
+            "instructions": "Select One",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "201": 201,
+                "202": 202,
+                "304 A": "304 A",
+                "304 B": "304 B",
+                "304 AB": "304 AB",
+                "305 A": "305 A",
+                "305 B": "305 B",
+                "305 AB": "305 AB",
+                "306 A": "306 A",
+                "306 B": "306 B",
+                "306 C": "306 C",
+                "306 ABC": "306 ABC",
+                "Ballroom A": "Ballroom A",
+                "Ballroom B": "Ballroom B",
+                "Convention Center Lobby": "Convention Center Lobby"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_588fa5eeb8277",
+            "label": "Proceeding File",
+            "name": "proceeding_file",
+            "type": "file",
+            "instructions": "Upload File",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5890fa8b78be9",
+            "label": "Speaker",
+            "name": "speaker",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
             {
-                "key": "field_5890fa8b78be9",
-                "label": "Speaker",
-                "name": "speaker",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": "",
-                "readonly": 0,
-                "disabled": 0
+                "param": "post_type",
+                "operator": "==",
+                "value": "proceedings"
             }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "proceedings"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "side",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": 1,
-        "description": ""
-    }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "local": "json"
+}

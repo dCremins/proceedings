@@ -36,14 +36,13 @@
    <div class="content">
      <main class="main">
 
-        <?php $mypost = array('post_type' => 'proceedings',);
-        //$loop = new WP_Query($mypost);
-        //while ($loop->have_posts()) : $loop->the_post();
-        while (have_posts()) :
-            the_post(); ?>
+        <?php while (have_posts()) :
+            the_post();
+            $session = get_field('session');
+        ?>
        <article <?php post_class(); ?>>
          <header>
-          <h1 class="entry-title"> <?php the_title(); ?></h1>
+          <h1 class="entry-title accent color"> <?php the_title(); ?></h1>
         </header>
         <div class="row">
           <div class="entry-content col-8">
@@ -57,15 +56,25 @@
             </h2>
             <?php the_content(); ?>
           </div>
+
           <div class="entry-info col-4">
-            <h3>Session <?php the_field('session'); ?></h3>
-            <h4><?php the_field('date'); ?><br />
-              Room <?php the_field('room'); ?> | <?php the_field('date'); ?></h4>
+            <h3><?php echo get_the_title($session); ?></h3>
+            <h4 class="brand color">
+                <?php echo date("l M jS", strtotime(get_field('date', $session))); ?>
+                <br />
+                Room <?php the_field('room', $session); ?> |
+                <?php the_field('start_time', $session); ?> - <?php the_field('end_time', $session); ?>
+            </h4>
+            <?php if (get_field('speaker')) { ?>
             <h5>Speaker: <?php the_field('speaker'); ?></h5>
-            <?php $file = get_field('proceeding_file');?>
-            <h6><a href="<?php echo $file['url']; ?>">Download Proceeding <i class="fa fa-download" aria-hidden="true"></i></a></h6>
+            <?php }; ?>
+            <?php if (get_field('proceeding-file')) {
+                $file = get_field('proceeding_file');?>
+                <h6><a href="<?php echo $file['url']; ?>">Download Proceeding <i class="fa fa-download" aria-hidden="true"></i></a></h6>
+            <?php }; ?>
           </div>
         </div>
+
         <footer>
           <nav class="post-nav row">
             <div class="previous col"><?php previous_post_link('%link', '<i class="fa fa-arrow-left" aria-hidden="true"></i> Previous'); ?></div>
@@ -73,8 +82,7 @@
           </nav>
         </footer>
        </article>
-        <?php
-        endwhile; ?>
+        <?php endwhile; ?>
      </main>
    </div>
  </div>

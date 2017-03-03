@@ -39,7 +39,7 @@
         $tabs = [];
         $the_query = new WP_Query(array(
         'post_type'         => 'proceedings',
-        'posts_per_page'    => -1,
+        'posts_per_page'    => -1/*,
           'meta_query'      => array (
             'relation'      => 'AND',
             'session_start' => array (
@@ -54,26 +54,19 @@
           'orderby'         => array(
             'session_start'  => 'ASC',
             'session_num'       => 'ASC'
-         )
+         )*/
         ));
 ?>
 
         <?php
 
-        //echo date("M jS", strtotime(current_time( 'mysql' )));
-
         if ($the_query->have_posts()) :
             while ($the_query->have_posts()) :
                 $the_query->the_post();
-                $eventdate = date("n-j-y", strtotime(get_field('session_date')));
                 $session = get_field('session');
-
-                // If the date is not in the tabs array, add it
-                /*
-                if (!isset($tabs[$eventdate])) {
-                    $tabs[] = date("M jS", strtotime(get_field('session_date')));
-                }
-                */
+                $sessionTitle = get_the_title($session);
+                $date = get_field('date', $session);
+                $eventdate = date("n-j-y", strtotime($date));
 
                 // If the date is not in the tabs array, add it
                 if (!isset($currentDay) || $currentDay != $eventdate) {
@@ -81,84 +74,72 @@
                 }
 
                 // If the date is not in the tabs array, add it
-                if (!isset($currentSession) || $currentSession != $session) {
-                    $currentSession = $session;
+                if (!isset($currentSession) || $currentSession != $sessionTitle) {
+                    $currentSession = $sessionTitle;
                 }
 
-                $tabs[$currentDay][$currentSession][] = [
-                  'title' => get_the_title(),
-                  'session' => get_field('session'),
-                  'speaker' => get_field('speaker'),
-                  'date' => get_field('session_date'),
-                  'room' => get_field('room')[0],
-                  'file' => get_field('proceeding_file'),
-                  'author' => get_the_title(),
-                  'abstract' => get_the_content()
-                ];
-
-
-                /*
-                if (!isset($tabs[$eventdate])) {
-                    $tabs[$eventdate] = get_field('session_date');
-                }
-                if (isset($currentDay) && $currentDay != $eventdate) {
-                    echo '</div>';
-                }
-                if (!isset($currentDay) || $currentDay != $eventdate) {
-                    $currentDay = $eventdate;
-                    $currentSession = '';
-                    echo '<div id="' . $eventdate . '">';
-                }
-                echo '<article class="session-schedule">';
-                if (!isset($currentSession) || $currentSession != $session) {
-                    $currentSession = $session;
-                    echo '<div class="session">';
-                    echo '<div class="title">';
-                    //echo ' <h1>' . $session . '</h1> <h2> | ' . get_field('session_date') . ' | Room ' . get_field('room') . '</h2>';
-                    if (is_array($session)) {
-                         $rooms = get_field('session');
-                        foreach ($rooms as $room) {
-                            echo $room;
-                        }
-                    } else {
-                          the_field('session');
-                    }
-                    echo '</div>';
-                    echo '</div>';
-                }
-                echo '<h2 class="title">' . get_the_title() . '</h2>';
-                the_title();
                 if (function_exists('coauthors_posts_links')) {
                     //coauthors_posts_links();
-                    echo 'Authors:' . proceedings_author_shortcode();
+                    $authors = proceedings_author_shortcode();
                 } else {
-                    echo 'Authors:' . the_author_posts_link();
+                    $authors = the_author_posts_link();
                 }
-                echo '</article>';
 
-                */
+                $tabs[$currentDay][$sessionTitle][] = [
+                  'title'     => get_the_title(),
+                  'link'      => get_permalink(),
+                  'session'   => $sessionTitle,
+                  'speaker'   => get_field('speaker'),
+                  'date'      => $date,
+                  'start'     => get_field('start_time', $session),
+                  'end'       => get_field('end_time', $session),
+                  'room'      => get_field('room', $session),
+                  'avail'     => get_field('availability', $session),
+                  'file'      => get_field('proceeding_file'),
+                  'author'    => $authors,
+                  'abstract'  => get_the_content()
+                ];
             endwhile;
         endif;
+
+
+        // Sort tabs by date.
+        ksort($tabs);
 
         // Set up Day Tabs
         echo '<div class="tabs"><ul class="schedule">';
         foreach ($tabs as $day => $session) {
             $t = date_create_from_format("n-j-y", $day);
-            echo '<li><a href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M jS") . '</a></li>';
+            echo '<li class="accent background"><a class="accent color" href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M jS") . '</a></li>';
         }
         echo '</ul>';
 
         // Set up day blocks
         foreach ($tabs as $day => $session) {
             $t = date_create_from_format("n-j-y", $day);
-            echo '<div id="' . date_format($t, "n-j-y") . '">';
+            echo '<div id="' . date_format($t, "n-j-y") . '" class="session">';
+
+            // Sort Sessions by start time and then by end time.
+
+            foreach ($session as $key => $row) {
+                $startList[$key] = $row[0]['start'];
+                $endList[$key] = $row[0]['end'];
+            }
+            array_multisort($startList, SORT_ASC, $endList, SORT_ASC, $session);
+            unset($startList);
+            unset($endList);
+
             // Set up session headers
             foreach ($session as $sess => $num) {
-                echo '<div class="title"><h1>' . $sess . ' | ' . $num[0]['room'] . '</h1></div>';
+                echo '<div class="title brand background"><h1 class="brand inverse"><span style="font-weight: bold;">' . $sess
+                . '</span> | ' . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
+                . '</h1><div class="availability">' . $num[0]['avail'] . '</div></div>';
+
                 // display post information
                 foreach ($num as $post) {
-                    echo '<h2>' . $post['title'] . ' | ' . $post['room'] . '</h2>';
-                    echo '<p>' . $post['author'] . '</p>';
+                    echo '<div class="presentation"><h2><a class="accent color" href="' . $post['link'] . '">' . $post['title'] . '</a></h2>';
+                    echo '<p class="authors"><span style="font-weight: bold;">Speaker: </span>' . $post['speaker']
+                    . ' | <span style="font-weight: bold;">Instructors: </span> ' . $post['author'] . '</p></div>';
                 }
             }
             echo '</div>';

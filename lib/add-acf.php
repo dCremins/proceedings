@@ -16,7 +16,7 @@ add_filter('acf/settings/dir', 'my_acf_settings_dir');
 function my_acf_settings_dir($dir)
 {
     // update path
-    $dir = plugins_url('/../acf/', __FILE__);
+    $dir = plugin_dir_path(dirname(__FILE__)) . '/acf/';
 
     // return
     return $dir;
