@@ -2,6 +2,14 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('create a new proceeding');
 
+$I->amGoingTo('create an editor user');
+$I->cli('user create AcceptanceTester test@test.com --role=editor --user_pass=newTest');
+
+$I->amGoingTo('log in as an editor');
+$I->loginAs('AcceptanceTester', 'newTest');
+$I->dontSee('ERROR');
+$I->see('Dashboard', 'h1');
+
 $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
 $I->click('Proceedings');
