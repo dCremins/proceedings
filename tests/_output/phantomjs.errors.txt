@@ -1,0 +1,1 @@
+/srv/www/ico.com/current/web/app/plugins/proceedings/bin/phantomjs: 1: /srv/www/ico.com/current/web/app/plugins/proceedings/bin/phantomjs: Syntax error: Unterminated quoted string

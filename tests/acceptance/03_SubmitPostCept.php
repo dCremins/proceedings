@@ -22,9 +22,10 @@ $I->seeElement('#content-html');
 $I->click('#content-html');
 $I->waitForElementVisible('#content');
 $I->fillField('#content', 'Test content! Imagine this is an abstract.');
-$I->seeElement('#select2-drop-mask');
-$I->click('#select2-drop-mask');
-$I->waitForElementVisible('#s2id_autogen1_search');
+
+$I->seeElement('//*[@id="s2id_acf-field_58b98ba351166-input"]');
+$I->click('//*[@id="s2id_acf-field_58b98ba351166-input"]');
+$I->waitForElementVisible('//*[@id="s2id_autogen1_search"]');
 $I->see('Some Session');
 $I->click('Some Session');
 $I->fillField('Speaker', 'Bob Schwartzman');
