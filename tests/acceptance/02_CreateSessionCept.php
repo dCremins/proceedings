@@ -21,6 +21,7 @@ $I->fillField('#title', 'Some Session');
 $I->selectOption('Room', '101');
 //date
 //$I->click('//*[@id="acf-group_58b9876bba2fc"]/div/div[3]/div[2]/div');
+$I->executeJS('$("#acf-field_58b987ab70d6b").show();');
 $I->fillField('//*[@id="acf-field_58b987ab70d6b"]', '2/16/17');
 $I->pressKey('//*[@id="acf-field_58b987ab70d6b"]', WebDriverKeys::ENTER);
 //start
