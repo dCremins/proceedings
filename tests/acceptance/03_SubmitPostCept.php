@@ -10,6 +10,13 @@ $I->loginAs('AcceptanceTester', 'newTest');
 $I->dontSee('ERROR');
 $I->see('Dashboard', 'h1');
 
+$I->expect('Some Session has been created by previous test');
+$I->see('Sessions');
+$I->click('Sessions');
+$I->click('Sessions');
+$I->see('Sessions', 'h1');
+$I->see('Some Session');
+
 $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
 $I->click('Proceedings');
