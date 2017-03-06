@@ -25,7 +25,7 @@ $I->fillField('#content', 'Test content! Imagine this is an abstract.');
 
 $I->seeElement('//*[@id="s2id_acf-field_58b98ba351166-input"]');
 $I->click('//*[@id="s2id_acf-field_58b98ba351166-input"]');
-$I->waitForElementVisible('//*[@id="select2-drop"]');
+$I->wait(15);
 $I->see('Some Session');
 $I->click('Some Session');
 $I->fillField('Speaker', 'Bob Schwartzman');
