@@ -16,10 +16,11 @@ add_filter('acf/settings/dir', 'my_acf_settings_dir');
 function my_acf_settings_dir($dir)
 {
     // update path
-    $dir = plugin_dir_path(dirname(__FILE__)) . '/acf/';
+    $dir = plugin_dir_url(dirname(__FILE__)) . '/acf/';
 
     // return
     return $dir;
 }
 
-include_once(plugin_dir_path(dirname(__FILE__)) . 'acf/acf.php');
+include_once(plugin_dir_path(dirname(__FILE__)) . '/acf/acf.php');
+//include_once(plugins_url('/acf/acf.php', __FILE__));
