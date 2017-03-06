@@ -1,14 +1,6 @@
 <?php
 $I = new AcceptanceTester($scenario);
-$I->wantTo('create a new proceeding as an editor');
-
-$I->amGoingTo('create an editor user');
-$I->cli('user create AcceptanceTester test@test.com --role=editor --user_pass=newTest');
-
-$I->amGoingTo('log in as an editor');
-$I->loginAs('AcceptanceTester', 'newTest');
-$I->dontSee('ERROR');
-$I->see('Dashboard', 'h1');
+$I->wantTo('create a new proceeding');
 
 $I->amGoingTo('create a new proceeding');
 $I->see('Proceedings');
@@ -22,11 +14,11 @@ $I->seeElement('#content-html');
 $I->click('#content-html');
 $I->waitForElementVisible('#content');
 $I->fillField('#content', 'Test content! Imagine this is an abstract.');
-$I->selectOption('Session', '101');
-$I->click('//*[@id="acf-group_588fa4019d4bf-2"]/div/div[2]/div[2]/div/input[2]');
-$I->fillField('//*[@id="acf-group_588fa4019d4bf-2"]/div/div[2]/div[2]/div/input[2]', '2/16/17');
-$I->pressKey('//*[@id="acf-group_588fa4019d4bf-2"]/div/div[2]/div[2]/div/input[2]', WebDriverKeys::ENTER);
-$I->selectOption('//*[@id="acf-field_588fa508b8276"]', '202');
+$I->seeElement('#select2-drop-mask');
+$I->click('#select2-drop-mask');
+$I->waitForElementVisible('#s2id_autogen1_search');
+$I->see('Some Session');
+$I->click('Some Session');
 $I->fillField('Speaker', 'Bob Schwartzman');
 
 $I->amGoingTo('publish and view a new proceeding');
