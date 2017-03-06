@@ -20,17 +20,14 @@ $I->click('//*[@id="wpbody-content"]/div[3]/a');
 $I->fillField('#title', 'Some Session');
 $I->selectOption('Room', '101');
 //date
-//$I->click('//*[@id="acf-group_58b9876bba2fc"]/div/div[3]/div[2]/div');
 $I->fillField('//*[@id="acf-group_58b9876bba2fc"]/div/div[3]/div[2]/div/input[2]', '2/16/17');
 $I->pressKey('//*[@id="acf-group_58b9876bba2fc"]/div/div[3]/div[2]/div/input[2]', WebDriverKeys::ENTER);
 //start
-//$I->click('//*[@id="acf-group_58b9876bba2fc"]/div/div[4]/div[2]/div');
-//$I->fillField('//*[@id="acf-field_58b987ab70d6b"]', '2:00 pm');
-//$I->pressKey('//*[@id="acf-field_58b987ab70d6b"]', WebDriverKeys::ENTER);
+$I->fillField('//*[@id="acf-group_58b9876bba2fc"]/div/div[4]/div[2]/div/input[2]', '2:00 pm');
+$I->pressKey('//*[@id="acf-group_58b9876bba2fc"]/div/div[4]/div[2]/div/input[2]', WebDriverKeys::ENTER);
 //end
-//$I->click('//*[@id="acf-group_58b9876bba2fc"]/div/div[5]/div[2]/div');
-//$I->fillField('//*[@id="acf-group_58b9876bba2fc"]/div/div[5]/div[2]/div', '4:00 pm');
-//$I->pressKey('//*[@id="acf-group_58b9876bba2fc"]/div/div[5]/div[2]/div', WebDriverKeys::ENTER);
+$I->fillField('//*[@id="acf-group_58b9876bba2fc"]/div/div[5]/div[2]/div/input[2]', '4:00 pm');
+$I->pressKey('//*[@id="acf-group_58b9876bba2fc"]/div/div[5]/div[2]/div/input[2]', WebDriverKeys::ENTER);
 
 $I->amGoingTo('publish a new session');
 $I->click('#publish');
