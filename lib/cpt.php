@@ -1,4 +1,7 @@
 <?php
+
+namespace Sponsors\CPT;
+
 function proceedings_post_type()
 {
     register_post_type('proceedings', [
@@ -25,7 +28,7 @@ function proceedings_post_type()
     ]);
 }
 
-add_action('init', 'proceedings_post_type');
+add_action('init', __NAMESPACE__ . '\\proceedings_post_type');
 
 function sessions_post_type()
 {
@@ -53,4 +56,4 @@ function sessions_post_type()
     ]);
 }
 
-add_action('init', 'sessions_post_type');
+add_action('init', __NAMESPACE__ . '\\sessions_post_type');
