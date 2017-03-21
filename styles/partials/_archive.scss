@@ -17,7 +17,7 @@ $invert: #fff;
 
     a {
       background-color: $invert;
-      padding: 15px 20px;
+      padding: 13px 20px 14px;
 
       &:hover {
         background-color: inherit;
@@ -39,7 +39,7 @@ $invert: #fff;
     margin-bottom: 10px;
 
     h1 {
-      flex: 3;
+      flex: 2;
       font-size: 23px;
       font-weight: 400;
       margin-bottom: 0;
@@ -47,8 +47,10 @@ $invert: #fff;
     }
 
     .availability {
+      align-self: center;
       flex: 1;
       font-weight: 200;
+      padding: 10px;
     }
   }
 

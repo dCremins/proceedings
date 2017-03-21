@@ -91,8 +91,11 @@
                 // display post information
                 foreach ($num as $post) {
                     echo '<div class="presentation"><h2><a class="accent color" href="' . $post['link'] . '">' . $post['title'] . '</a></h2>';
-                    echo '<p class="authors"><span style="font-weight: bold;">Speaker: </span>' . $post['speaker']
-                    . ' | <span style="font-weight: bold;">Instructors: </span> ' . $post['author'] . '</p></div>';
+                    echo '<p class="authors">';
+                    if ($post['speaker'] != '') {
+                        echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . ' | ';
+                    }
+                    echo '<span style="font-weight: bold;">Authors: </span> ' . $post['author'] . '</p></div>';
                 }
             }
             echo '</div>';

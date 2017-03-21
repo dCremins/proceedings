@@ -17,9 +17,9 @@ while (have_posts()) :
             <h2>Authors: <?php
             if (function_exists('coauthors_posts_links')) {
                 //coauthors_posts_links();
-                proceedings_author_shortcode();
+                echo proceedings_author_shortcode();
             } else {
-                the_author_posts_link();
+                echo the_author_posts_link();
             } ?>
             </h2>
             <?php the_content(); ?>
@@ -30,7 +30,7 @@ while (have_posts()) :
             <h4 class="brand color">
                 <?php echo date("l M jS", strtotime(get_field('date', $session))); ?>
                 <br />
-                Room <?php the_field('room', $session); ?> |
+                Room <?php the_field('room', $session); ?> <br />
                 <?php the_field('start_time', $session); ?> - <?php the_field('end_time', $session); ?>
             </h4>
             <?php if (get_field('speaker')) { ?>

@@ -1,1 +1,4 @@
 holder/*
+tests/*
+codeception.yml
+travis.sh
