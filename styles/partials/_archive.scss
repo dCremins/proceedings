@@ -1,3 +1,6 @@
+$holder: #eee;
+$invert: #fff;
+
 .schedule {
   display: flex;
   margin-bottom: 50px;
@@ -5,21 +8,63 @@
 
   li {
     list-style: none;
-    margin: -5px;
+    margin: 0 0 0 -5px;
+    padding: 15px 3px;
+
+    &::first-child {
+      margin-left: 0;
+    }
 
     a {
-      background-color: #eee;
-      border: solid #333 5px;
-      padding: 15px 20px;
+      background-color: $invert;
+      padding: 13px 20px 14px;
+
+      &:hover {
+        background-color: inherit;
+        color: $invert;
+      }
     }
 
     &.active a {
-      background-color: #333;
-      color: #fff;
+      background-color: inherit;
+      color: $invert;
     }
   }
 }
 
 .session {
-  background-color: #eee;
+  .title {
+    align-items: baseline;
+    display: flex;
+    margin-bottom: 10px;
+
+    h1 {
+      flex: 2;
+      font-size: 23px;
+      font-weight: 400;
+      margin-bottom: 0;
+      padding: 10px;
+    }
+
+    .availability {
+      align-self: center;
+      flex: 1;
+      font-weight: 200;
+      padding: 10px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  .presentation {
+    padding: 0 3px;
+  }
 }

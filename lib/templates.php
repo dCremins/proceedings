@@ -1,7 +1,10 @@
 <?php
+
+namespace Proceedings\Templates;
+
 /* Search Theme for CPT templates and then use the templates in this Plugin if none are found */
 
-add_filter('template_include', 'include_template_function', 1);
+add_filter('template_include', __NAMESPACE__ . '\\include_template_function', 1);
 
 
 function include_template_function($template_path)
