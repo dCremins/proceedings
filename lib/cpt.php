@@ -1,6 +1,6 @@
 <?php
 
-namespace Sponsors\CPT;
+namespace Proceedings\CPT;
 
 function proceedings_post_type()
 {

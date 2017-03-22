@@ -17,7 +17,7 @@ while (have_posts()) :
             <h2>Authors: <?php
             if (function_exists('coauthors_posts_links')) {
                 //coauthors_posts_links();
-                echo proceedings_author_shortcode();
+                echo Proceedings\Filters\proceedings_author_shortcode();
             } else {
                 echo the_author_posts_link();
             } ?>

@@ -33,7 +33,7 @@
 
                 if (function_exists('coauthors_posts_links')) {
                     //coauthors_posts_links();
-                    $authors = proceedings_author_shortcode();
+                    $authors = Proceedings\Filters\proceedings_author_shortcode();
                 } else {
                     $authors = the_author_posts_link();
                 }
