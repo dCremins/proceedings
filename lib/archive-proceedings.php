@@ -49,12 +49,15 @@ endif;
 
 foreach ($tabs as $day => $session) {
     foreach ($session as $sess => $row) {
-        $rows = array_keys($session);
-        $hold = $rows[0];
-        $start[$sess]  = $session[$sess][0]['start'];
-        $end[$sess]  = $session[$sess][0]['end'];
+// Convert to time so they sort correctly
+        $start[$sess]  = strtotime($session[$sess][0]['start']);
+        $end[$sess]  = strtotime($session[$sess][0]['end']);
     }
+// Sort session within day by start and then end times, ascending
     array_multisort($start, SORT_ASC, $end, SORT_ASC, $tabs[$day]);
+    //echo '***************************************<br />';
+    //echo var_dump($tabs[$day]);
+// refresh the start and end time arrays in preparation for the next day of sessions
     unset($start);
     unset($end);
 }
