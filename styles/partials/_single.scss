@@ -34,3 +34,22 @@
     font-weight: normal;
   }
 }
+
+.session-header {
+  margin-bottom: 60px;
+}
+
+.session-archive {
+  h2 {
+    border-bottom: 1px solid $bootstrap-grey;
+    color: $gray;
+    font-size: 28px;
+    padding-bottom: 20px;
+  }
+
+  h3 {
+    //color: $gray;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}

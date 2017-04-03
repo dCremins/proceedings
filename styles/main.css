@@ -29,6 +29,22 @@
   font-weight: normal;
 }
 
+.session-header {
+  margin-bottom: 60px;
+}
+
+.session-archive h2 {
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+
+.session-archive h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
 .schedule {
   display: flex;
   margin-bottom: 50px;
@@ -67,7 +83,7 @@
 }
 
 .session .title h1 {
-  flex: 3;
+  flex: 2;
   font-size: 23px;
   font-weight: 400;
   margin-bottom: 0;
@@ -75,8 +91,10 @@
 }
 
 .session .title .availability {
+  align-self: center;
   flex: 1;
   font-weight: 200;
+  padding: 10px;
 }
 
 .session h2 {

@@ -3,95 +3,66 @@
  Template Name: Proceedings Archive
  Template Post Type: proceeding
  */
-        // get posts
-        $tabs = [];
+// get posts
+if (have_posts()) :
+    while (have_posts()) :
+        the_post();
+        $session = get_field('session');
+        $sessionTitle = get_the_title($session);
+        $date = get_field('date', $session);
+        $eventdate = date("n-j-y", strtotime($date));
 
-        $sessions_query = new WP_Query(array(
-        'post_type'         => 'session',
-        'posts_per_page'    => -1,
-        'order'             => 'ASC',
-        'meta_query' => array(
-            'relation' => 'AND',
-            'start' => array(
-                'key' => 'start_time',
-                'compare' => 'EXISTS',
-            ),
-            'end' => array(
-                'key' => 'end_time',
-                'compare' => 'EXISTS',
-            ),
-        ),
-        'orderby' => array(
-            'end' => 'ASC',
-            'start' => 'DESC',
-        ),
-        'meta_type'         => 'TIME'
+        // If the date is not in the tabs array, add it
+        if (!isset($currentDay) || $currentDay != $eventdate) {
+            $currentDay = $eventdate;
+        }
 
-        ));
+        // If the date is not in the tabs array, add it
+        if (!isset($currentSession) || $currentSession != $sessionTitle) {
+            $currentSession = $sessionTitle;
+        }
 
+        if (function_exists('coauthors_posts_links')) {
+            //coauthors_posts_links();
+            $authors = Proceedings\Filters\proceedings_author_shortcode();
+        } else {
+            $authors = the_author_posts_link();
+        }
 
-        if ($sessions_query->have_posts()) :
-            while ($sessions_query->have_posts()) :
-                $sessions_query->the_post();
-                $date = get_field('date');
-                $eventdate = date("n-j-y", strtotime($date));
-                $tabs[$eventdate][get_the_title()] = [];
-            endwhile;
-            wp_reset_postdata();
-        endif;
+        $tabs[$currentDay][$sessionTitle][] = [
+          'title'     => get_the_title(),
+          'link'      => get_permalink(),
+          'session'   => $sessionTitle,
+          'speaker'   => get_field('speaker'),
+          'date'      => $date,
+          'start'     => get_field('start_time', $session),
+          'end'       => get_field('end_time', $session),
+          'room'      => get_field('room', $session),
+          'avail'     => get_field('availability', $session),
+          'file'      => get_field('proceeding_file'),
+          'author'    => $authors,
+          'abstract'  => get_the_content()
+        ];
+    endwhile;
+    wp_reset_postdata();
+endif;
 
-        $the_query = new WP_Query(array(
-        'post_type'         => 'proceedings',
-        'posts_per_page'    => -1
-        ));
-
-        if ($the_query->have_posts()) :
-            while ($the_query->have_posts()) :
-                $the_query->the_post();
-                $session = get_field('session');
-                $sessionTitle = get_the_title($session);
-                $date = get_field('date', $session);
-                $eventdate = date("n-j-y", strtotime($date));
-
-                // If the date is not in the tabs array, add it
-                if (!isset($currentDay) || $currentDay != $eventdate) {
-                    $currentDay = $eventdate;
-                }
-
-                // If the date is not in the tabs array, add it
-                if (!isset($currentSession) || $currentSession != $sessionTitle) {
-                    $currentSession = $sessionTitle;
-                }
-
-                if (function_exists('coauthors_posts_links')) {
-                    //coauthors_posts_links();
-                    $authors = Proceedings\Filters\proceedings_author_shortcode();
-                } else {
-                    $authors = the_author_posts_link();
-                }
-
-                $tabs[$currentDay][$sessionTitle][] = [
-                  'title'     => get_the_title(),
-                  'link'      => get_permalink(),
-                  'session'   => $sessionTitle,
-                  'speaker'   => get_field('speaker'),
-                  'date'      => $date,
-                  'start'     => get_field('start_time', $session),
-                  'end'       => get_field('end_time', $session),
-                  'room'      => get_field('room', $session),
-                  'avail'     => get_field('availability', $session),
-                  'file'      => get_field('proceeding_file'),
-                  'author'    => $authors,
-                  'abstract'  => get_the_content()
-                ];
-            endwhile;
-            wp_reset_postdata();
-        endif;
+foreach ($tabs as $day => $session) {
+    foreach ($session as $sess => $row) {
+        $rows = array_keys($session);
+        $hold = $rows[0];
+        $start[$sess]  = $session[$sess][0]['start'];
+        $end[$sess]  = $session[$sess][0]['end'];
+    }
+    array_multisort($start, SORT_ASC, $end, SORT_ASC, $tabs[$day]);
+    unset($start);
+    unset($end);
+}
 
 // Sort tabs by date.
-        ksort($tabs);
-
+ksort($tabs);
 // Set up Day Tabs
+
         ?>
         <div class="tabs">
         <ul class="schedule">
