@@ -26,13 +26,14 @@ if (have_posts()) :
             //coauthors_posts_links();
             $authors = Proceedings\Filters\proceedings_author_shortcode();
         } else {
-            $authors = the_author_posts_link();
+            $authors = get_the_author_posts_link();
         }
 
         $tabs[$currentDay][$sessionTitle][] = [
           'title'     => get_the_title(),
           'link'      => get_permalink(),
           'session'   => $sessionTitle,
+          'sessionID' => $session,
           'speaker'   => get_field('speaker'),
           'date'      => $date,
           'start'     => get_field('start_time', $session),
@@ -74,7 +75,7 @@ ksort($tabs);
         foreach ($tabs as $day => $session) {
             $t = date_create_from_format("n-j-y", $day);
             echo '<li class="accent background">
-              <a class="accent color" href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M jS") . '</a>
+              <a class="accent color" href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M j") . '</a>
             </li>';
         }
         ?>
@@ -94,16 +95,20 @@ ksort($tabs);
             foreach ($session as $sess => $num) {
 // Set up session headers
                 if (!empty($num)) {
+                  $avail = '';
+                  if ($num[0]['avail'] == 'Pre-Registration Required') {
+                    $avail = '<div class="availability">'
+                      . $num[0]['avail']
+                    . '</div>';
+                  }
                     //echo 'num' . var_dump($num);
                     echo '<div class="title brand background">
                       <h1 class="brand inverse">
-                        <span style="font-weight: bold;">' . $sess
-                        . '</span> | ' . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
-                      . '</h1>
-                      <div class="availability">'
-                        . $num[0]['avail']
-                      . '</div>
-                    </div>';
+                        <a style="font-weight: bold;" class="brand inverse" href="'.get_the_permalink($num[0]['sessionID']).'">' . $sess
+                        . '</a></span><br />' . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
+                      . '</h1>'
+                      . $avail
+                    . '</div>';
 
 // display post information
                     foreach ($num as $post) {

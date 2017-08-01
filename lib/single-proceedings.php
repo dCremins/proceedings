@@ -26,9 +26,9 @@ while (have_posts()) :
           </div>
 
           <div class="entry-info col-4">
-            <h3><?php echo get_the_title($session); ?></h3>
+            <h3><a href="<?php echo get_permalink($session); ?>"><?php echo get_the_title($session); ?></a></h3>
             <h4 class="brand color">
-                <?php echo date("l M jS", strtotime(get_field('date', $session))); ?>
+                <?php echo date("l M j", strtotime(get_field('date', $session))); ?>
                 <br />
                 Room <?php the_field('room', $session); ?> <br />
                 <?php the_field('start_time', $session); ?> - <?php the_field('end_time', $session); ?>

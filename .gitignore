@@ -2,3 +2,7 @@ holder/*
 tests/*
 codeception.yml
 travis.sh
+bin/*
+.travis.yml
+composer.json
+composer.lock

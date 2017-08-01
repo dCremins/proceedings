@@ -60,10 +60,19 @@ if ($the_query->have_posts()) :
     <h2>During this Session:</h2>';
     while ($the_query->have_posts()) :
         $the_query->the_post();
+        if (function_exists('coauthors_posts_links')) {
+            //coauthors_posts_links();
+            $authors = Proceedings\Filters\proceedings_author_shortcode();
+        } else {
+            $authors = get_the_author_posts_link();
+        }
         echo '<h3><a class="accent color" href="' . get_the_permalink() . '">';
         the_title();
         echo '</a><br />';
-        echo '<small class="text-muted">' . ucfirst(get_post_type()) . '</small></h3>';
+        //echo '<small class="text-muted">' . ucfirst(get_post_type()) . '</small>';
+        echo '<small class="text-muted">Authors: ' . $authors . '</small>';
+        echo '</h3>';
+        //echo '<p><span style="font-weight: bold;">Authors: </span> ' . $author . '</p>';
     endwhile;
     echo '</section>';
     wp_reset_postdata();
