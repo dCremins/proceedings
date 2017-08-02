@@ -17,6 +17,10 @@ if (have_posts()) :
             $currentDay = $eventdate;
         }
 
+        if (get_field('availability', $session) == 'Poster' && substr($currentDay, -7) != 'Posters') {
+          $currentDay = $eventdate.' - Posters';
+        }
+
         // If the date is not in the tabs array, add it
         if (!isset($currentSession) || $currentSession != $sessionTitle) {
             $currentSession = $sessionTitle;
@@ -73,10 +77,19 @@ ksort($tabs);
 
         <?php
         foreach ($tabs as $day => $session) {
+          if (substr($day, -7) == 'Posters') {
+          //  $key = key($session);
+          //  $t = date_create_from_format("n-j-y", $session[$key][0]['date']);
+            echo '<li class="accent background">
+              <a class="accent color" href="#poster">Posters</a>
+            </li>';
+          } else {
             $t = date_create_from_format("n-j-y", $day);
             echo '<li class="accent background">
               <a class="accent color" href="#' . date_format($t, "n-j-y") . '">' . date_format($t, "M j") . '</a>
             </li>';
+          }
+
         }
         ?>
         </ul>
@@ -85,27 +98,35 @@ ksort($tabs);
 // Set up day blocks
         foreach ($tabs as $day => $session) {
 // Sort Sessions by start time and then by end time.
-
-            $t = date_create_from_format("n-j-y", $day);
-            ?>
-            <div id=
-            <?php echo '"' . date_format($t, "n-j-y") . '" class="session">'; ?>
+            if (substr($day, -7) == 'Posters') {
+              echo '<div id="poster" class="session">';
+            } else {
+              $t = date_create_from_format("n-j-y", $day);
+              echo '<div id="'.date_format($t, "n-j-y").'" class="session">';
+            } ?>
             <article>
             <?php
             foreach ($session as $sess => $num) {
 // Set up session headers
                 if (!empty($num)) {
                   $avail = '';
-                  if ($num[0]['avail'] == 'Pre-Registration Required') {
+                  if ($num[0]['avail'] == 'Pre-Registration Required' && !get_field('post_conference', 'option')) {
                     $avail = '<div class="availability">'
                       . $num[0]['avail']
                     . '</div>';
+                  }
+                  if (!empty($num)) {
+                    $poster_date = '';
+                    if ($num[0]['avail'] == 'Poster') {
+                      $t = date_create_from_format("m/d/Y", $num[0]['date']);
+                      $poster_date = date_format($t, "M j").' | ';
+                    }
                   }
                     //echo 'num' . var_dump($num);
                     echo '<div class="title brand background">
                       <h1 class="brand inverse">
                         <a style="font-weight: bold;" class="brand inverse" href="'.get_the_permalink($num[0]['sessionID']).'">' . $sess
-                        . '</a></span><br />' . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
+                        . '</a></span><br />' . $poster_date . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
                       . '</h1>'
                       . $avail
                     . '</div>';

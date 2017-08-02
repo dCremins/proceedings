@@ -54,7 +54,8 @@
             },
             "choices": {
                 "Pre-Registration Required": "Pre-Registration Required",
-                "Open to all ICOET Participants": "Open to all ICOET Participants"
+                "Open to all ICOET Participants": "Open to all ICOET Participants",
+                "Poster": "Poster"
             },
             "allow_null": 0,
             "other_choice": 0,

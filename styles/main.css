@@ -12,12 +12,10 @@
 }
 
 .proceedings h3 {
-  font-size: 30px;
   font-weight: 700;
 }
 
 .proceedings h4 {
-  font-size: 24px;
   font-weight: normal;
 }
 
@@ -57,7 +55,11 @@
   padding: 15px 3px;
 }
 
-.schedule li::first-child {
+.schedule li::before {
+  content: none;
+}
+
+.schedule li:first-child {
   margin-left: 0;
 }
 

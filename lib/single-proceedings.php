@@ -36,10 +36,18 @@ while (have_posts()) :
             <?php if (get_field('speaker')) { ?>
             <h5>Speaker: <?php the_field('speaker'); ?></h5>
             <?php }; ?>
-            <?php if (get_field('proceeding-file')) {
-                $file = get_field('proceeding_file');?>
-                <h6><a href="<?php echo $file['url']; ?>">Download Proceeding <i class="fa fa-download" aria-hidden="true"></i></a></h6>
-            <?php }; ?>
+            <?php if (have_rows('proceedings')) {
+              echo '<h6><br  />';
+              while (have_rows('proceedings')) : the_row();
+              $file = get_sub_field('file');
+                echo '<a href="'
+                . $file['url']
+                . '">Download '
+                . get_sub_field('type')
+                . ' <i class="fa fa-download accent color" aria-hidden="true"></i></a><br  />';
+               endwhile;
+               echo '</h6>';
+            }; ?>
           </div>
         </div>
 

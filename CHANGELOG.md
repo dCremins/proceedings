@@ -1,12 +1,17 @@
 == Changelog ==
 
+= 1.0.2 =
+* Added 'Poster' tab
+* Added option for additional files to proceeding
+* Changed download text to reflect type of file 
+
 = 1.0.1 =
 * Remove th/st from dates
 * Changed Post type on single sessions to Authors
 * Added link to single session from archive and single proceeding pages
-* Moved time|room to seperate line
+* Moved time|room to separate line
 * Removed session availability info unless session requires registration
-
+* Remove session availability when post-conference is checked
 
 = 1.0.0 =
 * Add Changelog

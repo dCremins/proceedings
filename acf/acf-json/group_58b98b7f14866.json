@@ -44,23 +44,72 @@
             "maxlength": ""
         },
         {
-            "key": "field_58b98bed51168",
-            "label": "Proceeding File",
-            "name": "proceeding-file",
-            "type": "file",
+            "key": "field_5982180e3ff56",
+            "label": "Proceedings",
+            "name": "proceedings",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "no-sub-label",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add File",
+            "sub_fields": [
+                {
+                    "key": "field_598218393ff57",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "no-label",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Paper": "Paper",
+                        "Abstract": "Abstract",
+                        "Slides": "Slides"
+                    },
+                    "default_value": [
+                        "Paper"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_598218673ff58",
+                    "label": "File",
+                    "name": "file",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "no-label",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         }
     ],
     "location": [
