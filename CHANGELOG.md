@@ -1,9 +1,14 @@
 == Changelog ==
 
+= 1.0.3 =
+* Cleaned up main file (removed commented lines)
+* Changed author to Bylines
+* Added Proceedings to author archive
+
 = 1.0.2 =
 * Added 'Poster' tab
 * Added option for additional files to proceeding
-* Changed download text to reflect type of file 
+* Changed download text to reflect type of file
 
 = 1.0.1 =
 * Remove th/st from dates

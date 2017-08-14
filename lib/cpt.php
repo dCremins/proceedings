@@ -30,6 +30,25 @@ function proceedings_post_type()
 
 add_action('init', __NAMESPACE__ . '\\proceedings_post_type');
 
+add_action('pre_get_posts', __NAMESPACE__ . '\\include_proceedings_in_query', 99);
+
+function include_proceedings_in_query($query) {
+    if(is_author() && $query->is_main_query()) {              // Ensure you only alter your desired query
+        $post_types = $query->get('post_type');               // Get the currnet post types in the query
+        $new_types = [];
+        if(!is_array($post_types) && !empty($post_types)) {   // Check that the current posts types are
+          $new_types[] = $post_types;                         // stored as an array
+        }
+        if (!in_array('proceedings', $new_types)) {
+          $new_types[] = 'proceedings';                       // Add your custom post type
+        }
+        $query->set('post_type', $new_types);                 // Add the updated list of post types to your query
+    }
+    return $query;
+}
+
+
+
 function sessions_post_type()
 {
     register_post_type('session', [

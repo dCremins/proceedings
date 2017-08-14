@@ -4,19 +4,16 @@ Plugin Name: ICOET Proceedings
 GitHub Plugin URI: https://github.com/dcremins/proceedings
 GitHub Branch:      master
 Description: Custom Proceeding Post Type and Views for ICOET website use
-Version: 1.0.2
+Version: 1.0.3
 Author: Devin Cremins
 Author URI: http://octopusoddments.com
 */
 
 // Add all files in lib folder into array
 $include = [
-  '/lib/add-acf.php',           // Register Views
+  '/lib/add-acf.php',           // Register ACF
   '/lib/cpt.php',               // Register Post Type
-  //'/lib/acf.php',               // Register Fields
-  //'/acf/acf.php',
-  '/lib/templates.php',         // Register Views
-  '/lib/author-filter.php'      // Alter Co-Author List Display
+  '/lib/templates.php'         // Register Views
 ];
 
 // Require Once each file in the array

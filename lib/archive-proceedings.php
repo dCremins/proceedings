@@ -26,9 +26,8 @@ if (have_posts()) :
             $currentSession = $sessionTitle;
         }
 
-        if (function_exists('coauthors_posts_links')) {
-            //coauthors_posts_links();
-            $authors = Proceedings\Filters\proceedings_author_shortcode();
+        if (function_exists( 'ICO\Bylines\get_the_bylines_posts_link' )) {
+            $authors = ICO\Bylines\get_the_bylines_posts_link();
         } else {
             $authors = get_the_author_posts_link();
         }
@@ -141,8 +140,9 @@ ksort($tabs);
                         if ($post['speaker'] != '') {
                             echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . ' | ';
                         }
-                            echo '<span style="font-weight: bold;">Authors: </span> ' . $post['author']
-                          . '</p>
+                        echo '<span style="font-weight: bold;">Authors: </span> ';
+                        echo $post['author'];
+                          echo '</p>
                         </div>';
                     }
                 }

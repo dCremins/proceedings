@@ -15,11 +15,10 @@ while (have_posts()) :
         <div class="row">
           <div class="entry-content col-8">
             <h2>Authors: <?php
-            if (function_exists('coauthors_posts_links')) {
-                //coauthors_posts_links();
-                echo Proceedings\Filters\proceedings_author_shortcode();
+            if (function_exists( 'the_bylines_posts_links' )) {
+                $authors = the_bylines_posts_links();
             } else {
-                echo the_author_posts_link();
+                $authors = the_author_posts_link();
             } ?>
             </h2>
             <?php the_content(); ?>
