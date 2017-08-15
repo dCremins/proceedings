@@ -78,7 +78,8 @@
                     "choices": {
                         "Paper": "Paper",
                         "Abstract": "Abstract",
-                        "Slides": "Slides"
+                        "Slides": "Slides",
+                        "Image": "Image"
                     },
                     "default_value": [
                         "Paper"

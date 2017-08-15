@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.0.4 =
+* Added Image to the list of proceeding file types
+
 = 1.0.3 =
 * Cleaned up main file (removed commented lines)
 * Changed author to Bylines
