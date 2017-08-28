@@ -6,7 +6,7 @@
             "key": "field_58b987ea70d6e",
             "label": "Room",
             "name": "room",
-            "type": "select",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -15,29 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "101": "101",
-                "102": "102",
-                "103": "103",
-                "201": "201",
-                "202": "202",
-                "203": "203",
-                "301": "301",
-                "302": "302",
-                "303": "303",
-                "401": "401",
-                "402": "402",
-                "403": "403"
-            },
-            "default_value": [
-                101
-            ],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_58b9887670d6f",

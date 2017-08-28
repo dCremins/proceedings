@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.0.5 =
+* Change Room ACF to Text Field
+
 = 1.0.4 =
 * Added Image to the list of proceeding file types
 
