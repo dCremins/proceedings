@@ -147,7 +147,6 @@ ksort($tabs);
                         if ($post['speaker'] != '') {
                             echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . ' | ';
                         }
-                        echo '<span style="font-weight: bold;">Authors: </span> ';
                         echo $post['author'];
                           echo '</p>
                         </div>';

@@ -56,30 +56,10 @@ while (have_posts()) :
         </header>
         <div class="row">
           <div class="entry-content col-8">
-            <?php if (function_exists( 'the_bylines_posts_links' )) {
-              $bylines = get_bylines();
-              $authors = [];
-              foreach ($bylines as $byline) {
-                if ((get_user_by('ID', $byline->ID)) || get_user_by('slug', $byline->slug)) {
-                  //
-                } else {
-                    $authors[] = $byline;
-                }
-              }
-              //echo var_dump($authors);
-              if((count($authors) > 0)) {
-                echo '<h2>Authors: ';
-                $i = 0;
-                while ($i < count($authors)) {
-                  echo '<a href="'.$authors[$i]->link.'">'.$authors[$i]->display_name.'</a>';
-                  if ($i === (count($authors)-2)) {
-                    echo ' and ';
-                  } else {
-                    echo ', ';
-                  }
-                  $i++;
-                }
-              }
+            <?php if (function_exists( 'ICO\Bylines\get_the_bylines_posts_link' )) {
+                echo '<h2>'.ICO\Bylines\get_the_bylines_posts_link().'</h2>';
+            } else {
+                $authors = '';
             }?>
             </h2>
             <?php the_content(); ?>
