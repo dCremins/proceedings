@@ -71,7 +71,7 @@ while (have_posts()) :
                 <?php echo date("l M j", strtotime(get_field('date', $session))); ?>
                 <br />
                 Room <?php the_field('room', $session); ?> <br />
-                <?php the_field('start_time', $session); ?> - <?php the_field('end_time', $session); ?>
+                <?php echo date("g:i A", strtotime(get_field('start_time', $session))); ?> - <?php echo date("g:i A", strtotime(get_field('end_time', $session))) ?>
             </h4>
             <?php if (get_field('speaker')) { ?>
             <h5>Speaker: <?php the_field('speaker'); ?></h5>

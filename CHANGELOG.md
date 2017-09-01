@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.1.0 =
+* Bump for the single proceeding time change
+
 = 1.0.9 =
 * Adjust time format
 * Adjusted author display to remove | when there is no author
