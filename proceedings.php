@@ -4,7 +4,7 @@ Plugin Name: ICOET Proceedings
 GitHub Plugin URI: https://github.com/dcremins/proceedings
 GitHub Branch:      master
 Description: Custom Proceeding Post Type and Views for ICOET website use
-Version: 1.0.5
+Version: 1.0.6
 Author: Devin Cremins
 Author URI: http://octopusoddments.com
 */

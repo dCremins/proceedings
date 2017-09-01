@@ -4,14 +4,20 @@
  Template Post Type: proceeding
  */
 // get posts
-if (have_posts()) :
-    while (have_posts()) :
-        the_post();
+$the_query = new WP_Query(array(
+	'post_type'			=> 'proceedings',
+	'posts_per_page'	=> -1,
+));
+
+if ($the_query->have_posts()) :
+    while ($the_query->have_posts()) :
+        $the_query->the_post();
         $session = get_field('session');
         $sessionTitle = get_the_title($session);
         $date = get_field('date', $session);
         $eventdate = date("n-j-y", strtotime($date));
 
+        //echo (substr(get_the_title(), 0, 15).' | '.$eventdate.'<br />');
         // If the date is not in the tabs array, add it
         if (!isset($currentDay) || $currentDay != $eventdate) {
             $currentDay = $eventdate;
@@ -48,8 +54,9 @@ if (have_posts()) :
           'abstract'  => get_the_content()
         ];
     endwhile;
-    wp_reset_postdata();
+    wp_reset_query();
 endif;
+
 
 foreach ($tabs as $day => $session) {
     foreach ($session as $sess => $row) {

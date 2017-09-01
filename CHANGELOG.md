@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.0.6 =
+* Fix Proceeding Archive to pull all
+
 = 1.0.5 =
 * Change Room ACF to Text Field
 
