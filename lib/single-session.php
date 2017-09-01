@@ -7,7 +7,7 @@
 if (have_posts()) :
     while (have_posts()) :
         the_post();
-        $date = date("F jS", strtotime(get_field('date')));
+        $date = date("F j", strtotime(get_field('date')));
         $time = $date . ' ' . get_field('start_time');
         $time = date('Y-m-d H:i:s', strtotime($time));
         $session = get_the_ID();
@@ -60,18 +60,9 @@ if ($the_query->have_posts()) :
     <h2>During this Session:</h2>';
     while ($the_query->have_posts()) :
         $the_query->the_post();
-        if (function_exists('coauthors_posts_links')) {
-            //coauthors_posts_links();
-            $authors = Proceedings\Filters\proceedings_author_shortcode();
-        } else {
-            $authors = get_the_author_posts_link();
-        }
         echo '<h3><a class="accent color" href="' . get_the_permalink() . '">';
         the_title();
-        echo '</a><br />';
-        //echo '<small class="text-muted">' . ucfirst(get_post_type()) . '</small>';
-        echo '<small class="text-muted">Authors: ' . $authors . '</small>';
-        echo '</h3>';
+        echo '</a></h3>';
         //echo '<p><span style="font-weight: bold;">Authors: </span> ' . $author . '</p>';
     endwhile;
     echo '</section>';

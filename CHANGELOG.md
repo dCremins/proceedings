@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.0.7 =
+* Single Proceeding Pagination now sorted by session date and time
+* Author now only shows for non-users (bylines)
+* Removed straggler TH from Session single date
+
 = 1.0.6 =
 * Fix Proceeding Archive to pull all
 

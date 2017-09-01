@@ -4,9 +4,51 @@
  Template Post Type: proceeding
  */
 
+ $args = ['post_type' => 'proceedings'];
+ $curr_id = $post->ID;
+ unset($args['paged']);
+ $args['posts_per_page'] = -1;
+ $tempposts = [];
+ $the_query = new WP_Query($args);
+ $post_ids = [];
+
+ if ($the_query->have_posts()) :
+     while ($the_query->have_posts()) :
+         $the_query->the_post();
+         $session = get_field('session');
+         $date = get_field('date', $session);
+         $eventdate = strtotime($date);
+         $start = strtotime(get_field('start_time', $session));
+         $tempposts[]=[
+           'id' => $post->ID,
+           'date' => $eventdate,
+           'start' => $start
+         ];
+     endwhile;
+     wp_reset_query();
+ endif;
+
+foreach ($tempposts as $temp => $field) {
+  $NEWdate[$temp] = $field['date'];
+  $NEWstart[$temp] = $field['start'];
+}
+array_multisort($NEWdate, SORT_ASC, $NEWstart, SORT_ASC, $tempposts);
+
+foreach ($tempposts as $temp => $field) {
+  $post_ids[] = $field['id'];
+}
+
+ $current_index = array_search($curr_id, $post_ids);
+ // Find the index of the next/prev items
+ $prev = $current_index - 1;
+ $next = $current_index + 1;
+
 while (have_posts()) :
             the_post();
             $session = get_field('session');
+
+
+
         ?>
        <article <?php post_class(); ?>>
          <header>
@@ -14,12 +56,31 @@ while (have_posts()) :
         </header>
         <div class="row">
           <div class="entry-content col-8">
-            <h2>Authors: <?php
-            if (function_exists( 'the_bylines_posts_links' )) {
-                $authors = the_bylines_posts_links();
-            } else {
-                $authors = the_author_posts_link();
-            } ?>
+            <?php if (function_exists( 'the_bylines_posts_links' )) {
+              $bylines = get_bylines();
+              $authors = [];
+              foreach ($bylines as $byline) {
+                if ((get_user_by('ID', $byline->ID)) || get_user_by('slug', $byline->slug)) {
+                  //
+                } else {
+                    $authors[] = $byline;
+                }
+              }
+              //echo var_dump($authors);
+              if((count($authors) > 0)) {
+                echo '<h2>Authors: ';
+                $i = 0;
+                while ($i < count($authors)) {
+                  echo '<a href="'.$authors[$i]->link.'">'.$authors[$i]->display_name.'</a>';
+                  if ($i === (count($authors)-2)) {
+                    echo ' and ';
+                  } else {
+                    echo ', ';
+                  }
+                  $i++;
+                }
+              }
+            }?>
             </h2>
             <?php the_content(); ?>
           </div>
@@ -52,8 +113,16 @@ while (have_posts()) :
 
         <footer>
           <nav class="post-nav row">
-            <div class="previous col"><?php previous_post_link('%link', '<i class="fa fa-arrow-left" aria-hidden="true"></i> Previous'); ?></div>
-            <div class="next col"><?php next_post_link('%link', 'Next <i class="fa fa-arrow-right" aria-hidden="true"></i>'); ?></div>
+            <?php if ($prev !== -1) {
+              echo '<div class="previous col"><a href="'
+              .get_the_permalink($post_ids[$prev])
+              .'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</a></div>';
+            } ?>
+            <?php if ($next !== (count($post_ids)+1)) {
+              echo '<div class="next col"><a href="'
+              .get_the_permalink($post_ids[$next])
+              .'">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>';
+            } ?>
           </nav>
         </footer>
        </article>

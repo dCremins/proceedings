@@ -35,7 +35,7 @@ if ($the_query->have_posts()) :
         if (function_exists( 'ICO\Bylines\get_the_bylines_posts_link' )) {
             $authors = ICO\Bylines\get_the_bylines_posts_link();
         } else {
-            $authors = get_the_author_posts_link();
+            $authors = '';
         }
 
         $tabs[$currentDay][$sessionTitle][] = [
