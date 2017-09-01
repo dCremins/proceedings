@@ -45,8 +45,8 @@ if ($the_query->have_posts()) :
           'sessionID' => $session,
           'speaker'   => get_field('speaker'),
           'date'      => $date,
-          'start'     => get_field('start_time', $session),
-          'end'       => get_field('end_time', $session),
+          'start'     => date("g:i A", strtotime(get_field('start_time', $session))),
+          'end'       => date("g:i A", strtotime(get_field('end_time', $session))),
           'room'      => get_field('room', $session),
           'avail'     => get_field('availability', $session),
           'file'      => get_field('proceeding_file'),
@@ -145,7 +145,7 @@ ksort($tabs);
                           </h2>';
                           echo '<p class="authors">';
                         if ($post['speaker'] != '') {
-                            echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . ' | ';
+                            echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . '   ';
                         }
                         echo $post['author'];
                           echo '</p>

@@ -1,8 +1,12 @@
 == Changelog ==
 
+= 1.0.9 =
+* Adjust time format
+* Adjusted author display to remove | when there is no author
+
 = 1.0.8 =
 * Fixed author filter to use theme Filter
-* Added author filter to Proceedings archive 
+* Added author filter to Proceedings archive
 
 = 1.0.7 =
 * Single Proceeding Pagination now sorted by session date and time
