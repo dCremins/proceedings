@@ -18,10 +18,10 @@ if (have_posts()) :
              <br />
            <small class="accent color"><?php echo $date;
             if (get_field('start_time')) {
-                echo ', ' . get_field('start_time');
+                echo ', ' . date("g:i A", strtotime(get_field('start_time')));
             }
             if (get_field('end_time')) {
-                echo ' - ' . get_field('end_time');
+                echo ' - ' . date("g:i A", strtotime(get_field('end_time')));
             }
             if (get_field('room')) {
                 echo ' | Room ' . get_field('room');

@@ -3,6 +3,9 @@ tests/*
 codeception.yml
 travis.sh
 bin/*
+node_modules/*
+package-lock.json
+yarn.lock
 .travis.yml
 composer.json
 composer.lock

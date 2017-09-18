@@ -1,115 +1,119 @@
 .proceedings h3, .proceedings h4, .proceedings h5, .proceedings h6 {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .proceedings h1 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .proceedings h2 {
-  font-size: 17px;
-  margin-bottom: 30px;
+	font-size: 17px;
+	margin-bottom: 30px;
 }
 
 .proceedings h3 {
-  font-weight: 700;
+	font-size: 30px;
+	font-weight: 700;
 }
 
 .proceedings h4 {
-  font-weight: normal;
+	font-size: 24px;
+	font-weight: normal;
 }
 
 .proceedings h5 {
-  font-weight: normal;
+	font-weight: normal;
 }
 
 .proceedings h6 {
-  font-weight: normal;
+	font-weight: normal;
 }
 
 .session-header {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
 }
 
 .session-archive h2 {
-  border-bottom: 1px solid #ccc;
-  color: #333;
-  font-size: 28px;
-  padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	font-size: 28px;
+	padding-bottom: 20px;
 }
 
 .session-archive h3 {
-  font-size: 25px;
-  margin-bottom: 20px;
+	font-size: 25px;
+	margin-bottom: 20px;
 }
 
 .schedule {
-  display: flex;
-  margin-bottom: 50px;
-  padding: 0;
+	display: flex;
+	margin-bottom: 50px;
+	padding: 0;
 }
 
 .schedule li {
-  list-style: none;
-  margin: 0 0 0 -5px;
-  padding: 15px 3px;
-}
-
-.schedule li::before {
-  content: none;
+	list-style: none;
+	margin: 0 0 0 -5px;
+	padding: 15px 4px;
 }
 
 .schedule li:first-child {
-  margin-left: 0;
+	margin-left: 0;
+}
+
+.schedule li::before {
+	content: none;
 }
 
 .schedule li a {
-  background-color: #fff;
-  padding: 13px 20px 14px;
+	background-color: #fff;
+	padding: 13px 20px 14px;
 }
 
 .schedule li a:hover {
-  background-color: inherit;
-  color: #fff;
+	background-color: inherit;
+	color: #fff;
 }
 
 .schedule li.active a {
-  background-color: inherit;
-  color: #fff;
+	background-color: inherit;
+	color: #fff;
 }
 
 .session .title {
-  align-items: baseline;
-  display: flex;
-  margin-bottom: 10px;
+	align-items: baseline;
+	display: flex;
+	margin-bottom: 10px;
 }
 
 .session .title h1 {
-  flex: 2;
-  font-size: 23px;
-  font-weight: 400;
-  margin-bottom: 0;
-  padding: 10px;
+	flex: 2;
+	font-size: 23px;
+	font-weight: 400;
+	margin-bottom: 0;
+	padding: 0 10px;
 }
 
 .session .title .availability {
-  align-self: center;
-  flex: 1;
-  font-weight: 200;
-  padding: 10px;
-  text-align: right;
+	align-self: center;
+	flex: 1;
+	font-weight: 200;
+	padding: 10px;
+	text-align: right;
 }
 
 .session h2 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 5px;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 5px;
 }
 
 .session p {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .session .presentation {
-  padding: 0 3px;
+	padding: 0 3px;
 }
+
+/*# sourceMappingURL=main.css.map */

@@ -131,8 +131,8 @@ ksort($tabs);
                     //echo 'num' . var_dump($num);
                     echo '<div class="title brand background">
                       <h1 class="brand inverse">
-                        <a style="font-weight: bold;" class="brand inverse" href="'.get_the_permalink($num[0]['sessionID']).'">' . $sess
-                        . '</a></span><br />' . $poster_date . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
+                        <span style="font-weight: bold;" class="brand inverse">' . $sess
+                        . '</span><br />' . $poster_date . $num[0]['start'] . ' - ' . $num[0]['end'] . ' | Room ' . $num[0]['room']
                       . '</h1>'
                       . $avail
                     . '</div>';
@@ -143,13 +143,17 @@ ksort($tabs);
                           <h2>
                             <a class="accent color" href="'; echo $post['link'] . '">' . $post['title'] . '</a>
                           </h2>';
-                          echo '<p class="authors">';
-                        if ($post['speaker'] != '') {
-                            echo '<span style="font-weight: bold;">Speaker: </span>' . $post['speaker'] . '   ';
+												echo '<p class="authors">';
+                        if ($post['author'] != '') {
+		                      echo $post['author'];
                         }
-                        echo $post['author'];
-                          echo '</p>
-                        </div>';
+                        if ($post['author'] != '' && $post['speaker'] != '') {
+													echo '<br />';
+												}
+                        if ($post['speaker'] != '') {
+                          echo '<span style="font-weight: bold;">Speakers: </span>' . $post['speaker'] . '   ';
+                        }
+                        echo '</p></div>';
                     }
                 }
             }

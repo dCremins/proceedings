@@ -7,20 +7,24 @@
   li {
     list-style: none;
     margin: 0 0 0 -5px;
-    padding: 15px 3px;
+    padding: 15px 4px;
 
-    &::first-child {
+    &:first-child {
       margin-left: 0;
+    }
+
+    &::before {
+      content: none;
     }
 
     a {
       background-color: $invert;
       padding: 13px 20px 14px;
+    }
 
-      &:hover {
-        background-color: inherit;
-        color: $invert;
-      }
+    a:hover {
+      background-color: inherit;
+      color: $invert;
     }
 
     &.active a {
@@ -41,7 +45,7 @@
       font-size: 23px;
       font-weight: 400;
       margin-bottom: 0;
-      padding: 10px;
+      padding: 0 10px;
     }
 
     .availability {

@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.1.1 =
+* Style tweaks for Eugene
+* Tightened the padding on Session Titles (proceeding archive)
+* Removed tests
+
 = 1.1.0 =
 * Bump for the single proceeding time change
 

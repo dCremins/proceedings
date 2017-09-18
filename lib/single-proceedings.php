@@ -63,19 +63,6 @@ while (have_posts()) :
             }?>
             </h2>
             <?php the_content(); ?>
-          </div>
-
-          <div class="entry-info col-4">
-            <h3><a href="<?php echo get_permalink($session); ?>"><?php echo get_the_title($session); ?></a></h3>
-            <h4 class="brand color">
-                <?php echo date("l M j", strtotime(get_field('date', $session))); ?>
-                <br />
-                Room <?php the_field('room', $session); ?> <br />
-                <?php echo date("g:i A", strtotime(get_field('start_time', $session))); ?> - <?php echo date("g:i A", strtotime(get_field('end_time', $session))) ?>
-            </h4>
-            <?php if (get_field('speaker')) { ?>
-            <h5>Speaker: <?php the_field('speaker'); ?></h5>
-            <?php }; ?>
             <?php if (have_rows('proceedings')) {
               echo '<h6><br  />';
               while (have_rows('proceedings')) : the_row();
@@ -88,6 +75,19 @@ while (have_posts()) :
                endwhile;
                echo '</h6>';
             }; ?>
+          </div>
+
+          <div class="entry-info col-4">
+            <h3><?php echo get_the_title($session); ?></h3>
+            <h4 class="brand color">
+                <?php echo date("l M j", strtotime(get_field('date', $session))); ?>
+                <br />
+                Room <?php the_field('room', $session); ?> <br />
+                <?php echo date("g:i A", strtotime(get_field('start_time', $session))); ?> - <?php echo date("g:i A", strtotime(get_field('end_time', $session))) ?>
+            </h4>
+            <?php if (get_field('speaker')) { ?>
+            <h5>Speakers: <?php the_field('speaker'); ?></h5>
+            <?php }; ?>
           </div>
         </div>
 
