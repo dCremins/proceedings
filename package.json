@@ -1,5 +1,11 @@
 {
   "dependencies": {
-    "node-sass": "^4.5.3"
-  }
+    "node-sass": "^4.5.3",
+    "snyk": "^1.85.0"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
