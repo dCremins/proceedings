@@ -28,3 +28,32 @@ patch:
         patched: '2019-10-07T00:57:28.344Z'
     - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
         patched: '2019-10-07T00:57:28.344Z'
+  SNYK-JS-LODASH-450202:
+    - node-sass > sass-graph > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - node-sass > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2019-07-08T00:58:57.113Z'
