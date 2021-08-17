@@ -1,4 +1,4 @@
-# [ITRE Research Documents](https://itre.ncsu.edu/)
+# [ITRE Research Documents](https://itre.ncsu.edu/research)
 
 The Institute for Transportation Research and Education (ITRE) is an institutional center located at NC State University.
 
