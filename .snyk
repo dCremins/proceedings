@@ -23,6 +23,11 @@ patch:
   'npm:tunnel-agent:20170305':
     - node-sass > request > tunnel-agent:
         patched: '2018-07-02T13:27:08.557Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-07T00:57:28.344Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-07T00:57:28.344Z'
   SNYK-JS-LODASH-450202:
     - node-sass > sass-graph > lodash:
         patched: '2019-07-08T00:58:57.113Z'
